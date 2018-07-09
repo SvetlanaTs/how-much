@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  NoteListViewController.swift
 //  HowMuch
 //
 //  Created by Svetlana T on 09.07.2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class NoteListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
