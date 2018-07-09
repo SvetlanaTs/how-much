@@ -1,5 +1,5 @@
 //
-//  NoteListViewController.swift
+//  NumberOfPersonsViewController.swift
 //  HowMuch
 //
 //  Created by Svetlana T on 09.07.2018.
@@ -8,13 +8,11 @@
 
 import UIKit
 
-class NoteListViewController: UIViewController {
+/// 
+
+final class NumberOfPersonsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
-
-
 }
-

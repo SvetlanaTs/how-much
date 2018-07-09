@@ -9,17 +9,13 @@
 /* Begin PBXBuildFile section */
 		DA02A70020F3A7EC003C06A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02A6FF20F3A7EC003C06A4 /* AppDelegate.swift */; };
 		DA02A70220F3A7EC003C06A4 /* NoteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02A70120F3A7EC003C06A4 /* NoteListViewController.swift */; };
-		DA02A70520F3A7EC003C06A4 /* Notes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA02A70320F3A7EC003C06A4 /* Notes.storyboard */; };
 		DA02A70720F3A7EF003C06A4 /* Notes.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA02A70620F3A7EF003C06A4 /* Notes.xcassets */; };
 		DA02A70A20F3A7EF003C06A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA02A70820F3A7EF003C06A4 /* LaunchScreen.storyboard */; };
 		DA02A71520F3A7EF003C06A4 /* HowMuchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02A71420F3A7EF003C06A4 /* HowMuchTests.swift */; };
 		DA02A72A20F3AAE2003C06A4 /* AddNote.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA02A72920F3AAE2003C06A4 /* AddNote.storyboard */; };
-		DA02A73220F3AC5C003C06A4 /* NoteDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02A73120F3AC5C003C06A4 /* NoteDetailsViewController.swift */; };
-		DA02A73720F3AC8A003C06A4 /* FirstPersonNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02A73620F3AC8A003C06A4 /* FirstPersonNameViewController.swift */; };
+		DA02A73720F3AC8A003C06A4 /* PersonNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02A73620F3AC8A003C06A4 /* PersonNameViewController.swift */; };
 		DA02A73C20F3ACD8003C06A4 /* NumberOfPersonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02A73B20F3ACD8003C06A4 /* NumberOfPersonsViewController.swift */; };
-		DA02A74620F3AD7C003C06A4 /* SecondPersonNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02A74520F3AD7C003C06A4 /* SecondPersonNameViewController.swift */; };
-		DA02A74B20F3AD9E003C06A4 /* ThirdPersonNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02A74A20F3AD9E003C06A4 /* ThirdPersonNameViewController.swift */; };
-		DA02A75020F3ADD4003C06A4 /* FourthPersonNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02A74F20F3ADD4003C06A4 /* FourthPersonNameViewController.swift */; };
+		DA67118720F3F6CB000F98EB /* Notes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA67118620F3F6CB000F98EB /* Notes.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +32,6 @@
 		DA02A6FC20F3A7EC003C06A4 /* HowMuch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HowMuch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA02A6FF20F3A7EC003C06A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA02A70120F3A7EC003C06A4 /* NoteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListViewController.swift; sourceTree = "<group>"; };
-		DA02A70420F3A7EC003C06A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Notes.storyboard; sourceTree = "<group>"; };
 		DA02A70620F3A7EF003C06A4 /* Notes.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Notes.xcassets; sourceTree = "<group>"; };
 		DA02A70920F3A7EF003C06A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA02A70B20F3A7EF003C06A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -44,12 +39,9 @@
 		DA02A71420F3A7EF003C06A4 /* HowMuchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowMuchTests.swift; sourceTree = "<group>"; };
 		DA02A71620F3A7EF003C06A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA02A72920F3AAE2003C06A4 /* AddNote.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddNote.storyboard; sourceTree = "<group>"; };
-		DA02A73120F3AC5C003C06A4 /* NoteDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailsViewController.swift; sourceTree = "<group>"; };
-		DA02A73620F3AC8A003C06A4 /* FirstPersonNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPersonNameViewController.swift; sourceTree = "<group>"; };
+		DA02A73620F3AC8A003C06A4 /* PersonNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonNameViewController.swift; sourceTree = "<group>"; };
 		DA02A73B20F3ACD8003C06A4 /* NumberOfPersonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberOfPersonsViewController.swift; sourceTree = "<group>"; };
-		DA02A74520F3AD7C003C06A4 /* SecondPersonNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondPersonNameViewController.swift; sourceTree = "<group>"; };
-		DA02A74A20F3AD9E003C06A4 /* ThirdPersonNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPersonNameViewController.swift; sourceTree = "<group>"; };
-		DA02A74F20F3ADD4003C06A4 /* FourthPersonNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthPersonNameViewController.swift; sourceTree = "<group>"; };
+		DA67118620F3F6CB000F98EB /* Notes.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notes.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,14 +83,10 @@
 		DA02A6FE20F3A7EC003C06A4 /* HowMuch */ = {
 			isa = PBXGroup;
 			children = (
-				DA02A6FF20F3A7EC003C06A4 /* AppDelegate.swift */,
-				DA02A72220F3A839003C06A4 /* Stories */,
-				DA02A72120F3A831003C06A4 /* Services */,
-				DA02A72020F3A827003C06A4 /* Extensions */,
-				DA02A71F20F3A818003C06A4 /* UI */,
-				DA02A70620F3A7EF003C06A4 /* Notes.xcassets */,
-				DA02A70820F3A7EF003C06A4 /* LaunchScreen.storyboard */,
 				DA02A70B20F3A7EF003C06A4 /* Info.plist */,
+				DA02A6FF20F3A7EC003C06A4 /* AppDelegate.swift */,
+				DA67117D20F3F0E7000F98EB /* Code */,
+				DA67117F20F3F107000F98EB /* Resources */,
 			);
 			path = HowMuch;
 			sourceTree = "<group>";
@@ -112,289 +100,65 @@
 			path = HowMuchTests;
 			sourceTree = "<group>";
 		};
-		DA02A71F20F3A818003C06A4 /* UI */ = {
+		DA67117D20F3F0E7000F98EB /* Code */ = {
 			isa = PBXGroup;
 			children = (
+				DA67117E20F3F0FA000F98EB /* Presentation */,
 			);
-			path = UI;
+			path = Code;
 			sourceTree = "<group>";
 		};
-		DA02A72020F3A827003C06A4 /* Extensions */ = {
+		DA67117E20F3F0FA000F98EB /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				DA02A70820F3A7EF003C06A4 /* LaunchScreen.storyboard */,
+				DA67118420F3F215000F98EB /* AddNote */,
+				DA67118020F3F19D000F98EB /* Notes */,
 			);
-			path = Extensions;
+			path = Presentation;
 			sourceTree = "<group>";
 		};
-		DA02A72120F3A831003C06A4 /* Services */ = {
+		DA67117F20F3F107000F98EB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DA02A70620F3A7EF003C06A4 /* Notes.xcassets */,
 			);
-			path = Services;
+			path = Resources;
 			sourceTree = "<group>";
 		};
-		DA02A72220F3A839003C06A4 /* Stories */ = {
+		DA67118020F3F19D000F98EB /* Notes */ = {
 			isa = PBXGroup;
 			children = (
-				DA02A72420F3A8C2003C06A4 /* AddNote */,
-				DA02A72320F3A8B7003C06A4 /* Notes */,
-			);
-			path = Stories;
-			sourceTree = "<group>";
-		};
-		DA02A72320F3A8B7003C06A4 /* Notes */ = {
-			isa = PBXGroup;
-			children = (
-				DA02A72620F3A979003C06A4 /* NoteDetails */,
-				DA02A72520F3A968003C06A4 /* NoteList */,
-				DA02A70320F3A7EC003C06A4 /* Notes.storyboard */,
+				DA67118620F3F6CB000F98EB /* Notes.storyboard */,
+				DA67118320F3F1E0000F98EB /* ViewControllers */,
 			);
 			path = Notes;
 			sourceTree = "<group>";
 		};
-		DA02A72420F3A8C2003C06A4 /* AddNote */ = {
+		DA67118320F3F1E0000F98EB /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				DA02A72720F3A9FC003C06A4 /* NumberOfPersons */,
-				DA02A72820F3AAB3003C06A4 /* PersonsNames */,
+				DA02A70120F3A7EC003C06A4 /* NoteListViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		DA67118420F3F215000F98EB /* AddNote */ = {
+			isa = PBXGroup;
+			children = (
 				DA02A72920F3AAE2003C06A4 /* AddNote.storyboard */,
+				DA67118520F3F227000F98EB /* ViewControllers */,
 			);
 			path = AddNote;
 			sourceTree = "<group>";
 		};
-		DA02A72520F3A968003C06A4 /* NoteList */ = {
+		DA67118520F3F227000F98EB /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				DA02A72B20F3ABFC003C06A4 /* ViewModel */,
-				DA02A72C20F3AC05003C06A4 /* Model */,
-				DA02A72D20F3AC0C003C06A4 /* Views */,
-				DA02A70120F3A7EC003C06A4 /* NoteListViewController.swift */,
-			);
-			path = NoteList;
-			sourceTree = "<group>";
-		};
-		DA02A72620F3A979003C06A4 /* NoteDetails */ = {
-			isa = PBXGroup;
-			children = (
-				DA02A72E20F3AC17003C06A4 /* ViewModel */,
-				DA02A72F20F3AC1E003C06A4 /* Model */,
-				DA02A73020F3AC23003C06A4 /* Views */,
-				DA02A73120F3AC5C003C06A4 /* NoteDetailsViewController.swift */,
-			);
-			path = NoteDetails;
-			sourceTree = "<group>";
-		};
-		DA02A72720F3A9FC003C06A4 /* NumberOfPersons */ = {
-			isa = PBXGroup;
-			children = (
-				DA02A73A20F3AC99003C06A4 /* ViewModel */,
-				DA02A73920F3AC94003C06A4 /* Model */,
-				DA02A73820F3AC8F003C06A4 /* Views */,
 				DA02A73B20F3ACD8003C06A4 /* NumberOfPersonsViewController.swift */,
+				DA02A73620F3AC8A003C06A4 /* PersonNameViewController.swift */,
 			);
-			path = NumberOfPersons;
-			sourceTree = "<group>";
-		};
-		DA02A72820F3AAB3003C06A4 /* PersonsNames */ = {
-			isa = PBXGroup;
-			children = (
-				DA02A73E20F3AD11003C06A4 /* FirstPersonName */,
-				DA02A74120F3AD4B003C06A4 /* SecondPersonName */,
-				DA02A74020F3AD43003C06A4 /* ThirdPersonName */,
-				DA02A73F20F3AD24003C06A4 /* FourthPersonName */,
-			);
-			path = PersonsNames;
-			sourceTree = "<group>";
-		};
-		DA02A72B20F3ABFC003C06A4 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		DA02A72C20F3AC05003C06A4 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		DA02A72D20F3AC0C003C06A4 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		DA02A72E20F3AC17003C06A4 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		DA02A72F20F3AC1E003C06A4 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		DA02A73020F3AC23003C06A4 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		DA02A73320F3AC6D003C06A4 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		DA02A73420F3AC72003C06A4 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		DA02A73520F3AC78003C06A4 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		DA02A73820F3AC8F003C06A4 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		DA02A73920F3AC94003C06A4 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		DA02A73A20F3AC99003C06A4 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		DA02A73E20F3AD11003C06A4 /* FirstPersonName */ = {
-			isa = PBXGroup;
-			children = (
-				DA02A73520F3AC78003C06A4 /* ViewModel */,
-				DA02A73420F3AC72003C06A4 /* Model */,
-				DA02A73320F3AC6D003C06A4 /* Views */,
-				DA02A73620F3AC8A003C06A4 /* FirstPersonNameViewController.swift */,
-			);
-			path = FirstPersonName;
-			sourceTree = "<group>";
-		};
-		DA02A73F20F3AD24003C06A4 /* FourthPersonName */ = {
-			isa = PBXGroup;
-			children = (
-				DA02A74E20F3ADC6003C06A4 /* ViewModel */,
-				DA02A74D20F3ADC1003C06A4 /* Model */,
-				DA02A74C20F3ADBB003C06A4 /* Views */,
-				DA02A74F20F3ADD4003C06A4 /* FourthPersonNameViewController.swift */,
-			);
-			path = FourthPersonName;
-			sourceTree = "<group>";
-		};
-		DA02A74020F3AD43003C06A4 /* ThirdPersonName */ = {
-			isa = PBXGroup;
-			children = (
-				DA02A74920F3AD8C003C06A4 /* ViewModel */,
-				DA02A74820F3AD87003C06A4 /* Model */,
-				DA02A74720F3AD82003C06A4 /* Views */,
-				DA02A74A20F3AD9E003C06A4 /* ThirdPersonNameViewController.swift */,
-			);
-			path = ThirdPersonName;
-			sourceTree = "<group>";
-		};
-		DA02A74120F3AD4B003C06A4 /* SecondPersonName */ = {
-			isa = PBXGroup;
-			children = (
-				DA02A74420F3AD68003C06A4 /* ViewModel */,
-				DA02A74320F3AD63003C06A4 /* Model */,
-				DA02A74220F3AD5D003C06A4 /* Views */,
-				DA02A74520F3AD7C003C06A4 /* SecondPersonNameViewController.swift */,
-			);
-			path = SecondPersonName;
-			sourceTree = "<group>";
-		};
-		DA02A74220F3AD5D003C06A4 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		DA02A74320F3AD63003C06A4 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		DA02A74420F3AD68003C06A4 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		DA02A74720F3AD82003C06A4 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		DA02A74820F3AD87003C06A4 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		DA02A74920F3AD8C003C06A4 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		DA02A74C20F3ADBB003C06A4 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		DA02A74D20F3ADC1003C06A4 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		DA02A74E20F3ADC6003C06A4 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -480,8 +244,8 @@
 			files = (
 				DA02A72A20F3AAE2003C06A4 /* AddNote.storyboard in Resources */,
 				DA02A70A20F3A7EF003C06A4 /* LaunchScreen.storyboard in Resources */,
+				DA67118720F3F6CB000F98EB /* Notes.storyboard in Resources */,
 				DA02A70720F3A7EF003C06A4 /* Notes.xcassets in Resources */,
-				DA02A70520F3A7EC003C06A4 /* Notes.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,14 +263,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA02A74620F3AD7C003C06A4 /* SecondPersonNameViewController.swift in Sources */,
-				DA02A73720F3AC8A003C06A4 /* FirstPersonNameViewController.swift in Sources */,
+				DA02A73720F3AC8A003C06A4 /* PersonNameViewController.swift in Sources */,
 				DA02A73C20F3ACD8003C06A4 /* NumberOfPersonsViewController.swift in Sources */,
 				DA02A70220F3A7EC003C06A4 /* NoteListViewController.swift in Sources */,
 				DA02A70020F3A7EC003C06A4 /* AppDelegate.swift in Sources */,
-				DA02A74B20F3AD9E003C06A4 /* ThirdPersonNameViewController.swift in Sources */,
-				DA02A75020F3ADD4003C06A4 /* FourthPersonNameViewController.swift in Sources */,
-				DA02A73220F3AC5C003C06A4 /* NoteDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,14 +289,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		DA02A70320F3A7EC003C06A4 /* Notes.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DA02A70420F3A7EC003C06A4 /* Base */,
-			);
-			name = Notes.storyboard;
-			sourceTree = "<group>";
-		};
 		DA02A70820F3A7EF003C06A4 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
