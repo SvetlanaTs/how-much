@@ -8,11 +8,6 @@
 
 import Foundation
 
-final class Note {
-    
-    let persons: [Person]
-    
-    init(persons: [Person]) {
-        self.persons = persons
-    }
+struct Note {
+    let members: [Person]
 }

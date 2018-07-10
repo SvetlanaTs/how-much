@@ -8,15 +8,10 @@
 
 import Foundation
 
-final class Person {
-    
+struct Person {
     let name: String
     var purchases: [Purchase] = []
-    var amountSpent: Double {
-        return purchases.reduce(Double(0)) { $0 + $1.price } 
-    }
-    
-    init(name: String) {
-        self.name = name
+    var amountSpent: Decimal {
+        return purchases.reduce(Decimal(0)) { $0 + $1.spent }
     }
 }

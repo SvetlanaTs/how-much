@@ -9,7 +9,7 @@
 import Foundation
 
 struct Purchase {
-    
     let title: String
-    let price: Double
+    let spent: Decimal
+    let date: Date
 }

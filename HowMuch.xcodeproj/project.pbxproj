@@ -14,7 +14,6 @@
 		DA02A71520F3A7EF003C06A4 /* HowMuchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02A71420F3A7EF003C06A4 /* HowMuchTests.swift */; };
 		DA02A72A20F3AAE2003C06A4 /* AddNote.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA02A72920F3AAE2003C06A4 /* AddNote.storyboard */; };
 		DA02A73720F3AC8A003C06A4 /* PersonNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02A73620F3AC8A003C06A4 /* PersonNameViewController.swift */; };
-		DA02A73C20F3ACD8003C06A4 /* NumberOfPersonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02A73B20F3ACD8003C06A4 /* NumberOfPersonsViewController.swift */; };
 		DA67118720F3F6CB000F98EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA67118620F3F6CB000F98EB /* Main.storyboard */; };
 		DA67118C20F48379000F98EB /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA67118B20F48379000F98EB /* Purchase.swift */; };
 		DA67118E20F48385000F98EB /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA67118D20F48385000F98EB /* Note.swift */; };
@@ -43,7 +42,6 @@
 		DA02A71620F3A7EF003C06A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA02A72920F3AAE2003C06A4 /* AddNote.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddNote.storyboard; sourceTree = "<group>"; };
 		DA02A73620F3AC8A003C06A4 /* PersonNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonNameViewController.swift; sourceTree = "<group>"; };
-		DA02A73B20F3ACD8003C06A4 /* NumberOfPersonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberOfPersonsViewController.swift; sourceTree = "<group>"; };
 		DA67118620F3F6CB000F98EB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DA67118B20F48379000F98EB /* Purchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
 		DA67118D20F48385000F98EB /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
@@ -162,7 +160,6 @@
 		DA67118520F3F227000F98EB /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				DA02A73B20F3ACD8003C06A4 /* NumberOfPersonsViewController.swift */,
 				DA02A73620F3AC8A003C06A4 /* PersonNameViewController.swift */,
 			);
 			path = ViewControllers;
@@ -282,7 +279,6 @@
 			files = (
 				DA02A73720F3AC8A003C06A4 /* PersonNameViewController.swift in Sources */,
 				DA67118C20F48379000F98EB /* Purchase.swift in Sources */,
-				DA02A73C20F3ACD8003C06A4 /* NumberOfPersonsViewController.swift in Sources */,
 				DA02A70220F3A7EC003C06A4 /* NoteListViewController.swift in Sources */,
 				DA67119020F48390000F98EB /* Person.swift in Sources */,
 				DA02A70020F3A7EC003C06A4 /* AppDelegate.swift in Sources */,
