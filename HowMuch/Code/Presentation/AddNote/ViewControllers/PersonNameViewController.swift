@@ -8,8 +8,6 @@
 
 import UIKit
 
-///
-
 final class PersonNameViewController: UIViewController {
 
     override func viewDidLoad() {

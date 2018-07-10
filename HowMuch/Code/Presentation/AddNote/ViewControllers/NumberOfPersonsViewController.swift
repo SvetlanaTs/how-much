@@ -8,8 +8,6 @@
 
 import UIKit
 
-/// 
-
 final class NumberOfPersonsViewController: UIViewController {
 
     override func viewDidLoad() {
