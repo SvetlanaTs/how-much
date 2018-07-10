@@ -8,8 +8,6 @@
 
 import UIKit
 
-///
-
 final class NoteListViewController: UIViewController {
 
     override func viewDidLoad() {

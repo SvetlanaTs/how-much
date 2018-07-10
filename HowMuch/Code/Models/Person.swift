@@ -11,10 +11,9 @@ import Foundation
 final class Person {
     
     let name: String
-    var purchases: [Purchase]?
+    var purchases: [Purchase] = []
     var amountSpent: Double {
-        guard let purchases = purchases else { return 0.0 }
-        return purchases.map{ $0.price }.reduce(0.0, +)
+        return purchases.reduce(Double(0)) { $0 + $1.price } 
     }
     
     init(name: String) {
