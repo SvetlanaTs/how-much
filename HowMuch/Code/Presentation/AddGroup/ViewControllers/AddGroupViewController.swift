@@ -1,5 +1,5 @@
 //
-//  PersonNameViewController.swift
+//  AddGroupViewController.swift
 //  HowMuch
 //
 //  Created by Svetlana T on 09.07.2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class PersonNameViewController: UIViewController {
+final class AddGroupViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

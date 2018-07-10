@@ -1,5 +1,5 @@
 //
-//  NoteListViewController.swift
+//  GroupListViewController.swift
 //  HowMuch
 //
 //  Created by Svetlana T on 09.07.2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class NoteListViewController: UIViewController {
+final class GroupListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
