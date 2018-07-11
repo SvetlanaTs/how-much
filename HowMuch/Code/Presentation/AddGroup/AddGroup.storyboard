@@ -1,10 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14269.14" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14269.14" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HW6-LE-B86">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14252.5"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Add Group View Controller-->
+        <scene sceneID="9e3-hf-nEe">
+            <objects>
+                <viewController id="HW6-LE-B86" customClass="AddGroupViewController" customModule="HowMuch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0ao-kO-6jA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="81i-Fh-slh">
+                                <rect key="frame" x="0.0" y="73" width="375" height="594"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="HW6-LE-B86" id="01z-1Z-bbE"/>
+                                    <outlet property="delegate" destination="HW6-LE-B86" id="rpf-T4-9FC"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Создать компанию друзей" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWO-lL-rox">
+                                <rect key="frame" x="32" y="36" width="311" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.34901960784313724" green="0.37254901960784315" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="81i-Fh-slh" firstAttribute="leading" secondItem="9IU-Fn-C3B" secondAttribute="leading" id="6eJ-jY-tm2"/>
+                            <constraint firstItem="eWO-lL-rox" firstAttribute="leading" secondItem="9IU-Fn-C3B" secondAttribute="leading" constant="32" id="9hZ-B3-EF5"/>
+                            <constraint firstItem="eWO-lL-rox" firstAttribute="top" secondItem="9IU-Fn-C3B" secondAttribute="top" constant="16" id="JVk-gf-7ja"/>
+                            <constraint firstItem="81i-Fh-slh" firstAttribute="top" secondItem="eWO-lL-rox" secondAttribute="bottom" constant="17" id="dy2-Da-Fvq"/>
+                            <constraint firstItem="9IU-Fn-C3B" firstAttribute="trailing" secondItem="eWO-lL-rox" secondAttribute="trailing" constant="32" id="rSL-0E-7uU"/>
+                            <constraint firstItem="81i-Fh-slh" firstAttribute="bottom" secondItem="0ao-kO-6jA" secondAttribute="bottom" id="rzZ-nM-xcu"/>
+                            <constraint firstItem="9IU-Fn-C3B" firstAttribute="trailing" secondItem="81i-Fh-slh" secondAttribute="trailing" id="vOC-Jf-a1Z"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9IU-Fn-C3B"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="81i-Fh-slh" id="GfM-H4-3NV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rUK-Kk-Bfa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="536.79999999999995" y="11.244377811094454"/>
+        </scene>
+    </scenes>
 </document>

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		DA02A70020F3A7EC003C06A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02A6FF20F3A7EC003C06A4 /* AppDelegate.swift */; };
 		DA02A70220F3A7EC003C06A4 /* GroupListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02A70120F3A7EC003C06A4 /* GroupListViewController.swift */; };
-		DA02A70720F3A7EF003C06A4 /* Notes.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA02A70620F3A7EF003C06A4 /* Notes.xcassets */; };
+		DA02A70720F3A7EF003C06A4 /* HowMuch.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA02A70620F3A7EF003C06A4 /* HowMuch.xcassets */; };
 		DA02A70A20F3A7EF003C06A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA02A70820F3A7EF003C06A4 /* LaunchScreen.storyboard */; };
 		DA02A71520F3A7EF003C06A4 /* HowMuchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02A71420F3A7EF003C06A4 /* HowMuchTests.swift */; };
 		DA02A72A20F3AAE2003C06A4 /* AddGroup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA02A72920F3AAE2003C06A4 /* AddGroup.storyboard */; };
@@ -18,6 +18,11 @@
 		DA67118C20F48379000F98EB /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA67118B20F48379000F98EB /* Purchase.swift */; };
 		DA67118E20F48385000F98EB /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA67118D20F48385000F98EB /* Group.swift */; };
 		DA67119020F48390000F98EB /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA67118F20F48390000F98EB /* Person.swift */; };
+		DAD6B67020F6553D00E453DD /* AddGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6B66F20F6553D00E453DD /* AddGroupViewModel.swift */; };
+		DAD6B67420F665BD00E453DD /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6B67220F665BD00E453DD /* TextFieldCell.swift */; };
+		DAD6B67520F665BD00E453DD /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAD6B67320F665BD00E453DD /* TextFieldCell.xib */; };
+		DAD6B67B20F6661300E453DD /* AddButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6B67920F6661300E453DD /* AddButtonCell.swift */; };
+		DAD6B67C20F6661300E453DD /* AddButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAD6B67A20F6661300E453DD /* AddButtonCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +39,7 @@
 		DA02A6FC20F3A7EC003C06A4 /* HowMuch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HowMuch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA02A6FF20F3A7EC003C06A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA02A70120F3A7EC003C06A4 /* GroupListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListViewController.swift; sourceTree = "<group>"; };
-		DA02A70620F3A7EF003C06A4 /* Notes.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Notes.xcassets; sourceTree = "<group>"; };
+		DA02A70620F3A7EF003C06A4 /* HowMuch.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = HowMuch.xcassets; sourceTree = "<group>"; };
 		DA02A70920F3A7EF003C06A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA02A70B20F3A7EF003C06A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA02A71020F3A7EF003C06A4 /* HowMuchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HowMuchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +51,11 @@
 		DA67118B20F48379000F98EB /* Purchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
 		DA67118D20F48385000F98EB /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		DA67118F20F48390000F98EB /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		DAD6B66F20F6553D00E453DD /* AddGroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupViewModel.swift; sourceTree = "<group>"; };
+		DAD6B67220F665BD00E453DD /* TextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
+		DAD6B67320F665BD00E453DD /* TextFieldCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextFieldCell.xib; sourceTree = "<group>"; };
+		DAD6B67920F6661300E453DD /* AddButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonCell.swift; sourceTree = "<group>"; };
+		DAD6B67A20F6661300E453DD /* AddButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddButtonCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				DA67118A20F48351000F98EB /* Models */,
+				DAD6B66D20F6551700E453DD /* ViewModels */,
 				DA67117E20F3F0FA000F98EB /* Presentation */,
 			);
 			path = Code;
@@ -127,7 +138,7 @@
 		DA67117F20F3F107000F98EB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				DA02A70620F3A7EF003C06A4 /* Notes.xcassets */,
+				DA02A70620F3A7EF003C06A4 /* HowMuch.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -153,6 +164,7 @@
 			children = (
 				DA02A72920F3AAE2003C06A4 /* AddGroup.storyboard */,
 				DA67118520F3F227000F98EB /* ViewControllers */,
+				DAD6B67120F6658500E453DD /* Cells */,
 			);
 			path = AddGroup;
 			sourceTree = "<group>";
@@ -173,6 +185,49 @@
 				DA67118D20F48385000F98EB /* Group.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		DAD6B66D20F6551700E453DD /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				DAD6B66E20F6552600E453DD /* AddGroup */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		DAD6B66E20F6552600E453DD /* AddGroup */ = {
+			isa = PBXGroup;
+			children = (
+				DAD6B66F20F6553D00E453DD /* AddGroupViewModel.swift */,
+			);
+			path = AddGroup;
+			sourceTree = "<group>";
+		};
+		DAD6B67120F6658500E453DD /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DAD6B67820F665ED00E453DD /* AddButtonCell */,
+				DAD6B67720F665DF00E453DD /* TextFieldCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		DAD6B67720F665DF00E453DD /* TextFieldCell */ = {
+			isa = PBXGroup;
+			children = (
+				DAD6B67220F665BD00E453DD /* TextFieldCell.swift */,
+				DAD6B67320F665BD00E453DD /* TextFieldCell.xib */,
+			);
+			path = TextFieldCell;
+			sourceTree = "<group>";
+		};
+		DAD6B67820F665ED00E453DD /* AddButtonCell */ = {
+			isa = PBXGroup;
+			children = (
+				DAD6B67920F6661300E453DD /* AddButtonCell.swift */,
+				DAD6B67A20F6661300E453DD /* AddButtonCell.xib */,
+			);
+			path = AddButtonCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,8 +313,10 @@
 			files = (
 				DA02A72A20F3AAE2003C06A4 /* AddGroup.storyboard in Resources */,
 				DA02A70A20F3A7EF003C06A4 /* LaunchScreen.storyboard in Resources */,
+				DAD6B67520F665BD00E453DD /* TextFieldCell.xib in Resources */,
 				DA67118720F3F6CB000F98EB /* Main.storyboard in Resources */,
-				DA02A70720F3A7EF003C06A4 /* Notes.xcassets in Resources */,
+				DA02A70720F3A7EF003C06A4 /* HowMuch.xcassets in Resources */,
+				DAD6B67C20F6661300E453DD /* AddButtonCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,11 +335,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA02A73720F3AC8A003C06A4 /* AddGroupViewController.swift in Sources */,
+				DAD6B67020F6553D00E453DD /* AddGroupViewModel.swift in Sources */,
 				DA67118C20F48379000F98EB /* Purchase.swift in Sources */,
 				DA02A70220F3A7EC003C06A4 /* GroupListViewController.swift in Sources */,
 				DA67119020F48390000F98EB /* Person.swift in Sources */,
 				DA02A70020F3A7EC003C06A4 /* AppDelegate.swift in Sources */,
+				DAD6B67B20F6661300E453DD /* AddButtonCell.swift in Sources */,
 				DA67118E20F48385000F98EB /* Group.swift in Sources */,
+				DAD6B67420F665BD00E453DD /* TextFieldCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
