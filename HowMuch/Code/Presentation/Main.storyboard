@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Note List View Controller-->
+        <!--Group List View Controller-->
         <scene sceneID="k6g-0f-nxr">
             <objects>
-                <viewController id="Vhr-D9-Dyx" customClass="NoteListViewController" customModule="HowMuch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Vhr-D9-Dyx" customClass="GroupListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aG4-wH-3ZZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

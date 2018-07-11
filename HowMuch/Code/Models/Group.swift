@@ -1,5 +1,5 @@
 //
-//  Purchase.swift
+//  Group.swift
 //  HowMuch
 //
 //  Created by Svetlana T on 10.07.2018.
@@ -8,8 +8,6 @@
 
 import Foundation
 
-struct Purchase {
-    let title: String
-    let spent: Decimal
-    let date: Date
+struct Group {
+    let members: [Person]
 }
