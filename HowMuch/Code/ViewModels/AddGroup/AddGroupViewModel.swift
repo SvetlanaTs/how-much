@@ -16,6 +16,8 @@ enum AddGroupSectionType {
 struct AddGroupConstants {
     static let textFieldCellHeight: CGFloat = 64.0
     static let addButtonCellHeight: CGFloat = 56.0
+    static let membersMinValue = 2
+    static let membersMaxValue = 4
 }
 
 final class AddGroupViewModel {
@@ -65,6 +67,22 @@ extension AddGroupViewModel {
     func add(name: String) {
         let person = Person(name: name, purchases: [])
         members.append(person)
+    }
+    
+    func hasNoMembers() -> Bool {
+        return members.isEmpty
+    }
+    
+    func isFullOfMembers() -> Bool {
+        return members.count >= AddGroupConstants.membersMaxValue
+    }
+    
+    func canCreateGroup() -> Bool {
+        return members.count >= AddGroupConstants.membersMinValue && members.count <= AddGroupConstants.membersMaxValue
+    }
+    
+    func group() -> [Person] {
+        return members
     }
 }
 
