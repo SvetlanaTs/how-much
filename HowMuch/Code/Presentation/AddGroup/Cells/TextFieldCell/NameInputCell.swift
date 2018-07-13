@@ -11,9 +11,4 @@ import UIKit
 final class NameInputCell: UITableViewCell {
     static let id = Reusable<NameInputCell>.nib(id: "NameInputCell", name: "NameInputCell", bundle: nil)
     @IBOutlet var textField: UITextField!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        textField.becomeFirstResponder()
-    }
 }

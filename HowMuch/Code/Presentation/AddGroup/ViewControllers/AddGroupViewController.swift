@@ -8,22 +8,22 @@
 
 import UIKit
 
-enum Cell {
-    case personEditor(name: String)
-    case addButton
-}
-
-struct AddGroupConstants {
-    static let textFieldCellHeight: CGFloat = 64.0
-    static let addButtonCellHeight: CGFloat = 56.0
-    static let membersMinValue = 2
-    static let membersMaxValue = 4
-}
-
 final class AddGroupViewController: UIViewController {
+    enum Cell {
+        case personEditor(name: String)
+        case addButton
+    }
+    
+    struct AddGroupConstants {
+        static let textFieldCellHeight: CGFloat = 64.0
+        static let addButtonCellHeight: CGFloat = 56.0
+        static let membersMinValue = 2
+        static let membersMaxValue = 4
+    }
+    
     @IBOutlet private var tableView: UITableView!
     
-    private var sections: [[Cell]] = [[ .personEditor(name: "") ], [ .addButton ]]
+    private var sections: [[Cell]] = [[ .personEditor(name: "") ], [ .addButton ]] // TODO: - replace
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,12 +32,7 @@ final class AddGroupViewController: UIViewController {
     }
 
     @IBAction func createGroup(_ sender: UIButton) {
-        guard var members = sections.first else { return }
-        if case .personEditor(let name) = members[0], name == "" {
-            members.remove(at: 0)
-        }
-        print(members)
-        // TODO: segue
+        // TODO: - segue
     }
 }
 
@@ -77,13 +72,17 @@ extension AddGroupViewController: UITableViewDelegate {
             return AddGroupConstants.addButtonCellHeight
         }
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let cell = cell as? NameInputCell {
+            cell.textField.becomeFirstResponder()
+        }
+    }
 }
 
 extension AddGroupViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let text = textField.text,
-            !text.isEmpty else { return }
-        sections[0].append(.personEditor(name: text))
+        guard let text = textField.text, !text.isEmpty else { return }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
