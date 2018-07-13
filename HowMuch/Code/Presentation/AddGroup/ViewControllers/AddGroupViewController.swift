@@ -23,16 +23,17 @@ final class AddGroupViewController: UIViewController {
     
     @IBOutlet private var tableView: UITableView!
     
-    private var sections: [[Cell]] = [[ .personEditor(name: "") ], [ .addButton ]] // TODO: - replace
+    private var dataService = DataService()
+    private var sections: [[Cell]] = [[ .addButton ]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.registerReusableCell(NameInputCell.id)
         tableView.registerReusableCell(AddButtonCell.id)
+        sections.insert([ .personEditor(name: "") ], at: 0)
     }
 
     @IBAction func createGroup(_ sender: UIButton) {
-        // TODO: - segue
     }
 }
 
@@ -48,14 +49,17 @@ extension AddGroupViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = sections[indexPath.section][indexPath.row]
         switch model {
-        case .personEditor(_):
+        case .personEditor(let name):
             let cell = tableView.dequeueReusableCell(NameInputCell.id, indexPath: indexPath)
             cell.textField.delegate = self
+            cell.textField.text = name
             return cell
         case .addButton:
             let cell = tableView.dequeueReusableCell(AddButtonCell.id, indexPath: indexPath)
             cell.addNameInput = { [weak self] in
-                self?.tableView.reloadData()
+                guard let this = self else { return }
+                
+                this.tableView.reloadData()
             }
             return cell
         }
@@ -81,10 +85,6 @@ extension AddGroupViewController: UITableViewDelegate {
 }
 
 extension AddGroupViewController: UITextFieldDelegate {
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let text = textField.text, !text.isEmpty else { return }
-    }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
