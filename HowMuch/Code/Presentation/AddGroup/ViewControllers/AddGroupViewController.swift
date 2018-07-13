@@ -8,55 +8,74 @@
 
 import UIKit
 
+enum Cell {
+    case personEditor(name: String)
+    case addButton
+}
+
+struct AddGroupConstants {
+    static let textFieldCellHeight: CGFloat = 64.0
+    static let addButtonCellHeight: CGFloat = 56.0
+    static let membersMinValue = 2
+    static let membersMaxValue = 4
+}
+
 final class AddGroupViewController: UIViewController {
     @IBOutlet private var tableView: UITableView!
     
-    private let viewModel = AddGroupViewModel()
+    private var sections: [[Cell]] = [[ .personEditor(name: "") ], [ .addButton ]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.registerReusableCell(TextFieldCell.id)
+        tableView.registerReusableCell(NameInputCell.id)
         tableView.registerReusableCell(AddButtonCell.id)
     }
 
     @IBAction func createGroup(_ sender: UIButton) {
-        // TODO:
+        guard var members = sections.first else { return }
+        if case .personEditor(let name) = members[0], name == "" {
+            members.remove(at: 0)
+        }
+        print(members)
+        // TODO: segue
     }
 }
 
 extension AddGroupViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.numberOfSections()
+        return sections.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfRows(in: section)
+        return sections[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model = viewModel.modelForCell(at: indexPath)
-        
-        if let _ = model as? TextFieldCellModel {
-            let cell = tableView.dequeueReusableCell(TextFieldCell.id, indexPath: indexPath)
+        let model = sections[indexPath.section][indexPath.row]
+        switch model {
+        case .personEditor(_):
+            let cell = tableView.dequeueReusableCell(NameInputCell.id, indexPath: indexPath)
             cell.textField.delegate = self
             return cell
-        }
-        
-        if let _ = model as? AddButtonCellModel {
+        case .addButton:
             let cell = tableView.dequeueReusableCell(AddButtonCell.id, indexPath: indexPath)
-            cell.addTextField = { [weak self] in
+            cell.addNameInput = { [weak self] in
                 self?.tableView.reloadData()
             }
             return cell
         }
-        
-        return UITableViewCell()
     }
 }
 
 extension AddGroupViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return viewModel.heightForRow(at: indexPath)
+        let model = sections[indexPath.section][indexPath.row]
+        switch model {
+        case .personEditor(_):
+            return AddGroupConstants.textFieldCellHeight
+        case .addButton:
+            return AddGroupConstants.addButtonCellHeight
+        }
     }
 }
 
@@ -64,7 +83,7 @@ extension AddGroupViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let text = textField.text,
             !text.isEmpty else { return }
-        viewModel.add(name: text)
+        sections[0].append(.personEditor(name: text))
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

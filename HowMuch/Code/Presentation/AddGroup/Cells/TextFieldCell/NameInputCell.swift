@@ -1,5 +1,5 @@
 //
-//  TextFieldCell.swift
+//  NameInputCell.swift
 //  HowMuch
 //
 //  Created by Svetlana T on 11.07.2018.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-final class TextFieldCell: UITableViewCell {
-    static let id = Reusable<TextFieldCell>.nib(id: "TextFieldCell", name: "TextFieldCell", bundle: nil)
+final class NameInputCell: UITableViewCell {
+    static let id = Reusable<NameInputCell>.nib(id: "NameInputCell", name: "NameInputCell", bundle: nil)
     @IBOutlet var textField: UITextField!
     
     override func awakeFromNib() {
