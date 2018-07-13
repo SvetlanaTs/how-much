@@ -9,5 +9,10 @@
 import UIKit
 
 final class AddButtonCell: UITableViewCell {
-    @IBOutlet weak var addButton: UIButton!
+    static let id = Reusable<AddButtonCell>.nib(id: "AddButtonCell", name: "AddButtonCell", bundle: nil)
+    var addTextField: (() -> Void)?
+    
+    @IBAction func addFriend(_ sender: UIButton) {
+        addTextField?()
+    }
 }

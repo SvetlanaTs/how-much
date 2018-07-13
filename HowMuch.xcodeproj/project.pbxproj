@@ -23,7 +23,7 @@
 		DAD6B67520F665BD00E453DD /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAD6B67320F665BD00E453DD /* TextFieldCell.xib */; };
 		DAD6B67B20F6661300E453DD /* AddButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6B67920F6661300E453DD /* AddButtonCell.swift */; };
 		DAD6B67C20F6661300E453DD /* AddButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAD6B67A20F6661300E453DD /* AddButtonCell.xib */; };
-		DAD6B68120F6802400E453DD /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6B68020F6802400E453DD /* AlertHelper.swift */; };
+		DAD6B68620F7E59000E453DD /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6B68520F7E59000E453DD /* Reusable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +57,7 @@
 		DAD6B67320F665BD00E453DD /* TextFieldCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextFieldCell.xib; sourceTree = "<group>"; };
 		DAD6B67920F6661300E453DD /* AddButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonCell.swift; sourceTree = "<group>"; };
 		DAD6B67A20F6661300E453DD /* AddButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddButtonCell.xib; sourceTree = "<group>"; };
-		DAD6B68020F6802400E453DD /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
+		DAD6B68520F7E59000E453DD /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,7 +119,7 @@
 		DA67117D20F3F0E7000F98EB /* Code */ = {
 			isa = PBXGroup;
 			children = (
-				DAD6B67D20F67C0400E453DD /* Common */,
+				DAD6B68220F7DEF100E453DD /* Common */,
 				DA67118A20F48351000F98EB /* Models */,
 				DAD6B66D20F6551700E453DD /* ViewModels */,
 				DA67117E20F3F0FA000F98EB /* Presentation */,
@@ -233,10 +233,10 @@
 			path = AddButtonCell;
 			sourceTree = "<group>";
 		};
-		DAD6B67D20F67C0400E453DD /* Common */ = {
+		DAD6B68220F7DEF100E453DD /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				DAD6B68020F6802400E453DD /* AlertHelper.swift */,
+				DAD6B68520F7E59000E453DD /* Reusable.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -349,11 +349,11 @@
 				DAD6B67020F6553D00E453DD /* AddGroupViewModel.swift in Sources */,
 				DA67118C20F48379000F98EB /* Purchase.swift in Sources */,
 				DA02A70220F3A7EC003C06A4 /* GroupListViewController.swift in Sources */,
+				DAD6B68620F7E59000E453DD /* Reusable.swift in Sources */,
 				DA67119020F48390000F98EB /* Person.swift in Sources */,
 				DA02A70020F3A7EC003C06A4 /* AppDelegate.swift in Sources */,
 				DAD6B67B20F6661300E453DD /* AddButtonCell.swift in Sources */,
 				DA67118E20F48385000F98EB /* Group.swift in Sources */,
-				DAD6B68120F6802400E453DD /* AlertHelper.swift in Sources */,
 				DAD6B67420F665BD00E453DD /* TextFieldCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

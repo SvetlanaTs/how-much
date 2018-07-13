@@ -9,8 +9,11 @@
 import UIKit
 
 final class TextFieldCell: UITableViewCell {
-    @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var clearButton: UIButton!
+    static let id = Reusable<TextFieldCell>.nib(id: "TextFieldCell", name: "TextFieldCell", bundle: nil)
+    @IBOutlet var textField: UITextField!
     
-    static let reuseIdentifier = "text-field"
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        textField.becomeFirstResponder()
+    }
 }

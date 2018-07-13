@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14252.5"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,6 +24,9 @@
                         <state key="normal" title="Добавить друга">
                             <color key="titleColor" red="0.066704644097222224" green="0.064802900277777811" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
+                        <connections>
+                            <action selector="addFriend:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="BzW-VU-BR6"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
@@ -32,9 +36,6 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <connections>
-                <outlet property="addButton" destination="MKI-Wf-gpQ" id="ciL-Sn-KAR"/>
-            </connections>
         </tableViewCell>
     </objects>
 </document>

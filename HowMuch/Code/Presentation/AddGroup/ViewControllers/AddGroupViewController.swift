@@ -9,32 +9,18 @@
 import UIKit
 
 final class AddGroupViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet private var tableView: UITableView!
     
     private let viewModel = AddGroupViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addGesture()
-        tableView.register(UINib(nibName: "\(TextFieldCell.self)", bundle: nil), forCellReuseIdentifier: TextFieldCell.reuseIdentifier)
-        tableView.register(UINib(nibName: "\(AddButtonCell.self)", bundle: nil), forCellReuseIdentifier: "\(AddButtonCell.self)")
-        nextButton.addTarget(self, action: #selector(goNext), for: .touchUpInside)
+        tableView.registerReusableCell(TextFieldCell.id)
+        tableView.registerReusableCell(AddButtonCell.id)
     }
-    
-    private func addGesture() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
-        view.addGestureRecognizer(tap)
-    }
-    
-    private func displayNoFriendsAlert() {
-        let alertController = AlertHelper.applyAlert(title: "", message: "Добавьте друга", cancelAction: nil)
-        present(alertController, animated: true, completion: nil)
-    }
-    
-    private func displayFullOfFriendsAlert() {
-        let alertController = AlertHelper.applyAlert(title: "", message: "В компании слишком много друзей", cancelAction: nil)
-        present(alertController, animated: true, completion: nil)
+
+    @IBAction func createGroup(_ sender: UIButton) {
+        // TODO:
     }
 }
 
@@ -51,16 +37,16 @@ extension AddGroupViewController: UITableViewDataSource {
         let model = viewModel.modelForCell(at: indexPath)
         
         if let _ = model as? TextFieldCellModel {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldCell.reuseIdentifier, for: indexPath) as? TextFieldCell else { return UITableViewCell() }
+            let cell = tableView.dequeueReusableCell(TextFieldCell.id, indexPath: indexPath)
             cell.textField.delegate = self
-            cell.textField.becomeFirstResponder()
-            cell.clearButton.addTarget(self, action: #selector(clearTextField), for: .touchUpInside)
             return cell
         }
         
         if let _ = model as? AddButtonCellModel {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(AddButtonCell.self)", for: indexPath) as? AddButtonCell else { return UITableViewCell() }
-            cell.addButton.addTarget(self, action: #selector(addTextField), for: .touchUpInside)
+            let cell = tableView.dequeueReusableCell(AddButtonCell.id, indexPath: indexPath)
+            cell.addTextField = { [weak self] in
+                self?.tableView.reloadData()
+            }
             return cell
         }
         
@@ -75,47 +61,14 @@ extension AddGroupViewController: UITableViewDelegate {
 }
 
 extension AddGroupViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        guard let text = textField.text else { return false }
-        
-        if text.isEmpty && viewModel.hasNoMembers() {
-            displayNoFriendsAlert()
-            return false
-        }
-        
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let text = textField.text,
+            !text.isEmpty else { return }
         viewModel.add(name: text)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
-    }
-}
-
-extension AddGroupViewController {
-    @objc func hideKeyboard() {
-        view.endEditing(true)
-    }
-    
-    @objc func addTextField() {
-        if viewModel.hasNoMembers() {
-            displayNoFriendsAlert()
-            return
-        }
-        
-        if viewModel.isFullOfMembers() {
-            displayFullOfFriendsAlert()
-            return
-        }
-        
-        tableView.reloadData()
-    }
-    
-    @objc func clearTextField() {
-        // TODO: - clear
-    }
-    
-    @objc func goNext() {
-        let group = viewModel.group()
-        group.forEach { person in
-            print("\(person.name)")
-        }
     }
 }
