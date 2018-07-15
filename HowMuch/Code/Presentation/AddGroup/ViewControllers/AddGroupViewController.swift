@@ -94,7 +94,9 @@ extension AddGroupViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if let cell = cell as? NameInputCell {
+        let model = sections[indexPath.section][indexPath.row]
+        if case .personEditor(_) = model {
+            guard let cell = cell as? NameInputCell else { return }
             cell.textField.becomeFirstResponder()
         }
     }
