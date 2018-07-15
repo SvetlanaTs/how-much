@@ -26,7 +26,8 @@ final class AddGroupViewController: UIViewController {
     
     private var dataService = DataService()
     private var sections: [[Cell]] = []
-    private var hasChanges: Bool = false
+    private var name = ""
+    private var index = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,16 +67,19 @@ extension AddGroupViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(NameInputCell.id, indexPath: indexPath)
             cell.textField.delegate = self
             cell.textField.text = name
-            cell.textField.tag = indexPath.row
+            cell.editingChanged = { [weak self] text in
+                guard let `self` = self, let text = text else { return }
+                self.name = text
+             }
+            index = indexPath.row
             return cell
         case .addButton:
             let cell = tableView.dequeueReusableCell(AddButtonCell.id, indexPath: indexPath)
             cell.addNameInput = { [weak self] in
-                guard let this = self else { return }
-                if this.hasChanges {
-                    this.updateSections()
-                    this.tableView.reloadData()
-                }
+                guard let `self` = self else { return }
+                self.dataService.add(name: self.name, at: self.index)
+                self.updateSections()
+                self.tableView.reloadData()
             }
             return cell
         }
@@ -103,28 +107,6 @@ extension AddGroupViewController: UITableViewDelegate {
 }
 
 extension AddGroupViewController: UITextFieldDelegate {
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let text = textField.text else { return }
-        let index = textField.tag
-        textField.resignFirstResponder()
-        
-        if dataService.members.count > index {
-            // edit an existing member
-            if text.isEmpty {
-                dataService.remove(at: index)
-            }
-            if text != dataService.name(at: index) {
-                dataService.rename(text, at: index)
-            }
-            hasChanges = text.isEmpty || text != dataService.name(at: index)
-        } else {
-            if !text.isEmpty {
-                dataService.add(name: text, at: index)
-            }
-            hasChanges = !text.isEmpty
-        }
-    }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true

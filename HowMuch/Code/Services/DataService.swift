@@ -17,18 +17,15 @@ final class DataService {
     }
     
     func rename(_ name: String, at index: Int) {
-        guard !members.isEmpty else { return }
         let person = Person(name: name, purchases: [])
         members[index] = person
     }
     
     func remove(at index: Int) {
-        guard !members.isEmpty else { return }
         members.remove(at: index)
     }
     
     func name(at index: Int) -> String {
-        guard !members.isEmpty else { return "" }
         return members[index].name
     }
 }

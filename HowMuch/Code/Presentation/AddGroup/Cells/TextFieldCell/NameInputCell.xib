@@ -24,6 +24,9 @@
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                        <connections>
+                            <action selector="textFieldEditingChanged:" destination="KGk-i7-Jjw" eventType="editingChanged" id="qsN-Vo-fik"/>
+                        </connections>
                     </textField>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wvb-KQ-bas" userLabel="Separator View">
                         <rect key="frame" x="32" y="52.5" width="256" height="1"/>
