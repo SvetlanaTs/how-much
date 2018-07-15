@@ -19,21 +19,34 @@ final class AddGroupViewController: UIViewController {
         static let addButtonCellHeight: CGFloat = 56.0
         static let membersMinValue = 2
         static let membersMaxValue = 4
+        static let segueIdentifier = "show-group"
     }
     
     @IBOutlet private var tableView: UITableView!
     
     private var dataService = DataService()
-    private var sections: [[Cell]] = [[ .addButton ]]
-    
+    private var sections: [[Cell]] = []
+    private var hasChanges: Bool = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.registerReusableCell(NameInputCell.id)
         tableView.registerReusableCell(AddButtonCell.id)
-        sections.insert([ .personEditor(name: "") ], at: 0)
+        updateSections()
     }
-
-    @IBAction func createGroup(_ sender: UIButton) {
+    
+    private func updateSections() {
+        let members = dataService.members
+        var persons: [Cell] = members.map{ .personEditor(name: $0.name) }
+        persons.append(.personEditor(name: ""))
+        sections = [persons, [ .addButton ]]
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == AddGroupConstants.segueIdentifier {
+            guard let vc = segue.destination as? GroupListViewController else { return }
+            vc.groups = dataService.members.map { Group(members: [$0]) }
+        }
     }
 }
 
@@ -53,13 +66,16 @@ extension AddGroupViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(NameInputCell.id, indexPath: indexPath)
             cell.textField.delegate = self
             cell.textField.text = name
+            cell.textField.tag = indexPath.row
             return cell
         case .addButton:
             let cell = tableView.dequeueReusableCell(AddButtonCell.id, indexPath: indexPath)
             cell.addNameInput = { [weak self] in
                 guard let this = self else { return }
-                
-                this.tableView.reloadData()
+                if this.hasChanges {
+                    this.updateSections()
+                    this.tableView.reloadData()
+                }
             }
             return cell
         }
@@ -85,6 +101,28 @@ extension AddGroupViewController: UITableViewDelegate {
 }
 
 extension AddGroupViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let text = textField.text else { return }
+        let index = textField.tag
+        textField.resignFirstResponder()
+        
+        if dataService.members.count > index {
+            // edit an existing member
+            if text.isEmpty {
+                dataService.remove(at: index)
+            }
+            if text != dataService.name(at: index) {
+                dataService.rename(text, at: index)
+            }
+            hasChanges = text.isEmpty || text != dataService.name(at: index)
+        } else {
+            if !text.isEmpty {
+                dataService.add(name: text, at: index)
+            }
+            hasChanges = !text.isEmpty
+        }
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true

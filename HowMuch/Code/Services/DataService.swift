@@ -9,13 +9,26 @@
 import Foundation
 
 final class DataService {
-    private(set) var members: [String] = []
+    private(set) var members: [Person] = []
     
-    func add(name: String) {
-        members.append(name)
+    func add(name: String, at index: Int) {
+        let person = Person(name: name, purchases: [])
+        members.insert(person, at: index)
+    }
+    
+    func rename(_ name: String, at index: Int) {
+        guard !members.isEmpty else { return }
+        let person = Person(name: name, purchases: [])
+        members[index] = person
+    }
+    
+    func remove(at index: Int) {
+        guard !members.isEmpty else { return }
+        members.remove(at: index)
     }
     
     func name(at index: Int) -> String {
-        return members.isEmpty ? "" : members[index]
+        guard !members.isEmpty else { return "" }
+        return members[index].name
     }
 }
