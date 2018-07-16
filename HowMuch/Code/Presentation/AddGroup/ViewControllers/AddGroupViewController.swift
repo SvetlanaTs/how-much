@@ -33,17 +33,37 @@ final class AddGroupViewController: UIViewController {
         super.viewDidLoad()
         tableView.registerReusableCell(NameInputCell.id)
         tableView.registerReusableCell(AddButtonCell.id)
-        updateSections()
+        sections = configureSections()
     }
     
-    private func updateSections() {
+    private func configureSections() -> [[Cell]] {
         let members = dataService.members
         var persons: [Cell] = members.map{ .personEditor(name: $0.name) }
         persons.append(.personEditor(name: ""))
-        sections = [persons, [ .addButton ]]
+        return [persons, [ .addButton ]]
+    }
+    
+    private func updateModel() {
+        guard (0 ..< dataService.members.count).contains(index) else {
+            dataService.add(name: name, at: index)
+            return
+        }
+        if name.isEmpty {
+            dataService.remove(at: index)
+            return
+        }
+        if name != dataService.name(at: index) {
+            dataService.rename(name, at: index)
+        }
+    }
+    
+    private func reloadTableView() {
+        sections = configureSections()
+        tableView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        updateModel()
         if segue.identifier == AddGroupConstants.segueIdentifier {
             guard let vc = segue.destination as? GroupListViewController else { return }
             vc.groups = dataService.members.map { Group(members: [$0]) }
@@ -70,16 +90,14 @@ extension AddGroupViewController: UITableViewDataSource {
             cell.editingChanged = { [weak self] text in
                 guard let `self` = self, let text = text else { return }
                 self.name = text
-             }
-            index = indexPath.row
+                self.index = indexPath.row
+                self.updateModel()
+            }
             return cell
         case .addButton:
             let cell = tableView.dequeueReusableCell(AddButtonCell.id, indexPath: indexPath)
             cell.addNameInput = { [weak self] in
-                guard let `self` = self else { return }
-                self.dataService.add(name: self.name, at: self.index)
-                self.updateSections()
-                self.tableView.reloadData()
+                self?.reloadTableView()
             }
             return cell
         }
@@ -94,14 +112,6 @@ extension AddGroupViewController: UITableViewDelegate {
             return AddGroupConstants.textFieldCellHeight
         case .addButton:
             return AddGroupConstants.addButtonCellHeight
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let model = sections[indexPath.section][indexPath.row]
-        if case .personEditor(_) = model {
-            guard let cell = cell as? NameInputCell else { return }
-            cell.textField.becomeFirstResponder()
         }
     }
 }
