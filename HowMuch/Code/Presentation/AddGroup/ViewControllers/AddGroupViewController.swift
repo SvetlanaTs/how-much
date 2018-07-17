@@ -48,12 +48,13 @@ final class AddGroupViewController: UIViewController {
             dataService.add(name: name, at: index)
             return
         }
-        if name.isEmpty {
+        guard !name.isEmpty else {
             dataService.remove(at: index)
             return
         }
-        if name != dataService.name(at: index) {
+        guard name == dataService.name(at: index) else {
             dataService.rename(name, at: index)
+            return
         }
     }
     
