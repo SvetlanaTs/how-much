@@ -27,7 +27,7 @@ final class AddGroupViewController: UIViewController {
     private var dataService = DataService()
     private var sections: [[Cell]] = []
     private var name = ""
-    private var index = 0
+    private var index = -1
     private var needToUpdate: Bool = false
     private var activeField: UITextField?
 
@@ -52,17 +52,19 @@ final class AddGroupViewController: UIViewController {
     }
     
     private func updateModel() {
-        needToUpdate = false
         guard (0 ..< dataService.members.count).contains(index) else {
             dataService.add(name: name, at: index)
+            needToUpdate = true
             return
         }
         guard !name.isEmpty else {
             dataService.remove(at: index)
+            needToUpdate = true
             return
         }
         guard name == dataService.name(at: index) else {
             dataService.rename(name, at: index)
+            needToUpdate = true
             return
         }
     }
@@ -73,7 +75,6 @@ final class AddGroupViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if needToUpdate { updateModel() }
         if segue.identifier == AddGroupConstants.segueIdentifier {
             guard let vc = segue.destination as? GroupListViewController else { return }
             vc.groups = dataService.members.map { Group(members: [$0]) }
@@ -101,7 +102,7 @@ extension AddGroupViewController: UITableViewDataSource {
                 guard let `self` = self, let text = text else { return }
                 self.name = text
                 self.index = indexPath.row
-                self.needToUpdate = true
+                self.updateModel()
             }
             return cell
         case .addButton:
@@ -109,8 +110,8 @@ extension AddGroupViewController: UITableViewDataSource {
             cell.addNameInput = { [weak self] in
                 guard let `self` = self else { return }
                 if self.needToUpdate {
-                    self.updateModel()
                     self.reloadTableView()
+                    self.needToUpdate = false
                 }
             }
             return cell
@@ -139,6 +140,13 @@ extension AddGroupViewController: UITextFieldDelegate {
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         activeField = nil
         return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+        if self.needToUpdate {
+            self.reloadTableView()
+            self.needToUpdate = false
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
