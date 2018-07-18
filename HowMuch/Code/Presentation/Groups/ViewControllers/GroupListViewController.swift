@@ -9,9 +9,12 @@
 import UIKit
 
 final class GroupListViewController: UIViewController {
+    
+    var groups: [Group]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("View did load")
+        guard let groups = groups else { return }
+        groups.forEach{ $0.members.forEach{ print($0.name) }}
     }
 }
