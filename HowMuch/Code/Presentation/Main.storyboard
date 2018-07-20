@@ -40,7 +40,7 @@
                                 </constraints>
                                 <state key="normal" image="next"/>
                                 <connections>
-                                    <segue destination="zzq-ph-6YO" kind="show" identifier="show-group" id="qmi-VD-pQo"/>
+                                    <segue destination="j8d-7b-Fwg" kind="show" identifier="showGroup" id="qmi-VD-pQo"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -65,20 +65,64 @@
             </objects>
             <point key="canvasLocation" x="536.79999999999995" y="11.244377811094454"/>
         </scene>
-        <!--Group List View Controller-->
+        <!--Компании-->
         <scene sceneID="vyA-fN-gHE">
             <objects>
                 <viewController id="zzq-ph-6YO" customClass="GroupListViewController" customModule="HowMuch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ays-Bp-vHa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XXw-AD-bBc">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="zzq-ph-6YO" id="OIL-MF-sGj"/>
+                                    <outlet property="delegate" destination="zzq-ph-6YO" id="NYj-xP-iyD"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="XXw-AD-bBc" firstAttribute="trailing" secondItem="w59-FX-SvG" secondAttribute="trailing" id="QUO-Eg-gfE"/>
+                            <constraint firstItem="XXw-AD-bBc" firstAttribute="top" secondItem="w59-FX-SvG" secondAttribute="top" id="VYC-Da-1ka"/>
+                            <constraint firstItem="XXw-AD-bBc" firstAttribute="bottom" secondItem="Ays-Bp-vHa" secondAttribute="bottom" id="evg-3t-Vj8"/>
+                            <constraint firstItem="XXw-AD-bBc" firstAttribute="leading" secondItem="w59-FX-SvG" secondAttribute="leading" id="sKH-xR-f7B"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="w59-FX-SvG"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Компании" id="9Z3-X0-PKM">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="B5R-Jl-SWZ">
+                            <connections>
+                                <segue destination="HW6-LE-B86" kind="showDetail" id="L6L-SB-cGp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="XXw-AD-bBc" id="5Ob-da-NMi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7aI-ka-64R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1249" y="11"/>
+            <point key="canvasLocation" x="1980" y="11.244377811094454"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QM7-7e-aJn">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="j8d-7b-Fwg" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JGZ-e9-5sa">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="zzq-ph-6YO" kind="relationship" relationship="rootViewController" id="ImE-Fa-Uki"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FPG-rC-e5B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1248.8" y="10.344827586206897"/>
         </scene>
     </scenes>
     <resources>

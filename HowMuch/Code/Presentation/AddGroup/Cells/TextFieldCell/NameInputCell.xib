@@ -23,7 +23,7 @@
                         <rect key="frame" x="32" y="10" width="256" height="43.5"/>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no"/>
                         <connections>
                             <action selector="textFieldEditingChanged:" destination="KGk-i7-Jjw" eventType="editingChanged" id="qsN-Vo-fik"/>
                         </connections>

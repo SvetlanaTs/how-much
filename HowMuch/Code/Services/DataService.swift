@@ -10,6 +10,7 @@ import Foundation
 
 final class DataService {
     private(set) var members: [Person] = []
+    private(set) var groups: [Group] = []
     
     func add(name: String, at index: Int) {
         let person = Person(name: name, purchases: [])
@@ -27,5 +28,13 @@ final class DataService {
     
     func name(at index: Int) -> String {
         return members[index].name
+    }
+    
+    func add(group: Group) {
+        groups.append(group)
+    }
+    
+    func group(at index: Int) -> Group {
+        return groups[index]
     }
 }
