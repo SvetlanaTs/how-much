@@ -31,8 +31,7 @@
 		DAD6B67C20F6661300E453DD /* AddButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAD6B67A20F6661300E453DD /* AddButtonCell.xib */; };
 		DAD6B68620F7E59000E453DD /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6B68520F7E59000E453DD /* Reusable.swift */; };
 		DAD6B68920F92DC100E453DD /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6B68820F92DC100E453DD /* DataService.swift */; };
-		DAD8FA692102554F009D7049 /* BaseMemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD8FA682102554F009D7049 /* BaseMemberCell.swift */; };
-		DAD8FA6B21025AEA009D7049 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD8FA6A21025AEA009D7049 /* UIView+Extension.swift */; };
+		DAD8FA712105BB91009D7049 /* PersonDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD8FA702105BB91009D7049 /* PersonDataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,8 +73,7 @@
 		DAD6B67A20F6661300E453DD /* AddButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddButtonCell.xib; sourceTree = "<group>"; };
 		DAD6B68520F7E59000E453DD /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		DAD6B68820F92DC100E453DD /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
-		DAD8FA682102554F009D7049 /* BaseMemberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMemberCell.swift; sourceTree = "<group>"; };
-		DAD8FA6A21025AEA009D7049 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		DAD8FA702105BB91009D7049 /* PersonDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,7 +185,6 @@
 			children = (
 				DA67118520F3F227000F98EB /* ViewControllers */,
 				DAD6B67120F6658500E453DD /* Cells */,
-				DA94DA202102349500A4CC65 /* Views */,
 			);
 			path = AddGroup;
 			sourceTree = "<group>";
@@ -257,13 +254,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		DA94DA202102349500A4CC65 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		DAD6B67120F6658500E453DD /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -295,7 +285,6 @@
 			isa = PBXGroup;
 			children = (
 				DAD6B68520F7E59000E453DD /* Reusable.swift */,
-				DAD8FA6A21025AEA009D7049 /* UIView+Extension.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -304,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				DAD6B68820F92DC100E453DD /* DataService.swift */,
+				DAD8FA702105BB91009D7049 /* PersonDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -311,7 +301,6 @@
 		DAD8FA6721025508009D7049 /* BaseCell */ = {
 			isa = PBXGroup;
 			children = (
-				DAD8FA682102554F009D7049 /* BaseMemberCell.swift */,
 			);
 			path = BaseCell;
 			sourceTree = "<group>";
@@ -425,7 +414,6 @@
 			files = (
 				DA02A73720F3AC8A003C06A4 /* AddGroupViewController.swift in Sources */,
 				DA94DA1D2102035900A4CC65 /* FourMembersCell.swift in Sources */,
-				DAD8FA6B21025AEA009D7049 /* UIView+Extension.swift in Sources */,
 				DA67118C20F48379000F98EB /* Purchase.swift in Sources */,
 				DA02A70220F3A7EC003C06A4 /* GroupListViewController.swift in Sources */,
 				DA94DA162102033000A4CC65 /* TwoMembersCell.swift in Sources */,
@@ -434,10 +422,10 @@
 				DA02A70020F3A7EC003C06A4 /* AppDelegate.swift in Sources */,
 				DAD6B67B20F6661300E453DD /* AddButtonCell.swift in Sources */,
 				DA67118E20F48385000F98EB /* Group.swift in Sources */,
-				DAD8FA692102554F009D7049 /* BaseMemberCell.swift in Sources */,
 				DAD6B67420F665BD00E453DD /* NameInputCell.swift in Sources */,
 				DA94DA1A2102033700A4CC65 /* ThreeMembersCell.swift in Sources */,
 				DAD6B68920F92DC100E453DD /* DataService.swift in Sources */,
+				DAD8FA712105BB91009D7049 /* PersonDataService.swift in Sources */,
 				DA94DA24210234E700A4CC65 /* PersonDebtView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

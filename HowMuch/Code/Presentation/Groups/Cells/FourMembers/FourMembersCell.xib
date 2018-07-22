@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14269.14" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="182"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="181.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="181.66666666666666"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fSc-J4-kz6" userLabel="Back Content View">
@@ -54,7 +54,7 @@
                                 <rect key="frame" x="48" y="0.0" width="192" height="165"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50 $" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NSy-AP-cNL">
-                                        <rect key="frame" x="78.5" y="16" width="35.5" height="21"/>
+                                        <rect key="frame" x="78" y="16" width="36" height="21"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                         <color key="textColor" red="0.12549019610000001" green="0.086274509799999996" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -67,14 +67,14 @@
                                         </constraints>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="W3L-ax-eiy">
-                                        <rect key="frame" x="0.0" y="76.5" width="23" height="12"/>
+                                        <rect key="frame" x="0.0" y="76.666666666666671" width="23" height="12"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="12" id="8DS-QN-D12"/>
                                             <constraint firstAttribute="width" constant="23" id="aeU-W2-BmR"/>
                                         </constraints>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="d0V-d5-yKQ">
-                                        <rect key="frame" x="169" y="76.5" width="23" height="12"/>
+                                        <rect key="frame" x="169" y="76.666666666666671" width="23" height="12"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="12" id="YNc-kK-8FI"/>
                                             <constraint firstAttribute="width" constant="23" id="clf-kZ-55q"/>
@@ -114,6 +114,17 @@
                             <constraint firstItem="siG-ST-TIU" firstAttribute="top" secondItem="fSc-J4-kz6" secondAttribute="top" constant="8" id="hS8-0l-qDA"/>
                             <constraint firstItem="lxk-Cu-brJ" firstAttribute="top" secondItem="fSc-J4-kz6" secondAttribute="top" constant="8" id="xlq-ot-iiv"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="6"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                <real key="value" value="0.10000000000000001"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                                <integer key="value" value="6"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gly-DH-7LP">
                         <rect key="frame" x="130" y="141" width="60" height="60"/>
@@ -136,7 +147,6 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="backContentView" destination="fSc-J4-kz6" id="nq9-T9-Rho"/>
                 <outlet property="checkButton" destination="gly-DH-7LP" id="Gzf-sA-sfv"/>
                 <outlet property="firstPersonView" destination="WHr-Ip-Nx1" id="hZw-wW-IOh"/>
                 <outlet property="fourthPersonView" destination="btB-bw-XlG" id="19X-id-yBX"/>
@@ -147,7 +157,7 @@
                 <outlet property="topArrowImageView" destination="73m-TV-1Ds" id="MC9-h4-GAl"/>
                 <outlet property="topDebtLabel" destination="NSy-AP-cNL" id="g8D-h2-3V4"/>
             </connections>
-            <point key="canvasLocation" x="35" y="53.5"/>
+            <point key="canvasLocation" x="35" y="56"/>
         </tableViewCell>
     </objects>
     <resources>

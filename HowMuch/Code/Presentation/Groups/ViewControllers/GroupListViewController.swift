@@ -9,48 +9,43 @@
 import UIKit
 
 final class GroupListViewController: UIViewController {
-    enum GroupCell {
-        case twoMembersIn(_ group: Group)
-        case threeMembersIn(_ group: Group)
-        case fourMembersIn(_ group: Group)
-    }
-    
-    struct GroupList {
-        static let baseMembersCellHeight: CGFloat = 105.0
-        static let fourMembersCellHeight: CGFloat = 182.0
+    enum Cell {
+        case group(group: Group)
     }
     
     @IBOutlet private var tableView: UITableView!
     
-    var dataService: DataService?
-    private var rows: [GroupCell] = []
+    private let defaultMembersCellHeight: CGFloat = 110.0
+    private let fourMembersCellHeight: CGFloat = 187.0
+    private let segueIdentifier = "showAddGroup"
+    
+    var dataService: DataService!
+    private var rows: [Cell] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.registerReusableCell(TwoMembersCell.id)
         tableView.registerReusableCell(ThreeMembersCell.id)
         tableView.registerReusableCell(FourMembersCell.id)
-        formRows()
+        updateRows()
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        tableView.contentInset = UIEdgeInsetsMake(24, 0, 24, 0)
-    }
-    
-    private func formRows() {
-        guard let dataService = dataService else { return }
+    private func updateRows() {
         let groups = dataService.groups
-        var cells: [GroupCell] = []
+        var cells: [Cell] = []
         groups.forEach { (group) in
-            switch group.members.count {
-                case 2: cells.append(.twoMembersIn(group))
-                case 3: cells.append(.threeMembersIn(group))
-                case 4: cells.append(.fourMembersIn(group))
-                default: cells.append(.twoMembersIn(group))
-            }
+            cells.append(.group(group: group))
         }
         rows = cells
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        if segue.identifier == segueIdentifier {
+            guard let vc = segue.destination as? AddGroupViewController else { return }
+            vc.dataService = dataService
+        }
     }
 }
 
@@ -62,39 +57,23 @@ extension GroupListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = rows[indexPath.row]
         switch model {
-        case .twoMembersIn(let group):
-            let cell = tableView.dequeueReusableCell(TwoMembersCell.id, indexPath: indexPath)
-            guard let firstPerson = group.members.first, let secondPerson = group.members.last else { return UITableViewCell() }
-            cell.firstPersonView.nameLabel.text = firstPerson.name
-            cell.firstPersonView.debtLabel.text = firstPerson.amountSpent.description
-            cell.secondPersonView.nameLabel.text = secondPerson.name
-            cell.secondPersonView.debtLabel.text = secondPerson.amountSpent.description
-            return cell
-        case .threeMembersIn(let group):
-            let cell = tableView.dequeueReusableCell(ThreeMembersCell.id, indexPath: indexPath)
-            guard let firstPerson = group.members.first, let thirdPerson = group.members.last else { return UITableViewCell() }
-            let secondPerson = group.members[1]
-            cell.firstPersonView.nameLabel.text = firstPerson.name
-            cell.firstPersonView.debtLabel.text = firstPerson.amountSpent.description
-            cell.secondPersonView.nameLabel.text = secondPerson.name
-            cell.secondPersonView.debtLabel.text = secondPerson.amountSpent.description
-            cell.thirdPersonView.nameLabel.text = thirdPerson.name
-            cell.thirdPersonView.debtLabel.text = thirdPerson.amountSpent.description
-            return cell
-        case .fourMembersIn(let group):
-            let cell = tableView.dequeueReusableCell(FourMembersCell.id, indexPath: indexPath)
-            guard let firstPerson = group.members.first, let fourthPerson = group.members.last else { return UITableViewCell() }
-            let secondPerson = group.members[1]
-            let thirdPerson = group.members[2]
-            cell.firstPersonView.nameLabel.text = firstPerson.name
-            cell.firstPersonView.debtLabel.text = firstPerson.amountSpent.description
-            cell.secondPersonView.nameLabel.text = secondPerson.name
-            cell.secondPersonView.debtLabel.text = secondPerson.amountSpent.description
-            cell.thirdPersonView.nameLabel.text = thirdPerson.name
-            cell.thirdPersonView.debtLabel.text = thirdPerson.amountSpent.description
-            cell.fourthPersonView.nameLabel.text = fourthPerson.name
-            cell.fourthPersonView.debtLabel.text = fourthPerson.amountSpent.description
-            return cell
+        case .group(let group):
+            switch group.members.count {
+            case 2:
+                let cell = tableView.dequeueReusableCell(TwoMembersCell.id, indexPath: indexPath)
+                cell.set(group: group)
+                return cell
+            case 3:
+                let cell = tableView.dequeueReusableCell(ThreeMembersCell.id, indexPath: indexPath)
+                cell.set(group: group)
+                return cell
+            case 4:
+                let cell = tableView.dequeueReusableCell(FourMembersCell.id, indexPath: indexPath)
+                cell.set(group: group)
+                return cell
+            default:
+                return UITableViewCell()
+            }
         }
     }
 }
@@ -107,10 +86,13 @@ extension GroupListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let model = rows[indexPath.row]
         switch model {
-        case .twoMembersIn(_), .threeMembersIn(_):
-            return GroupList.baseMembersCellHeight
-        case .fourMembersIn(_):
-            return GroupList.fourMembersCellHeight
+        case .group(let group):
+            switch group.members.count {
+            case 4:
+                return fourMembersCellHeight
+            default:
+                return defaultMembersCellHeight
+            }
         }
     }
 }

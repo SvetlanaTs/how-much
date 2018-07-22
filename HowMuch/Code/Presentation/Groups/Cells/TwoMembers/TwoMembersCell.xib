@@ -56,6 +56,17 @@
                             <constraint firstItem="KFo-tB-3cd" firstAttribute="centerX" secondItem="zhA-sO-Fhb" secondAttribute="centerX" id="p3f-JG-O18"/>
                             <constraint firstItem="E4Q-KR-Sgx" firstAttribute="top" secondItem="zhA-sO-Fhb" secondAttribute="top" constant="8" id="udh-gC-aVX"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="6"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                <real key="value" value="0.10000000000000001"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                                <integer key="value" value="6"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kf1-cV-hZr">
                         <rect key="frame" x="130" y="59" width="60" height="60"/>
@@ -78,7 +89,6 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="arrowImageView" destination="KFo-tB-3cd" id="KyO-vI-mmA"/>
-                <outlet property="backContentView" destination="zhA-sO-Fhb" id="xoj-XW-Vm5"/>
                 <outlet property="checkButton" destination="kf1-cV-hZr" id="HCJ-Rj-Gbn"/>
                 <outlet property="firstPersonView" destination="CC1-hf-fgW" id="Cf5-eu-NUN"/>
                 <outlet property="secondPersonView" destination="E4Q-KR-Sgx" id="Iyi-wh-aDf"/>

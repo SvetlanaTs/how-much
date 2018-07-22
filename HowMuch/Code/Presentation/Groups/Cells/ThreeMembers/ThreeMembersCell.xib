@@ -86,6 +86,17 @@
                             <constraint firstAttribute="trailing" secondItem="GI3-Zr-I62" secondAttribute="trailing" id="fNK-30-j59"/>
                             <constraint firstAttribute="height" constant="83" id="o9q-n9-KHw"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="6"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                <real key="value" value="0.10000000000000001"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                                <integer key="value" value="6"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bMm-hS-55z">
                         <rect key="frame" x="130" y="59" width="60" height="60"/>
@@ -109,7 +120,6 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="backContentView" destination="L83-40-Xv7" id="o7G-75-24e"/>
                 <outlet property="checkButton" destination="bMm-hS-55z" id="5uC-qr-6K4"/>
                 <outlet property="firstPersonView" destination="F5w-z9-2EL" id="eXn-ZO-qNb"/>
                 <outlet property="leftArrowImageView" destination="YFf-j1-fDG" id="rbl-pP-Ck2"/>
