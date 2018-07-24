@@ -8,10 +8,6 @@
 
 import UIKit
 
-struct UserDefaultsConstants {
-    static let groupKey = "groups"
-}
-
 final class AddGroupViewController: UIViewController {
     enum Cell {
         case personEditor(name: String)

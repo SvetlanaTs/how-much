@@ -26,13 +26,18 @@ final class GroupListViewController: UIViewController {
     }
     
     private func updateRows() {
-        guard let data = UserDefaults.standard.data(forKey: UserDefaultsConstants.groupKey) else { return }
+        guard let data = UserDefaults.standard.data(forKey: UserDefaultsConstants.groupKey) else {
+            tableView.isHidden = true
+            UserDefaults.standard.set(false, forKey: UserDefaultsConstants.hasDataKey)
+            return
+        }
         if let groups = try? JSONDecoder().decode([Group].self, from: data) {
             var cells: [Cell] = []
             groups.forEach { (group) in
                 cells.append(.group(group: group))
             }
             rows = cells
+            UserDefaults.standard.set(true, forKey: UserDefaultsConstants.hasDataKey)
         }
     }
 }
