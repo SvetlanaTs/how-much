@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct Group {
+struct Group: Codable {
     let members: [Person]
 }

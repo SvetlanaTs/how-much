@@ -1,5 +1,5 @@
 //
-//  TwoMembersswift
+//  TwoMembersCell.swift
 //  HowMuch
 //
 //  Created by Svetlana T on 20.07.2018.
@@ -22,7 +22,6 @@ final class TwoMembersCell: UITableViewCell {
     
     private func update(group: Group) {
         guard let firstPerson = group.members.first, let secondPerson = group.members.last else { return }
-
         firstPersonView.nameLabel.text = firstPerson.name
         firstPersonView.debtLabel.text = firstPerson.amountSpent.description
         secondPersonView.nameLabel.text = secondPerson.name

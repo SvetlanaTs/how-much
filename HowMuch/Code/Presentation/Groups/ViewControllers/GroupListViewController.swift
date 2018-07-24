@@ -15,11 +15,6 @@ final class GroupListViewController: UIViewController {
     
     @IBOutlet private var tableView: UITableView!
     
-    private let defaultMembersCellHeight: CGFloat = 110.0
-    private let fourMembersCellHeight: CGFloat = 187.0
-    private let segueIdentifier = "showAddGroup"
-    
-    var dataService: DataService!
     private var rows: [Cell] = []
 
     override func viewDidLoad() {
@@ -31,20 +26,13 @@ final class GroupListViewController: UIViewController {
     }
     
     private func updateRows() {
-        let groups = dataService.groups
-        var cells: [Cell] = []
-        groups.forEach { (group) in
-            cells.append(.group(group: group))
-        }
-        rows = cells
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        
-        if segue.identifier == segueIdentifier {
-            guard let vc = segue.destination as? AddGroupViewController else { return }
-            vc.dataService = dataService
+        guard let data = UserDefaults.standard.data(forKey: UserDefaultsConstants.groupKey) else { return }
+        if let groups = try? JSONDecoder().decode([Group].self, from: data) {
+            var cells: [Cell] = []
+            groups.forEach { (group) in
+                cells.append(.group(group: group))
+            }
+            rows = cells
         }
     }
 }
@@ -81,18 +69,5 @@ extension GroupListViewController: UITableViewDataSource {
 extension GroupListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let model = rows[indexPath.row]
-        switch model {
-        case .group(let group):
-            switch group.members.count {
-            case 4:
-                return fourMembersCellHeight
-            default:
-                return defaultMembersCellHeight
-            }
-        }
     }
 }

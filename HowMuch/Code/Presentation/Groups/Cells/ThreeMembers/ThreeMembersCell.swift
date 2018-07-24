@@ -1,5 +1,5 @@
 //
-//  ThreeMembersswift
+//  ThreeMembersCell.swift
 //  HowMuch
 //
 //  Created by Svetlana T on 20.07.2018.

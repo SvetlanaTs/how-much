@@ -8,6 +8,10 @@
 
 import UIKit
 
+struct UserDefaultsConstants {
+    static let groupKey = "groups"
+}
+
 final class AddGroupViewController: UIViewController {
     enum Cell {
         case personEditor(name: String)
@@ -22,13 +26,12 @@ final class AddGroupViewController: UIViewController {
     private let membersMaxValue = 4
     private let segueIdentifier = "showGroup"
     
-    var dataService: DataService!
     private var sections: [[Cell]] = []
     private var name = ""
     private var index = -1
     private var needToUpdate: Bool = false
     private var activeField: UITextField?
-    private var personService: PersonDataService = PersonDataService()
+    private var dataService: DataService = DataService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,25 +47,25 @@ final class AddGroupViewController: UIViewController {
     }
 
     private func updateSections() -> [[Cell]] {
-        let members = personService.members
+        let members = dataService.members
         var persons: [Cell] = members.map { .personEditor(name: $0.name) }
         persons.append(.personEditor(name: ""))
         return [persons, [ .addButton ]]
     }
     
     private func updateModel() {
-        guard (0 ..< personService.members.count).contains(index) else {
-            personService.add(name: name, at: index)
+        guard (0 ..< dataService.members.count).contains(index) else {
+            dataService.add(name: name, at: index)
             needToUpdate = true
             return
         }
         guard !name.isEmpty else {
-            personService.remove(at: index)
+            dataService.remove(at: index)
             needToUpdate = true
             return
         }
-        guard name == personService.name(at: index) else {
-            personService.rename(name, at: index)
+        guard name == dataService.name(at: index) else {
+            dataService.rename(name, at: index)
             needToUpdate = true
             return
         }
@@ -77,17 +80,26 @@ final class AddGroupViewController: UIViewController {
         super.prepare(for: segue, sender: sender)
         
         if segue.identifier == segueIdentifier {
-            createGroup()
-            
-            guard let destination = segue.destination as? UINavigationController,
-                let target = destination.topViewController as? GroupListViewController else { return }
-            target.dataService = dataService
+            saveGroup()
         }
     }
     
-    private func createGroup() {
-        let group = Group(members: personService.members)
-        dataService.add(group: group)
+    private func saveGroup() {
+        let group = Group(members: dataService.members)
+        
+        guard let data = UserDefaults.standard.data(forKey: UserDefaultsConstants.groupKey) else {
+            if let data = try? JSONEncoder().encode([group]) {
+                UserDefaults.standard.set(data, forKey: UserDefaultsConstants.groupKey)
+            }
+            return
+        }
+        if var groups = try? JSONDecoder().decode([Group].self, from: data) {
+            groups.append(group)
+            
+            if let data = try? JSONEncoder().encode(groups) {
+                UserDefaults.standard.set(data, forKey: UserDefaultsConstants.groupKey)
+            }
+        }
     }
 }
 

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Purchase {
+struct Purchase: Codable {
     let title: String
     let spent: Decimal
     let date: Date

@@ -30,8 +30,7 @@
 		DAD6B67B20F6661300E453DD /* AddButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6B67920F6661300E453DD /* AddButtonCell.swift */; };
 		DAD6B67C20F6661300E453DD /* AddButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAD6B67A20F6661300E453DD /* AddButtonCell.xib */; };
 		DAD6B68620F7E59000E453DD /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6B68520F7E59000E453DD /* Reusable.swift */; };
-		DAD6B68920F92DC100E453DD /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6B68820F92DC100E453DD /* DataService.swift */; };
-		DAD8FA712105BB91009D7049 /* PersonDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD8FA702105BB91009D7049 /* PersonDataService.swift */; };
+		DAD8FA712105BB91009D7049 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD8FA702105BB91009D7049 /* DataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,8 +71,7 @@
 		DAD6B67920F6661300E453DD /* AddButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonCell.swift; sourceTree = "<group>"; };
 		DAD6B67A20F6661300E453DD /* AddButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddButtonCell.xib; sourceTree = "<group>"; };
 		DAD6B68520F7E59000E453DD /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
-		DAD6B68820F92DC100E453DD /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
-		DAD8FA702105BB91009D7049 /* PersonDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDataService.swift; sourceTree = "<group>"; };
+		DAD8FA702105BB91009D7049 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,7 +208,6 @@
 		DA94DA0F2102026200A4CC65 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				DAD8FA6721025508009D7049 /* BaseCell */,
 				DA94DA10210202F500A4CC65 /* TwoMembers */,
 				DA94DA112102030900A4CC65 /* ThreeMembers */,
 				DA94DA122102031200A4CC65 /* FourMembers */,
@@ -292,17 +289,9 @@
 		DAD6B68720F92D8200E453DD /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				DAD6B68820F92DC100E453DD /* DataService.swift */,
-				DAD8FA702105BB91009D7049 /* PersonDataService.swift */,
+				DAD8FA702105BB91009D7049 /* DataService.swift */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		DAD8FA6721025508009D7049 /* BaseCell */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = BaseCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -424,8 +413,7 @@
 				DA67118E20F48385000F98EB /* Group.swift in Sources */,
 				DAD6B67420F665BD00E453DD /* NameInputCell.swift in Sources */,
 				DA94DA1A2102033700A4CC65 /* ThreeMembersCell.swift in Sources */,
-				DAD6B68920F92DC100E453DD /* DataService.swift in Sources */,
-				DAD8FA712105BB91009D7049 /* PersonDataService.swift in Sources */,
+				DAD8FA712105BB91009D7049 /* DataService.swift in Sources */,
 				DA94DA24210234E700A4CC65 /* PersonDebtView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
