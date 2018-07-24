@@ -15,6 +15,9 @@
 		DA02A72A20F3AAE2003C06A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA02A72920F3AAE2003C06A4 /* Main.storyboard */; };
 		DA02A73720F3AC8A003C06A4 /* AddGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02A73620F3AC8A003C06A4 /* AddGroupViewController.swift */; };
 		DA051E2621073C6D003BD4F1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA051E2521073C6D003BD4F1 /* Constants.swift */; };
+		DA051E28210752F2003BD4F1 /* PurchaseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA051E27210752F2003BD4F1 /* PurchaseListViewController.swift */; };
+		DA265E9921075FF800C871B3 /* PurchaseItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA265E9721075FF800C871B3 /* PurchaseItemCell.swift */; };
+		DA265E9A21075FF800C871B3 /* PurchaseItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA265E9821075FF800C871B3 /* PurchaseItemCell.xib */; };
 		DA67118C20F48379000F98EB /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA67118B20F48379000F98EB /* Purchase.swift */; };
 		DA67118E20F48385000F98EB /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA67118D20F48385000F98EB /* Group.swift */; };
 		DA67119020F48390000F98EB /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA67118F20F48390000F98EB /* Person.swift */; };
@@ -57,6 +60,9 @@
 		DA02A72920F3AAE2003C06A4 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DA02A73620F3AC8A003C06A4 /* AddGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupViewController.swift; sourceTree = "<group>"; };
 		DA051E2521073C6D003BD4F1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DA051E27210752F2003BD4F1 /* PurchaseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseListViewController.swift; sourceTree = "<group>"; };
+		DA265E9721075FF800C871B3 /* PurchaseItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseItemCell.swift; sourceTree = "<group>"; };
+		DA265E9821075FF800C871B3 /* PurchaseItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PurchaseItemCell.xib; sourceTree = "<group>"; };
 		DA67118B20F48379000F98EB /* Purchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
 		DA67118D20F48385000F98EB /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		DA67118F20F48390000F98EB /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
@@ -132,6 +138,15 @@
 			path = HowMuchTests;
 			sourceTree = "<group>";
 		};
+		DA265E9621075F6400C871B3 /* PurchaseItem */ = {
+			isa = PBXGroup;
+			children = (
+				DA265E9721075FF800C871B3 /* PurchaseItemCell.swift */,
+				DA265E9821075FF800C871B3 /* PurchaseItemCell.xib */,
+			);
+			path = PurchaseItem;
+			sourceTree = "<group>";
+		};
 		DA67117D20F3F0E7000F98EB /* Code */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				DA02A70120F3A7EC003C06A4 /* GroupListViewController.swift */,
+				DA051E27210752F2003BD4F1 /* PurchaseListViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -210,6 +226,7 @@
 		DA94DA0F2102026200A4CC65 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				DA265E9621075F6400C871B3 /* PurchaseItem */,
 				DA94DA10210202F500A4CC65 /* TwoMembers */,
 				DA94DA112102030900A4CC65 /* ThreeMembers */,
 				DA94DA122102031200A4CC65 /* FourMembers */,
@@ -381,6 +398,7 @@
 				DA02A72A20F3AAE2003C06A4 /* Main.storyboard in Resources */,
 				DA94DA23210234E700A4CC65 /* PersonDebtView.xib in Resources */,
 				DA02A70A20F3A7EF003C06A4 /* LaunchScreen.storyboard in Resources */,
+				DA265E9A21075FF800C871B3 /* PurchaseItemCell.xib in Resources */,
 				DA94DA152102033000A4CC65 /* TwoMembersCell.xib in Resources */,
 				DA94DA192102033700A4CC65 /* ThreeMembersCell.xib in Resources */,
 				DA94DA1E2102035900A4CC65 /* FourMembersCell.xib in Resources */,
@@ -405,7 +423,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA02A73720F3AC8A003C06A4 /* AddGroupViewController.swift in Sources */,
+				DA265E9921075FF800C871B3 /* PurchaseItemCell.swift in Sources */,
 				DA94DA1D2102035900A4CC65 /* FourMembersCell.swift in Sources */,
+				DA051E28210752F2003BD4F1 /* PurchaseListViewController.swift in Sources */,
 				DA67118C20F48379000F98EB /* Purchase.swift in Sources */,
 				DA02A70220F3A7EC003C06A4 /* GroupListViewController.swift in Sources */,
 				DA94DA162102033000A4CC65 /* TwoMembersCell.swift in Sources */,

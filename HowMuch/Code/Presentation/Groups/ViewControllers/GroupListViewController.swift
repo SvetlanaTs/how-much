@@ -15,6 +15,7 @@ final class GroupListViewController: UIViewController {
     
     @IBOutlet private var tableView: UITableView!
     
+    private let segueIdentifier = "showPurchase"
     private var rows: [Cell] = []
 
     override func viewDidLoad() {
@@ -38,6 +39,14 @@ final class GroupListViewController: UIViewController {
             }
             rows = cells
             UserDefaults.standard.set(true, forKey: UserDefaultsConstants.hasDataKey)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == segueIdentifier {
+            guard let vc = segue.destination as? PurchaseListViewController,
+                let sender = sender as? Group else { return }
+            vc.group = sender
         }
     }
 }
@@ -74,5 +83,11 @@ extension GroupListViewController: UITableViewDataSource {
 extension GroupListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
+        
+        let model = rows[indexPath.row]
+        switch model {
+        case .group(let group):
+            performSegue(withIdentifier: segueIdentifier, sender: group)
+        }
     }
 }

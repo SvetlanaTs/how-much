@@ -124,7 +124,7 @@ extension AddGroupViewController: UITableViewDataSource {
             return cell
         case .addButton:
             let cell = tableView.dequeueReusableCell(AddButtonCell.id, indexPath: indexPath)
-            cell.addNameInput = { [weak self] in
+            cell.addItem = { [weak self] in
                 guard let `self` = self else { return }
                 if self.needToUpdate {
                     self.reloadTableView()
