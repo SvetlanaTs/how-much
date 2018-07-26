@@ -15,7 +15,7 @@ final class GroupListViewController: UIViewController {
     
     @IBOutlet private var tableView: UITableView!
     
-    private let segueIdentifier = "showPurchase"
+    private let segueIdentifier = "showPurchaseList"
     private var rows: [Cell] = []
 
     override func viewDidLoad() {
@@ -43,9 +43,9 @@ final class GroupListViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == segueIdentifier {
-            guard let vc = segue.destination as? PurchaseListViewController,
-                let sender = sender as? Group else { return }
+        if segue.identifier == segueIdentifier,
+            let vc = segue.destination as? PurchaseListViewController,
+            let sender = sender as? Group {
             vc.group = sender
         }
     }
