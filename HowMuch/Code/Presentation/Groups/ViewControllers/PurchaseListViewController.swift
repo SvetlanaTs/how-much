@@ -9,7 +9,7 @@
 import UIKit
 
 final class PurchaseListViewController: UIViewController {
-    typealias SectionItem = (header: Header?, cells: [Cell])
+    typealias Section = (header: Header?, cells: [Cell])
     
     enum Header {
         case name(name: String, amountSpent: Decimal)
@@ -22,33 +22,41 @@ final class PurchaseListViewController: UIViewController {
     
     @IBOutlet private var tableView: UITableView!
     
+    private let nameHeaderHeight: CGFloat = 54.0
+    private let defaultHeaderHeight: CGFloat = 0.0
     private let segueIdentifier = "showPurchase"
-    private var sections: [SectionItem] = []
+    private var sections: [Section] = []
     var group: Group!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.registerReusableCell(PurchaseItemCell.id)
         tableView.registerReusableCell(AddItemCell.id)
+        tableView.registerReusableHeaderFooterView(PurchaseSectionHeaderView.id)
         updateSections()
     }
 
     private func updateSections() {
         sections.removeAll()
         group.members.forEach { (person) in
-            let item = SectionItem(header: .name(name: person.name, amountSpent: person.amountSpent), cells: person.purchases.map { .purchase(purchase: $0) })
+            let item = Section(header: .name(name: person.name, amountSpent: person.amountSpent), cells: person.purchases.map { .purchase(purchase: $0) })
             sections.append(item)
         }
-        let addButtonItem = SectionItem(header: nil, cells: [.addButton])
+        let addButtonItem = Section(header: nil, cells: [.addButton])
         sections.append(addButtonItem)
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == segueIdentifier,
-            let vc = segue.destination as? PurchaseViewController,
-            let sender = sender as? Group {
-            vc.delegate = self
+           let vc = segue.destination as? PurchaseViewController,
+           let sender = sender as? Group {
             vc.group = sender
+            vc.updateGroupHandler = { [weak self] group in
+                guard let `self` = self else { return }
+                self.group = group
+                self.updateSections()
+                self.tableView.reloadData()
+            }
         }
     }
 }
@@ -85,24 +93,27 @@ extension PurchaseListViewController: UITableViewDataSource {
 extension PurchaseListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let model = sections[section].header
-        guard let views = Bundle.main.loadNibNamed("PurchaseSectionHeaderView", owner: self, options: nil),
-            let view = views.first as? PurchaseSectionHeaderView else { return nil }
-        
+        let view: UIView?
+
         switch model {
         case .name(let name, let amountSpent)?:
-            view.nameLabel.text = name
-            view.amountSpentLabel.text = amountSpent.description
+            let newView = tableView.dequeueReusableHeaderFooterView(PurchaseSectionHeaderView.id)
+            newView.set(name: name, amountSpent: amountSpent)
+            view = newView
         case .none:
-            return nil
+            view = nil
         }
         return view
     }
-}
-
-extension PurchaseListViewController: PurchaseDelegate {
-    func update(group: Group) {
-        self.group = group
-        updateSections()
-        tableView.reloadData()
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        let model = sections[section].header
+        
+        switch model {
+        case .name(_, _)?:
+            return nameHeaderHeight
+        case .none:
+            return defaultHeaderHeight
+        }
     }
 }

@@ -46,4 +46,22 @@ public extension UITableView {
         }
         return cell
     }
+    
+    public func registerReusableHeaderFooterView<ViewType: UITableViewHeaderFooterView>(_ reusable: Reusable<ViewType>) {
+        switch reusable {
+        case .class(let id):
+            register(ViewType.self, forHeaderFooterViewReuseIdentifier: id)
+        case .nib(let id, let name, let bundle):
+            let nib = UINib(nibName: name, bundle: bundle)
+            register(nib, forHeaderFooterViewReuseIdentifier: id)
+        }
+    }
+    
+    public func dequeueReusableHeaderFooterView<ViewType: UITableViewHeaderFooterView>(_ reusable: Reusable<ViewType>) -> ViewType {
+        let anyView = dequeueReusableHeaderFooterView(withIdentifier: reusable.id)
+        guard let view = anyView as? ViewType else {
+            fatalError("Invalid table header footer view type. Expected \(ViewType.self), but received \(type(of: anyView))")
+        }
+        return view
+    }
 }

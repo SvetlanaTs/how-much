@@ -8,12 +8,8 @@
 
 import UIKit
 
-protocol PurchaseDelegate: NSObjectProtocol {
-    func update(group: Group)
-}
-
 final class PurchaseViewController: UIViewController {
-    weak var delegate: PurchaseDelegate?
+    var updateGroupHandler: ((Group) -> Void)?
     private var name: String = ""
     private var spent: Decimal = 0
     
@@ -23,10 +19,10 @@ final class PurchaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        adjustSegmentedControl()
+        updateSegmentedControl()
     }
     
-    private func adjustSegmentedControl() {
+    private func updateSegmentedControl() {
         segmentedControl.removeAllSegments()
         for (index, person) in group.members.enumerated() {
             segmentedControl.insertSegment(withTitle: person.name, at: index, animated: false)
@@ -45,8 +41,8 @@ final class PurchaseViewController: UIViewController {
     }
     
     @IBAction func didSelect(_ sender: UIButton) {
-        guard let newGroup = groupWithPurchase() else { return }
-        delegate?.update(group: newGroup)
+        guard let group = groupWithPurchase() else { return }
+        updateGroupHandler?(group)
         dismiss(animated: true, completion: nil)
     }
     

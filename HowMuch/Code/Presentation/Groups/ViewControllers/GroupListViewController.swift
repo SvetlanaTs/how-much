@@ -46,7 +46,7 @@ final class GroupListViewController: UIViewController {
         if segue.identifier == segueIdentifier,
             let vc = segue.destination as? PurchaseListViewController,
             let sender = sender as? Group {
-            vc.group = sender
+                vc.group = sender
         }
     }
 }

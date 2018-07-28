@@ -8,7 +8,14 @@
 
 import UIKit
 
-final class PurchaseSectionHeaderView: UIView {
-    @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var amountSpentLabel: UILabel!
+final class PurchaseSectionHeaderView: UITableViewHeaderFooterView {
+    static let id = Reusable<PurchaseSectionHeaderView>.nib(id: "PurchaseSectionHeaderView", name: "PurchaseSectionHeaderView", bundle: nil)
+    
+    @IBOutlet private var nameLabel: UILabel!
+    @IBOutlet private var amountSpentLabel: UILabel!
+
+    func set(name: String, amountSpent: Decimal) {
+        nameLabel.text = name
+        amountSpentLabel.text = amountSpent.description
+    }
 }
