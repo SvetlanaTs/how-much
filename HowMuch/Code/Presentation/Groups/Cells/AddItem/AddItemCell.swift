@@ -12,7 +12,7 @@ final class AddItemCell: UITableViewCell {
     static let id = Reusable<AddItemCell>.nib(id: "AddItemCell", name: "AddItemCell", bundle: nil)
     var addItemHandler: (() -> Void)?
     
-    @IBAction func didSelect(_ sender: UIButton) {
+    @IBAction private func didSelect(_ sender: UIButton) {
         addItemHandler?()
     }
 }

@@ -11,10 +11,10 @@ import UIKit
 final class TwoMembersCell: UITableViewCell {
     static let id = Reusable<TwoMembersCell>.nib(id: "TwoMembersCell", name: "TwoMembersCell", bundle: nil)
     
-    @IBOutlet var firstPersonView: PersonDebtView!
-    @IBOutlet var secondPersonView: PersonDebtView!
-    @IBOutlet var arrowImageView: UIImageView!
-    @IBOutlet var checkButton: UIButton!
+    @IBOutlet private var firstPersonView: PersonDebtView!
+    @IBOutlet private var secondPersonView: PersonDebtView!
+    @IBOutlet private var arrowImageView: UIImageView!
+    @IBOutlet private var checkButton: UIButton!
 
     func set(group: Group) {
         update(group: group)

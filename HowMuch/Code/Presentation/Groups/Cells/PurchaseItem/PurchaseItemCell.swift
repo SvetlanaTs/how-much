@@ -11,8 +11,8 @@ import UIKit
 final class PurchaseItemCell: UITableViewCell {
     static let id = Reusable<PurchaseItemCell>.nib(id: "PurchaseItemCell", name: "PurchaseItemCell", bundle: nil)
     
-    @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var spentLabel: UILabel!
+    @IBOutlet private var titleLabel: UILabel!
+    @IBOutlet private var spentLabel: UILabel!
     
     func set(purchase: Purchase) {
         update(purchase: purchase)

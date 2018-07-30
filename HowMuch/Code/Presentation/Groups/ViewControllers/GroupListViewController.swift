@@ -15,38 +15,66 @@ final class GroupListViewController: UIViewController {
     
     @IBOutlet private var tableView: UITableView!
     
-    private let segueIdentifier = "showPurchaseList"
+    private let showPurchaseSegueId = "showPurchaseList"
+    private let addGroupSegueId = "showAddGroup"
     private var rows: [Cell] = []
+    
+    var dataService: DataService!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.registerReusableCell(TwoMembersCell.id)
         tableView.registerReusableCell(ThreeMembersCell.id)
         tableView.registerReusableCell(FourMembersCell.id)
-        updateRows()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        reloadTableView()
+    }
+    
+    private func reloadTableView() {
+        updateRows()
+        tableView.reloadData()
+    }
+
     private func updateRows() {
-        guard let data = UserDefaults.standard.data(forKey: UserDefaultsConstants.groupKey) else {
+        let groups = dataService.groups
+        
+        if groups.isEmpty {
             tableView.isHidden = true
-            UserDefaults.standard.set(false, forKey: UserDefaultsConstants.hasDataKey)
+            saveState(hasData: false)
             return
         }
-        if let groups = try? JSONDecoder().decode([Group].self, from: data) {
-            var cells: [Cell] = []
-            groups.forEach { (group) in
-                cells.append(.group(group: group))
-            }
-            rows = cells
-            UserDefaults.standard.set(true, forKey: UserDefaultsConstants.hasDataKey)
+        
+        var cells: [Cell] = []
+        groups.forEach { (group) in
+            cells.append(.group(group: group))
+        }
+        rows = cells
+        saveState(hasData: true)
+        save(groups: groups)
+    }
+    
+    private func saveState(hasData: Bool) {
+        UserDefaults.standard.set(hasData, forKey: UserDefaultsConstants.hasDataKey)
+    }
+    
+    private func save(groups: [Group]) {
+        if let data = try? JSONEncoder().encode(groups) {
+            UserDefaults.standard.set(data, forKey: UserDefaultsConstants.groupKey)
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == segueIdentifier,
+        if segue.identifier == showPurchaseSegueId,
             let vc = segue.destination as? PurchaseListViewController,
-            let sender = sender as? Group {
-                vc.group = sender
+            let sender = sender as? Int {
+                vc.dataService = dataService
+                vc.index = sender
+        }
+        if segue.identifier == addGroupSegueId, let vc = segue.destination as? AddGroupViewController {
+            vc.dataService = dataService
         }
     }
 }
@@ -58,25 +86,28 @@ extension GroupListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = rows[indexPath.row]
+        let cell: UITableViewCell
+        
         switch model {
         case .group(let group):
             switch group.members.count {
             case 2:
-                let cell = tableView.dequeueReusableCell(TwoMembersCell.id, indexPath: indexPath)
-                cell.set(group: group)
-                return cell
+                let newCell = tableView.dequeueReusableCell(TwoMembersCell.id, indexPath: indexPath)
+                newCell.set(group: group)
+                cell = newCell
             case 3:
-                let cell = tableView.dequeueReusableCell(ThreeMembersCell.id, indexPath: indexPath)
-                cell.set(group: group)
-                return cell
+                let newCell = tableView.dequeueReusableCell(ThreeMembersCell.id, indexPath: indexPath)
+                newCell.set(group: group)
+                cell = newCell
             case 4:
-                let cell = tableView.dequeueReusableCell(FourMembersCell.id, indexPath: indexPath)
-                cell.set(group: group)
-                return cell
+                let newCell = tableView.dequeueReusableCell(FourMembersCell.id, indexPath: indexPath)
+                newCell.set(group: group)
+                cell = newCell
             default:
                 return UITableViewCell()
             }
         }
+        return cell
     }
 }
 
@@ -86,8 +117,8 @@ extension GroupListViewController: UITableViewDelegate {
         
         let model = rows[indexPath.row]
         switch model {
-        case .group(let group):
-            performSegue(withIdentifier: segueIdentifier, sender: group)
+        case .group(_):
+            performSegue(withIdentifier: showPurchaseSegueId, sender: indexPath.row)
         }
     }
 }

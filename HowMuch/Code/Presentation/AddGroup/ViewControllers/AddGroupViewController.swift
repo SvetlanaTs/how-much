@@ -27,7 +27,9 @@ final class AddGroupViewController: UIViewController {
     private var index = -1
     private var needToUpdate: Bool = false
     private var activeField: UITextField?
-    private var dataService: DataService = DataService()
+    private var personDataService: PersonDataService = PersonDataService()
+    
+    var dataService: DataService!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,25 +45,25 @@ final class AddGroupViewController: UIViewController {
     }
 
     private func updateSections() -> [[Cell]] {
-        let members = dataService.members
+        let members = personDataService.members
         var persons: [Cell] = members.map { .personEditor(name: $0.name) }
         persons.append(.personEditor(name: ""))
         return [persons, [ .addButton ]]
     }
     
     private func updateModel() {
-        guard (0 ..< dataService.members.count).contains(index) else {
-            dataService.add(name: name, at: index)
+        guard (0 ..< personDataService.members.count).contains(index) else {
+            personDataService.add(name: name, at: index)
             needToUpdate = true
             return
         }
         guard !name.isEmpty else {
-            dataService.remove(at: index)
+            personDataService.remove(at: index)
             needToUpdate = true
             return
         }
-        guard name == dataService.name(at: index) else {
-            dataService.rename(name, at: index)
+        guard name == personDataService.name(at: index) else {
+            personDataService.rename(name, at: index)
             needToUpdate = true
             return
         }
@@ -75,27 +77,17 @@ final class AddGroupViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
-        if segue.identifier == segueIdentifier {
-            saveGroup()
+        if segue.identifier == segueIdentifier,
+            let navigationViewController = segue.destination as? UINavigationController,
+            let vc = navigationViewController.childViewControllers.first as? GroupListViewController {
+                saveGroup()
+                vc.dataService = dataService
         }
     }
     
     private func saveGroup() {
-        let group = Group(members: dataService.members)
-        
-        guard let data = UserDefaults.standard.data(forKey: UserDefaultsConstants.groupKey) else {
-            if let data = try? JSONEncoder().encode([group]) {
-                UserDefaults.standard.set(data, forKey: UserDefaultsConstants.groupKey)
-            }
-            return
-        }
-        if var groups = try? JSONDecoder().decode([Group].self, from: data) {
-            groups.append(group)
-            
-            if let data = try? JSONEncoder().encode(groups) {
-                UserDefaults.standard.set(data, forKey: UserDefaultsConstants.groupKey)
-            }
-        }
+        let group = Group(members: personDataService.members)
+        dataService.add(group: group)
     }
 }
 
@@ -110,29 +102,30 @@ extension AddGroupViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = sections[indexPath.section][indexPath.row]
+        let cell: UITableViewCell
         switch model {
         case .personEditor(let name):
-            let cell = tableView.dequeueReusableCell(NameInputCell.id, indexPath: indexPath)
-            cell.textField.delegate = self
-            cell.textField.text = name
-            cell.editingChanged = { [weak self] text in
+            let newCell = tableView.dequeueReusableCell(NameInputCell.id, indexPath: indexPath)
+            newCell.set(text: name, delegate: self)
+            newCell.editingChanged = { [weak self] text in
                 guard let `self` = self, let text = text else { return }
                 self.name = text
                 self.index = indexPath.row
                 self.updateModel()
             }
-            return cell
+            cell = newCell
         case .addButton:
-            let cell = tableView.dequeueReusableCell(AddButtonCell.id, indexPath: indexPath)
-            cell.addItemHandler = { [weak self] in
+            let newCell = tableView.dequeueReusableCell(AddButtonCell.id, indexPath: indexPath)
+            newCell.addItemHandler = { [weak self] in
                 guard let `self` = self else { return }
                 if self.needToUpdate {
                     self.reloadTableView()
                     self.needToUpdate = false
                 }
             }
-            return cell
+            cell = newCell
         }
+        return cell
     }
 }
 

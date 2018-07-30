@@ -14,8 +14,12 @@ final class PurchaseSectionHeaderView: UITableViewHeaderFooterView {
     @IBOutlet private var nameLabel: UILabel!
     @IBOutlet private var amountSpentLabel: UILabel!
 
-    func set(name: String, amountSpent: Decimal) {
-        nameLabel.text = name
-        amountSpentLabel.text = amountSpent.description
+    func set(person: Person) {
+        update(person: person)
+    }
+    
+    private func update(person: Person) {
+        nameLabel.text = person.name
+        amountSpentLabel.text = person.amountSpent.description
     }
 }

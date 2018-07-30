@@ -23,6 +23,7 @@
 		DA265EA32108F9E200C871B3 /* AddItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA265EA12108F9E200C871B3 /* AddItemCell.xib */; };
 		DA265EA9210A05CA00C871B3 /* PurchaseSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA265EA8210A05CA00C871B3 /* PurchaseSectionHeaderView.swift */; };
 		DA265EAB210A06C300C871B3 /* PurchaseSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA265EAA210A06C300C871B3 /* PurchaseSectionHeaderView.xib */; };
+		DA356B44210F027A0076D953 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA356B43210F027A0076D953 /* DataService.swift */; };
 		DA67118C20F48379000F98EB /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA67118B20F48379000F98EB /* Purchase.swift */; };
 		DA67118E20F48385000F98EB /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA67118D20F48385000F98EB /* Group.swift */; };
 		DA67119020F48390000F98EB /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA67118F20F48390000F98EB /* Person.swift */; };
@@ -39,7 +40,7 @@
 		DAD6B67B20F6661300E453DD /* AddButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6B67920F6661300E453DD /* AddButtonCell.swift */; };
 		DAD6B67C20F6661300E453DD /* AddButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAD6B67A20F6661300E453DD /* AddButtonCell.xib */; };
 		DAD6B68620F7E59000E453DD /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6B68520F7E59000E453DD /* Reusable.swift */; };
-		DAD8FA712105BB91009D7049 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD8FA702105BB91009D7049 /* DataService.swift */; };
+		DAD8FA712105BB91009D7049 /* PersonDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD8FA702105BB91009D7049 /* PersonDataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		DA265EA12108F9E200C871B3 /* AddItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddItemCell.xib; sourceTree = "<group>"; };
 		DA265EA8210A05CA00C871B3 /* PurchaseSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseSectionHeaderView.swift; sourceTree = "<group>"; };
 		DA265EAA210A06C300C871B3 /* PurchaseSectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PurchaseSectionHeaderView.xib; sourceTree = "<group>"; };
+		DA356B43210F027A0076D953 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		DA67118B20F48379000F98EB /* Purchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
 		DA67118D20F48385000F98EB /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		DA67118F20F48390000F98EB /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
@@ -89,7 +91,7 @@
 		DAD6B67920F6661300E453DD /* AddButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonCell.swift; sourceTree = "<group>"; };
 		DAD6B67A20F6661300E453DD /* AddButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddButtonCell.xib; sourceTree = "<group>"; };
 		DAD6B68520F7E59000E453DD /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
-		DAD8FA702105BB91009D7049 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		DAD8FA702105BB91009D7049 /* PersonDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -348,7 +350,8 @@
 		DAD6B68720F92D8200E453DD /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				DAD8FA702105BB91009D7049 /* DataService.swift */,
+				DAD8FA702105BB91009D7049 /* PersonDataService.swift */,
+				DA356B43210F027A0076D953 /* DataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -478,10 +481,11 @@
 				DA02A70020F3A7EC003C06A4 /* AppDelegate.swift in Sources */,
 				DA265E9E2108E30800C871B3 /* PurchaseViewController.swift in Sources */,
 				DAD6B67B20F6661300E453DD /* AddButtonCell.swift in Sources */,
+				DA356B44210F027A0076D953 /* DataService.swift in Sources */,
 				DA67118E20F48385000F98EB /* Group.swift in Sources */,
 				DAD6B67420F665BD00E453DD /* NameInputCell.swift in Sources */,
 				DA94DA1A2102033700A4CC65 /* ThreeMembersCell.swift in Sources */,
-				DAD8FA712105BB91009D7049 /* DataService.swift in Sources */,
+				DAD8FA712105BB91009D7049 /* PersonDataService.swift in Sources */,
 				DA94DA24210234E700A4CC65 /* PersonDebtView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
