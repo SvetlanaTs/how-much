@@ -11,17 +11,17 @@ import UIKit
 final class FourMembersCell: UITableViewCell {
     static let id = Reusable<FourMembersCell>.nib(id: "FourMembersCell", name: "FourMembersCell", bundle: nil)
     
-    @IBOutlet var firstPersonView: PersonDebtView!
-    @IBOutlet var secondPersonView: PersonDebtView!
-    @IBOutlet var thirdPersonView: PersonDebtView!
-    @IBOutlet var fourthPersonView: PersonDebtView!
+    @IBOutlet private var firstPersonView: PersonDebtView!
+    @IBOutlet private var secondPersonView: PersonDebtView!
+    @IBOutlet private var thirdPersonView: PersonDebtView!
+    @IBOutlet private var fourthPersonView: PersonDebtView!
     
-    @IBOutlet var leftArrowImageView: UIImageView!
-    @IBOutlet var rightArrowImageView: UIImageView!
-    @IBOutlet var topArrowImageView: UIImageView!
-    @IBOutlet var topDebtLabel: UILabel!
+    @IBOutlet private var leftArrowImageView: UIImageView!
+    @IBOutlet private var rightArrowImageView: UIImageView!
+    @IBOutlet private var topArrowImageView: UIImageView!
+    @IBOutlet private var topDebtLabel: UILabel!
     
-    @IBOutlet var checkButton: UIButton!
+    @IBOutlet private var checkButton: UIButton!
 
     func set(group: Group) {
         update(group: group)

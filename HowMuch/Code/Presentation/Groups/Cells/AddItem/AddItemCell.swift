@@ -1,15 +1,15 @@
 //
-//  AddButtonCell.swift
+//  AddItemCell.swift
 //  HowMuch
 //
-//  Created by Svetlana T on 11.07.2018.
+//  Created by Svetlana T on 25.07.2018.
 //  Copyright © 2018 Nemis. All rights reserved.
 //
 
 import UIKit
 
-final class AddButtonCell: UITableViewCell {
-    static let id = Reusable<AddButtonCell>.nib(id: "AddButtonCell", name: "AddButtonCell", bundle: nil)
+final class AddItemCell: UITableViewCell {
+    static let id = Reusable<AddItemCell>.nib(id: "AddItemCell", name: "AddItemCell", bundle: nil)
     var addItemHandler: (() -> Void)?
     
     @IBAction private func didSelect(_ sender: UIButton) {
