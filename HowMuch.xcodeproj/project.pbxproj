@@ -14,15 +14,33 @@
 		DA02A71520F3A7EF003C06A4 /* HowMuchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02A71420F3A7EF003C06A4 /* HowMuchTests.swift */; };
 		DA02A72A20F3AAE2003C06A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA02A72920F3AAE2003C06A4 /* Main.storyboard */; };
 		DA02A73720F3AC8A003C06A4 /* AddGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02A73620F3AC8A003C06A4 /* AddGroupViewController.swift */; };
+		DA051E2621073C6D003BD4F1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA051E2521073C6D003BD4F1 /* Constants.swift */; };
+		DA051E28210752F2003BD4F1 /* PurchaseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA051E27210752F2003BD4F1 /* PurchaseListViewController.swift */; };
+		DA265E9921075FF800C871B3 /* PurchaseItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA265E9721075FF800C871B3 /* PurchaseItemCell.swift */; };
+		DA265E9A21075FF800C871B3 /* PurchaseItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA265E9821075FF800C871B3 /* PurchaseItemCell.xib */; };
+		DA265E9E2108E30800C871B3 /* PurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA265E9D2108E30800C871B3 /* PurchaseViewController.swift */; };
+		DA265EA22108F9E200C871B3 /* AddItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA265EA02108F9E200C871B3 /* AddItemCell.swift */; };
+		DA265EA32108F9E200C871B3 /* AddItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA265EA12108F9E200C871B3 /* AddItemCell.xib */; };
+		DA265EA9210A05CA00C871B3 /* PurchaseSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA265EA8210A05CA00C871B3 /* PurchaseSectionHeaderView.swift */; };
+		DA265EAB210A06C300C871B3 /* PurchaseSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA265EAA210A06C300C871B3 /* PurchaseSectionHeaderView.xib */; };
+		DA356B44210F027A0076D953 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA356B43210F027A0076D953 /* DataService.swift */; };
 		DA67118C20F48379000F98EB /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA67118B20F48379000F98EB /* Purchase.swift */; };
 		DA67118E20F48385000F98EB /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA67118D20F48385000F98EB /* Group.swift */; };
 		DA67119020F48390000F98EB /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA67118F20F48390000F98EB /* Person.swift */; };
+		DA94DA152102033000A4CC65 /* TwoMembersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA94DA132102032F00A4CC65 /* TwoMembersCell.xib */; };
+		DA94DA162102033000A4CC65 /* TwoMembersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA94DA142102033000A4CC65 /* TwoMembersCell.swift */; };
+		DA94DA192102033700A4CC65 /* ThreeMembersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA94DA172102033700A4CC65 /* ThreeMembersCell.xib */; };
+		DA94DA1A2102033700A4CC65 /* ThreeMembersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA94DA182102033700A4CC65 /* ThreeMembersCell.swift */; };
+		DA94DA1D2102035900A4CC65 /* FourMembersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA94DA1B2102035800A4CC65 /* FourMembersCell.swift */; };
+		DA94DA1E2102035900A4CC65 /* FourMembersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA94DA1C2102035900A4CC65 /* FourMembersCell.xib */; };
+		DA94DA23210234E700A4CC65 /* PersonDebtView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA94DA21210234E700A4CC65 /* PersonDebtView.xib */; };
+		DA94DA24210234E700A4CC65 /* PersonDebtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA94DA22210234E700A4CC65 /* PersonDebtView.swift */; };
 		DAD6B67420F665BD00E453DD /* NameInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6B67220F665BD00E453DD /* NameInputCell.swift */; };
 		DAD6B67520F665BD00E453DD /* NameInputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAD6B67320F665BD00E453DD /* NameInputCell.xib */; };
 		DAD6B67B20F6661300E453DD /* AddButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6B67920F6661300E453DD /* AddButtonCell.swift */; };
 		DAD6B67C20F6661300E453DD /* AddButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAD6B67A20F6661300E453DD /* AddButtonCell.xib */; };
 		DAD6B68620F7E59000E453DD /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6B68520F7E59000E453DD /* Reusable.swift */; };
-		DAD6B68920F92DC100E453DD /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6B68820F92DC100E453DD /* DataService.swift */; };
+		DAD8FA712105BB91009D7049 /* PersonDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD8FA702105BB91009D7049 /* PersonDataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,15 +65,33 @@
 		DA02A71620F3A7EF003C06A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA02A72920F3AAE2003C06A4 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DA02A73620F3AC8A003C06A4 /* AddGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupViewController.swift; sourceTree = "<group>"; };
+		DA051E2521073C6D003BD4F1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DA051E27210752F2003BD4F1 /* PurchaseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseListViewController.swift; sourceTree = "<group>"; };
+		DA265E9721075FF800C871B3 /* PurchaseItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseItemCell.swift; sourceTree = "<group>"; };
+		DA265E9821075FF800C871B3 /* PurchaseItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PurchaseItemCell.xib; sourceTree = "<group>"; };
+		DA265E9D2108E30800C871B3 /* PurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseViewController.swift; sourceTree = "<group>"; };
+		DA265EA02108F9E200C871B3 /* AddItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemCell.swift; sourceTree = "<group>"; };
+		DA265EA12108F9E200C871B3 /* AddItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddItemCell.xib; sourceTree = "<group>"; };
+		DA265EA8210A05CA00C871B3 /* PurchaseSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseSectionHeaderView.swift; sourceTree = "<group>"; };
+		DA265EAA210A06C300C871B3 /* PurchaseSectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PurchaseSectionHeaderView.xib; sourceTree = "<group>"; };
+		DA356B43210F027A0076D953 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		DA67118B20F48379000F98EB /* Purchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
 		DA67118D20F48385000F98EB /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		DA67118F20F48390000F98EB /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		DA94DA132102032F00A4CC65 /* TwoMembersCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwoMembersCell.xib; sourceTree = "<group>"; };
+		DA94DA142102033000A4CC65 /* TwoMembersCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoMembersCell.swift; sourceTree = "<group>"; };
+		DA94DA172102033700A4CC65 /* ThreeMembersCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThreeMembersCell.xib; sourceTree = "<group>"; };
+		DA94DA182102033700A4CC65 /* ThreeMembersCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreeMembersCell.swift; sourceTree = "<group>"; };
+		DA94DA1B2102035800A4CC65 /* FourMembersCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourMembersCell.swift; sourceTree = "<group>"; };
+		DA94DA1C2102035900A4CC65 /* FourMembersCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FourMembersCell.xib; sourceTree = "<group>"; };
+		DA94DA21210234E700A4CC65 /* PersonDebtView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonDebtView.xib; sourceTree = "<group>"; };
+		DA94DA22210234E700A4CC65 /* PersonDebtView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonDebtView.swift; sourceTree = "<group>"; };
 		DAD6B67220F665BD00E453DD /* NameInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameInputCell.swift; sourceTree = "<group>"; };
 		DAD6B67320F665BD00E453DD /* NameInputCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NameInputCell.xib; sourceTree = "<group>"; };
 		DAD6B67920F6661300E453DD /* AddButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonCell.swift; sourceTree = "<group>"; };
 		DAD6B67A20F6661300E453DD /* AddButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddButtonCell.xib; sourceTree = "<group>"; };
 		DAD6B68520F7E59000E453DD /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
-		DAD6B68820F92DC100E453DD /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		DAD8FA702105BB91009D7049 /* PersonDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +150,42 @@
 			path = HowMuchTests;
 			sourceTree = "<group>";
 		};
+		DA265E9621075F6400C871B3 /* PurchaseItem */ = {
+			isa = PBXGroup;
+			children = (
+				DA265E9721075FF800C871B3 /* PurchaseItemCell.swift */,
+				DA265E9821075FF800C871B3 /* PurchaseItemCell.xib */,
+			);
+			path = PurchaseItem;
+			sourceTree = "<group>";
+		};
+		DA265E9F2108F30C00C871B3 /* AddItem */ = {
+			isa = PBXGroup;
+			children = (
+				DA265EA02108F9E200C871B3 /* AddItemCell.swift */,
+				DA265EA12108F9E200C871B3 /* AddItemCell.xib */,
+			);
+			path = AddItem;
+			sourceTree = "<group>";
+		};
+		DA265EA6210A057900C871B3 /* PersonDebt */ = {
+			isa = PBXGroup;
+			children = (
+				DA94DA22210234E700A4CC65 /* PersonDebtView.swift */,
+				DA94DA21210234E700A4CC65 /* PersonDebtView.xib */,
+			);
+			path = PersonDebt;
+			sourceTree = "<group>";
+		};
+		DA265EA7210A058900C871B3 /* PurchaseSectionHeader */ = {
+			isa = PBXGroup;
+			children = (
+				DA265EA8210A05CA00C871B3 /* PurchaseSectionHeaderView.swift */,
+				DA265EAA210A06C300C871B3 /* PurchaseSectionHeaderView.xib */,
+			);
+			path = PurchaseSectionHeader;
+			sourceTree = "<group>";
+		};
 		DA67117D20F3F0E7000F98EB /* Code */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +220,8 @@
 			isa = PBXGroup;
 			children = (
 				DA67118320F3F1E0000F98EB /* ViewControllers */,
+				DA94DA0F2102026200A4CC65 /* Cells */,
+				DA94DA1F2102347F00A4CC65 /* Views */,
 			);
 			path = Groups;
 			sourceTree = "<group>";
@@ -156,6 +230,8 @@
 			isa = PBXGroup;
 			children = (
 				DA02A70120F3A7EC003C06A4 /* GroupListViewController.swift */,
+				DA051E27210752F2003BD4F1 /* PurchaseListViewController.swift */,
+				DA265E9D2108E30800C871B3 /* PurchaseViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -185,6 +261,54 @@
 				DA67118D20F48385000F98EB /* Group.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		DA94DA0F2102026200A4CC65 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DA265E9F2108F30C00C871B3 /* AddItem */,
+				DA265E9621075F6400C871B3 /* PurchaseItem */,
+				DA94DA10210202F500A4CC65 /* TwoMembers */,
+				DA94DA112102030900A4CC65 /* ThreeMembers */,
+				DA94DA122102031200A4CC65 /* FourMembers */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		DA94DA10210202F500A4CC65 /* TwoMembers */ = {
+			isa = PBXGroup;
+			children = (
+				DA94DA142102033000A4CC65 /* TwoMembersCell.swift */,
+				DA94DA132102032F00A4CC65 /* TwoMembersCell.xib */,
+			);
+			path = TwoMembers;
+			sourceTree = "<group>";
+		};
+		DA94DA112102030900A4CC65 /* ThreeMembers */ = {
+			isa = PBXGroup;
+			children = (
+				DA94DA182102033700A4CC65 /* ThreeMembersCell.swift */,
+				DA94DA172102033700A4CC65 /* ThreeMembersCell.xib */,
+			);
+			path = ThreeMembers;
+			sourceTree = "<group>";
+		};
+		DA94DA122102031200A4CC65 /* FourMembers */ = {
+			isa = PBXGroup;
+			children = (
+				DA94DA1B2102035800A4CC65 /* FourMembersCell.swift */,
+				DA94DA1C2102035900A4CC65 /* FourMembersCell.xib */,
+			);
+			path = FourMembers;
+			sourceTree = "<group>";
+		};
+		DA94DA1F2102347F00A4CC65 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DA265EA7210A058900C871B3 /* PurchaseSectionHeader */,
+				DA265EA6210A057900C871B3 /* PersonDebt */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		DAD6B67120F6658500E453DD /* Cells */ = {
@@ -218,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				DAD6B68520F7E59000E453DD /* Reusable.swift */,
+				DA051E2521073C6D003BD4F1 /* Constants.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -225,7 +350,8 @@
 		DAD6B68720F92D8200E453DD /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				DAD6B68820F92DC100E453DD /* DataService.swift */,
+				DAD8FA702105BB91009D7049 /* PersonDataService.swift */,
+				DA356B43210F027A0076D953 /* DataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -311,8 +437,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA265EA32108F9E200C871B3 /* AddItemCell.xib in Resources */,
 				DA02A72A20F3AAE2003C06A4 /* Main.storyboard in Resources */,
+				DA94DA23210234E700A4CC65 /* PersonDebtView.xib in Resources */,
 				DA02A70A20F3A7EF003C06A4 /* LaunchScreen.storyboard in Resources */,
+				DA265E9A21075FF800C871B3 /* PurchaseItemCell.xib in Resources */,
+				DA94DA152102033000A4CC65 /* TwoMembersCell.xib in Resources */,
+				DA265EAB210A06C300C871B3 /* PurchaseSectionHeaderView.xib in Resources */,
+				DA94DA192102033700A4CC65 /* ThreeMembersCell.xib in Resources */,
+				DA94DA1E2102035900A4CC65 /* FourMembersCell.xib in Resources */,
 				DAD6B67520F665BD00E453DD /* NameInputCell.xib in Resources */,
 				DA02A70720F3A7EF003C06A4 /* HowMuch.xcassets in Resources */,
 				DAD6B67C20F6661300E453DD /* AddButtonCell.xib in Resources */,
@@ -334,15 +467,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA02A73720F3AC8A003C06A4 /* AddGroupViewController.swift in Sources */,
+				DA265E9921075FF800C871B3 /* PurchaseItemCell.swift in Sources */,
+				DA94DA1D2102035900A4CC65 /* FourMembersCell.swift in Sources */,
+				DA051E28210752F2003BD4F1 /* PurchaseListViewController.swift in Sources */,
 				DA67118C20F48379000F98EB /* Purchase.swift in Sources */,
 				DA02A70220F3A7EC003C06A4 /* GroupListViewController.swift in Sources */,
+				DA94DA162102033000A4CC65 /* TwoMembersCell.swift in Sources */,
+				DA051E2621073C6D003BD4F1 /* Constants.swift in Sources */,
+				DA265EA22108F9E200C871B3 /* AddItemCell.swift in Sources */,
 				DAD6B68620F7E59000E453DD /* Reusable.swift in Sources */,
+				DA265EA9210A05CA00C871B3 /* PurchaseSectionHeaderView.swift in Sources */,
 				DA67119020F48390000F98EB /* Person.swift in Sources */,
 				DA02A70020F3A7EC003C06A4 /* AppDelegate.swift in Sources */,
+				DA265E9E2108E30800C871B3 /* PurchaseViewController.swift in Sources */,
 				DAD6B67B20F6661300E453DD /* AddButtonCell.swift in Sources */,
+				DA356B44210F027A0076D953 /* DataService.swift in Sources */,
 				DA67118E20F48385000F98EB /* Group.swift in Sources */,
 				DAD6B67420F665BD00E453DD /* NameInputCell.swift in Sources */,
-				DAD6B68920F92DC100E453DD /* DataService.swift in Sources */,
+				DA94DA1A2102033700A4CC65 /* ThreeMembersCell.swift in Sources */,
+				DAD8FA712105BB91009D7049 /* PersonDataService.swift in Sources */,
+				DA94DA24210234E700A4CC65 /* PersonDebtView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

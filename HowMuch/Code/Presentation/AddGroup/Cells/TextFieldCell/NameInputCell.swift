@@ -11,9 +11,18 @@ import UIKit
 final class NameInputCell: UITableViewCell {
     static let id = Reusable<NameInputCell>.nib(id: "NameInputCell", name: "NameInputCell", bundle: nil)
     var editingChanged: ((String?) -> Void)?
-    @IBOutlet var textField: UITextField!
+    @IBOutlet private var textField: UITextField!
     
-    @IBAction func textFieldEditingChanged(_ sender: UITextField) {
+    @IBAction private func textFieldEditingChanged(_ sender: UITextField) {
         editingChanged?(sender.text)
+    }
+    
+    func set(text: String, delegate: UITextFieldDelegate) {
+        update(text: text, delegate: delegate)
+    }
+    
+    private func update(text: String, delegate: UITextFieldDelegate) {
+        textField.text = text
+        textField.delegate = delegate
     }
 }

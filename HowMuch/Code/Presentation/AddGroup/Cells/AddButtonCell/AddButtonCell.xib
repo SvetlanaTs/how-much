@@ -25,7 +25,7 @@
                             <color key="titleColor" red="0.066704644097222224" green="0.064802900277777811" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
                         <connections>
-                            <action selector="addFriend:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="BzW-VU-BR6"/>
+                            <action selector="didSelect:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="BzW-VU-BR6"/>
                         </connections>
                     </button>
                 </subviews>

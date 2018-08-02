@@ -14,29 +14,29 @@ final class AddGroupViewController: UIViewController {
         case addButton
     }
     
-    struct AddGroupConstants {
-        static let textFieldCellHeight: CGFloat = 64.0
-        static let addButtonCellHeight: CGFloat = 56.0
-        static let membersMinValue = 2
-        static let membersMaxValue = 4
-        static let segueIdentifier = "show-group"
-    }
-    
     @IBOutlet private var tableView: UITableView!
     
-    private var dataService = DataService()
+    private let textFieldCellHeight: CGFloat = 64.0
+    private let addButtonCellHeight: CGFloat = 56.0
+    private let membersMinValue = 2
+    private let membersMaxValue = 4
+    private let segueIdentifier = "showGroup"
+    
     private var sections: [[Cell]] = []
     private var name = ""
     private var index = -1
     private var needToUpdate: Bool = false
     private var activeField: UITextField?
+    private var personDataService: PersonDataService = PersonDataService()
+    
+    var dataService: DataService!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         registerForKeyboardNotifications()
         tableView.registerReusableCell(NameInputCell.id)
         tableView.registerReusableCell(AddButtonCell.id)
-        sections = configureSections()
+        sections = updateSections()
     }
 
     private func registerForKeyboardNotifications() {
@@ -44,41 +44,50 @@ final class AddGroupViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(_:)), name: .UIKeyboardWillHide, object: nil)
     }
 
-    private func configureSections() -> [[Cell]] {
-        let members = dataService.members
-        var persons: [Cell] = members.map{ .personEditor(name: $0.name) }
+    private func updateSections() -> [[Cell]] {
+        let members = personDataService.members
+        var persons: [Cell] = members.map { .personEditor(name: $0.name) }
         persons.append(.personEditor(name: ""))
         return [persons, [ .addButton ]]
     }
     
     private func updateModel() {
-        guard (0 ..< dataService.members.count).contains(index) else {
-            dataService.add(name: name, at: index)
+        guard (0 ..< personDataService.members.count).contains(index) else {
+            personDataService.add(name: name, at: index)
             needToUpdate = true
             return
         }
         guard !name.isEmpty else {
-            dataService.remove(at: index)
+            personDataService.remove(at: index)
             needToUpdate = true
             return
         }
-        guard name == dataService.name(at: index) else {
-            dataService.rename(name, at: index)
+        guard name == personDataService.name(at: index) else {
+            personDataService.rename(name, at: index)
             needToUpdate = true
             return
         }
     }
     
     private func reloadTableView() {
-        sections = configureSections()
+        sections = updateSections()
         tableView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == AddGroupConstants.segueIdentifier {
-            guard let vc = segue.destination as? GroupListViewController else { return }
-            vc.groups = dataService.members.map { Group(members: [$0]) }
+        super.prepare(for: segue, sender: sender)
+        
+        if segue.identifier == segueIdentifier,
+            let navigationViewController = segue.destination as? UINavigationController,
+            let vc = navigationViewController.childViewControllers.first as? GroupListViewController {
+                saveGroup()
+                vc.dataService = dataService
         }
+    }
+    
+    private func saveGroup() {
+        let group = Group(members: personDataService.members)
+        dataService.add(group: group)
     }
 }
 
@@ -93,29 +102,30 @@ extension AddGroupViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = sections[indexPath.section][indexPath.row]
+        let cell: UITableViewCell
         switch model {
         case .personEditor(let name):
-            let cell = tableView.dequeueReusableCell(NameInputCell.id, indexPath: indexPath)
-            cell.textField.delegate = self
-            cell.textField.text = name
-            cell.editingChanged = { [weak self] text in
+            let newCell = tableView.dequeueReusableCell(NameInputCell.id, indexPath: indexPath)
+            newCell.set(text: name, delegate: self)
+            newCell.editingChanged = { [weak self] text in
                 guard let `self` = self, let text = text else { return }
                 self.name = text
                 self.index = indexPath.row
                 self.updateModel()
             }
-            return cell
+            cell = newCell
         case .addButton:
-            let cell = tableView.dequeueReusableCell(AddButtonCell.id, indexPath: indexPath)
-            cell.addNameInput = { [weak self] in
+            let newCell = tableView.dequeueReusableCell(AddButtonCell.id, indexPath: indexPath)
+            newCell.addItemHandler = { [weak self] in
                 guard let `self` = self else { return }
                 if self.needToUpdate {
                     self.reloadTableView()
                     self.needToUpdate = false
                 }
             }
-            return cell
+            cell = newCell
         }
+        return cell
     }
 }
 
@@ -124,9 +134,9 @@ extension AddGroupViewController: UITableViewDelegate {
         let model = sections[indexPath.section][indexPath.row]
         switch model {
         case .personEditor(_):
-            return AddGroupConstants.textFieldCellHeight
+            return textFieldCellHeight
         case .addButton:
-            return AddGroupConstants.addButtonCellHeight
+            return addButtonCellHeight
         }
     }
 }
