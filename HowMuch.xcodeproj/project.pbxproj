@@ -27,6 +27,7 @@
 		DA67118C20F48379000F98EB /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA67118B20F48379000F98EB /* Purchase.swift */; };
 		DA67118E20F48385000F98EB /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA67118D20F48385000F98EB /* Group.swift */; };
 		DA67119020F48390000F98EB /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA67118F20F48390000F98EB /* Person.swift */; };
+		DA8C139521147755002041E4 /* DebtDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8C139421147755002041E4 /* DebtDataService.swift */; };
 		DA94DA152102033000A4CC65 /* TwoMembersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA94DA132102032F00A4CC65 /* TwoMembersCell.xib */; };
 		DA94DA162102033000A4CC65 /* TwoMembersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA94DA142102033000A4CC65 /* TwoMembersCell.swift */; };
 		DA94DA192102033700A4CC65 /* ThreeMembersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA94DA172102033700A4CC65 /* ThreeMembersCell.xib */; };
@@ -78,6 +79,7 @@
 		DA67118B20F48379000F98EB /* Purchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
 		DA67118D20F48385000F98EB /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		DA67118F20F48390000F98EB /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		DA8C139421147755002041E4 /* DebtDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtDataService.swift; sourceTree = "<group>"; };
 		DA94DA132102032F00A4CC65 /* TwoMembersCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwoMembersCell.xib; sourceTree = "<group>"; };
 		DA94DA142102033000A4CC65 /* TwoMembersCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoMembersCell.swift; sourceTree = "<group>"; };
 		DA94DA172102033700A4CC65 /* ThreeMembersCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThreeMembersCell.xib; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 			children = (
 				DAD8FA702105BB91009D7049 /* PersonDataService.swift */,
 				DA356B43210F027A0076D953 /* DataService.swift */,
+				DA8C139421147755002041E4 /* DebtDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -480,6 +483,7 @@
 				DA67119020F48390000F98EB /* Person.swift in Sources */,
 				DA02A70020F3A7EC003C06A4 /* AppDelegate.swift in Sources */,
 				DA265E9E2108E30800C871B3 /* PurchaseViewController.swift in Sources */,
+				DA8C139521147755002041E4 /* DebtDataService.swift in Sources */,
 				DAD6B67B20F6661300E453DD /* AddButtonCell.swift in Sources */,
 				DA356B44210F027A0076D953 /* DataService.swift in Sources */,
 				DA67118E20F48385000F98EB /* Group.swift in Sources */,

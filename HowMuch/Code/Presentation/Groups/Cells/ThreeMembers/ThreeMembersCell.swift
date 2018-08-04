@@ -18,19 +18,35 @@ final class ThreeMembersCell: UITableViewCell {
     @IBOutlet private var leftArrowImageView: UIImageView!
     @IBOutlet private var rightArrowImageView: UIImageView!
     @IBOutlet private var checkButton: UIButton!
+    
+    private let duration: TimeInterval = 0.8
 
     func set(group: Group) {
         update(group: group)
     }
     
     private func update(group: Group) {
-        guard let firstPerson = group.members.first, let thirdPerson = group.members.last else { return }
-        let secondPerson = group.members[1]
-        firstPersonView.nameLabel.text = firstPerson.name
-        firstPersonView.debtLabel.text = firstPerson.amountSpent.description
-        secondPersonView.nameLabel.text = secondPerson.name
-        secondPersonView.debtLabel.text = secondPerson.amountSpent.description
-        thirdPersonView.nameLabel.text = thirdPerson.name
-        thirdPersonView.debtLabel.text = thirdPerson.amountSpent.description
+        let debtGroup = DebtDataService.getDebtGroup(group)
+        guard let firstPerson = debtGroup.debtors.first, let thirdPerson = debtGroup.debtors.last,
+            let leftArrow = debtGroup.arrows.first, let rightArrow = debtGroup.arrows.last else { return }
+        let secondPerson = debtGroup.debtors[1]
+        
+        firstPersonView.nameLabel.text = firstPerson.person.name
+        firstPersonView.debtLabel.text = stringFromDecimal(firstPerson.debt)
+        secondPersonView.nameLabel.text = secondPerson.person.name
+        secondPersonView.debtLabel.text = stringFromDecimal(secondPerson.debt)
+        thirdPersonView.nameLabel.text = thirdPerson.person.name
+        thirdPersonView.debtLabel.text = stringFromDecimal(thirdPerson.debt)
+        UIView.animate(withDuration: duration) {
+            self.leftArrowImageView.transform = CGAffineTransform(rotationAngle: leftArrow.angle)
+            self.rightArrowImageView.transform = CGAffineTransform(rotationAngle: rightArrow.angle)
+        }
+    }
+    
+    private func stringFromDecimal(_ value: Decimal) -> String {
+        var decimal = value
+        var roundedDecimal: Decimal = Decimal()
+        NSDecimalRound(&roundedDecimal, &decimal, 2, .plain)
+        return roundedDecimal.description
     }
 }
