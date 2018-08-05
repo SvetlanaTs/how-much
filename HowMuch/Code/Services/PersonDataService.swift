@@ -12,12 +12,12 @@ final class PersonDataService {
     private(set) var members: [Person] = []
     
     func add(name: String, at index: Int) {
-        let person = Person(name: name, purchases: [])
+        let person = Person(name: name, purchases: [], debt: 0.0)
         members.insert(person, at: index)
     }
     
     func rename(_ name: String, at index: Int) {
-        let person = Person(name: name, purchases: [])
+        let person = Person(name: name, purchases: [], debt: 0.0)
         members[index] = person
     }
     

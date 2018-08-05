@@ -19,34 +19,46 @@ final class ThreeMembersCell: UITableViewCell {
     @IBOutlet private var rightArrowImageView: UIImageView!
     @IBOutlet private var checkButton: UIButton!
     
-    private let duration: TimeInterval = 0.8
+    private let rotationAngle: CGFloat = .pi / 2
+    private let oneDebtor = 1
+    private let decimalPlaces = 2
 
     func set(group: Group) {
         update(group: group)
     }
     
     private func update(group: Group) {
-        let debtGroup = DebtDataService.getDebtGroup(group)
-        guard let firstPerson = debtGroup.debtors.first, let thirdPerson = debtGroup.debtors.last,
-            let leftArrow = debtGroup.arrows.first, let rightArrow = debtGroup.arrows.last else { return }
-        let secondPerson = debtGroup.debtors[1]
+        let debtService = DebtDataService(group: group)
+        let debtGroup = debtService.debtGroup()
+        var debtors: [Person] = []
+        var creditors: [Person] = []
         
-        firstPersonView.nameLabel.text = firstPerson.person.name
-        firstPersonView.debtLabel.text = stringFromDecimal(firstPerson.debt)
-        secondPersonView.nameLabel.text = secondPerson.person.name
-        secondPersonView.debtLabel.text = stringFromDecimal(secondPerson.debt)
-        thirdPersonView.nameLabel.text = thirdPerson.person.name
-        thirdPersonView.debtLabel.text = stringFromDecimal(thirdPerson.debt)
-        UIView.animate(withDuration: duration) {
-            self.leftArrowImageView.transform = CGAffineTransform(rotationAngle: leftArrow.angle)
-            self.rightArrowImageView.transform = CGAffineTransform(rotationAngle: rightArrow.angle)
+        debtGroup.members.forEach { person in
+            person.debt > 0.0 ? debtors.append(person) : creditors.append(person)
+        }
+        
+        guard let firstPerson = (debtors.count == oneDebtor) ? creditors.first : debtors.first,
+            let secondPerson = (debtors.count == oneDebtor) ? debtors.first : creditors.first,
+            let thirdPerson = (debtors.count == oneDebtor) ? creditors.last : debtors.last else { return }
+        
+        firstPersonView.nameLabel.text = firstPerson.name
+        firstPersonView.debtLabel.text = stringFromDecimal(abs(firstPerson.debt))
+        secondPersonView.nameLabel.text = secondPerson.name
+        secondPersonView.debtLabel.text = stringFromDecimal(abs(secondPerson.debt))
+        thirdPersonView.nameLabel.text = thirdPerson.name
+        thirdPersonView.debtLabel.text = stringFromDecimal(abs(thirdPerson.debt))
+        UIView.animate(withDuration: Style.Duration.arrow) {
+            let leftArrow: CGFloat = (firstPerson.debt > 0.0) ? self.rotationAngle : -self.rotationAngle
+            let rightArrow: CGFloat = (thirdPerson.debt > 0.0) ? -self.rotationAngle : self.rotationAngle
+            self.leftArrowImageView.transform = CGAffineTransform(rotationAngle: leftArrow)
+            self.rightArrowImageView.transform = CGAffineTransform(rotationAngle: rightArrow)
         }
     }
     
     private func stringFromDecimal(_ value: Decimal) -> String {
         var decimal = value
         var roundedDecimal: Decimal = Decimal()
-        NSDecimalRound(&roundedDecimal, &decimal, 2, .plain)
+        NSDecimalRound(&roundedDecimal, &decimal, decimalPlaces, .plain)
         return roundedDecimal.description
     }
 }
