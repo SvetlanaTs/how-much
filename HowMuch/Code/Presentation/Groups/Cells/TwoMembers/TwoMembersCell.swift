@@ -16,7 +16,7 @@ final class TwoMembersCell: UITableViewCell {
     @IBOutlet private var arrowImageView: UIImageView!
     @IBOutlet private var checkButton: UIButton!
     
-    private let noDebtString = "0.0"
+    private let noDebtString = "0"
     private let rotationAngle: CGFloat = .pi / 2
 
     func set(group: Group) {

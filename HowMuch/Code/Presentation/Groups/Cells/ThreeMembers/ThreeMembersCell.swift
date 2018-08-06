@@ -37,9 +37,9 @@ final class ThreeMembersCell: UITableViewCell {
             person.debt > 0.0 ? debtors.append(person) : creditors.append(person)
         }
         
-        guard let firstPerson = (debtors.count == oneDebtor) ? creditors.first : debtors.first,
-            let secondPerson = (debtors.count == oneDebtor) ? debtors.first : creditors.first,
-            let thirdPerson = (debtors.count == oneDebtor) ? creditors.last : debtors.last else { return }
+        guard let firstPerson = (debtors.isEmpty) ? creditors.first : (debtors.count == oneDebtor) ? creditors.first : debtors.first,
+            let secondPerson = (debtors.isEmpty) ? creditors[1] : (debtors.count == oneDebtor) ? debtors.first : creditors.first,
+            let thirdPerson = (debtors.isEmpty) ? creditors.last : (debtors.count == oneDebtor) ? creditors.last : debtors.last else { return }
         
         firstPersonView.nameLabel.text = firstPerson.name
         firstPersonView.debtLabel.text = stringFromDecimal(abs(firstPerson.debt))
