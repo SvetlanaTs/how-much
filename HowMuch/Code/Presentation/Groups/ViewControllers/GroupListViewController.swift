@@ -57,12 +57,12 @@ final class GroupListViewController: UIViewController {
     }
     
     private func saveState(hasData: Bool) {
-        UserDefaults.standard.set(hasData, forKey: Style.UserDefaults.hasDataKey)
+        UserDefaults.standard.set(hasData, forKey: Constants.UserDefaults.hasDataKey)
     }
     
     private func save(groups: [Group]) {
         if let data = try? JSONEncoder().encode(groups) {
-            UserDefaults.standard.set(data, forKey: Style.UserDefaults.groupKey)
+            UserDefaults.standard.set(data, forKey: Constants.UserDefaults.groupKey)
         }
     }
     

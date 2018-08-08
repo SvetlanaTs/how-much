@@ -21,7 +21,6 @@ final class ThreeMembersCell: UITableViewCell {
     
     private let rotationAngle: CGFloat = .pi / 2
     private let oneDebtor = 1
-    private let decimalPlaces = 2
 
     func set(group: Group) {
         update(group: group)
@@ -42,23 +41,16 @@ final class ThreeMembersCell: UITableViewCell {
             let thirdPerson = (debtors.isEmpty) ? creditors.last : (debtors.count == oneDebtor) ? creditors.last : debtors.last else { return }
         
         firstPersonView.nameLabel.text = firstPerson.name
-        firstPersonView.debtLabel.text = stringFromDecimal(abs(firstPerson.debt))
+        firstPersonView.debtLabel.text = TypeConvertor.stringFromDecimal(abs(firstPerson.debt))
         secondPersonView.nameLabel.text = secondPerson.name
-        secondPersonView.debtLabel.text = stringFromDecimal(abs(secondPerson.debt))
+        secondPersonView.debtLabel.text = TypeConvertor.stringFromDecimal(abs(secondPerson.debt))
         thirdPersonView.nameLabel.text = thirdPerson.name
-        thirdPersonView.debtLabel.text = stringFromDecimal(abs(thirdPerson.debt))
+        thirdPersonView.debtLabel.text = TypeConvertor.stringFromDecimal(abs(thirdPerson.debt))
         UIView.animate(withDuration: Style.Duration.arrow) {
             let leftArrow: CGFloat = (firstPerson.debt > 0.0) ? self.rotationAngle : -self.rotationAngle
             let rightArrow: CGFloat = (thirdPerson.debt > 0.0) ? -self.rotationAngle : self.rotationAngle
             self.leftArrowImageView.transform = CGAffineTransform(rotationAngle: leftArrow)
             self.rightArrowImageView.transform = CGAffineTransform(rotationAngle: rightArrow)
         }
-    }
-    
-    private func stringFromDecimal(_ value: Decimal) -> String {
-        var decimal = value
-        var roundedDecimal: Decimal = Decimal()
-        NSDecimalRound(&roundedDecimal, &decimal, decimalPlaces, .plain)
-        return roundedDecimal.description
     }
 }

@@ -11,20 +11,22 @@ import UIKit
 final class DebtDataService {
     private var group: Group
     private var averageAmountSpent: Decimal {
-        return group.members.map { $0.amountSpent }
+        return group.members
+            .map { $0.amountSpent }
             .reduce(0.0, +) / Decimal(group.members.count)
     }
     
     init(group: Group) {
         self.group = group
     }
-
+    
     func debtGroup() -> Group {
         let members = group.members
+        let average = averageAmountSpent
         var debtMembers: [Person] = []
         
         for var person in members {
-            let debt = averageAmountSpent - person.amountSpent
+            let debt = average - person.amountSpent
             person.debt = debt
             debtMembers.append(person)
         }

@@ -9,11 +9,6 @@
 import Foundation
 
 enum Style {
-    enum UserDefaults {
-        static let groupKey = "groups"
-        static let hasDataKey = "hasData"
-    }
-    
     enum Duration {
         static let arrow: TimeInterval = 0.8
     }
