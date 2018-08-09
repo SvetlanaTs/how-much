@@ -24,7 +24,7 @@
 		DA265EA9210A05CA00C871B3 /* PurchaseSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA265EA8210A05CA00C871B3 /* PurchaseSectionHeaderView.swift */; };
 		DA265EAB210A06C300C871B3 /* PurchaseSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA265EAA210A06C300C871B3 /* PurchaseSectionHeaderView.xib */; };
 		DA34F0CC2118B67D003B0D5E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA34F0CB2118B67D003B0D5E /* Constants.swift */; };
-		DA34F0CE2118BAD4003B0D5E /* TypeConvertor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA34F0CD2118BAD4003B0D5E /* TypeConvertor.swift */; };
+		DA34F0CE2118BAD4003B0D5E /* Decimal+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA34F0CD2118BAD4003B0D5E /* Decimal+String.swift */; };
 		DA356B44210F027A0076D953 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA356B43210F027A0076D953 /* DataService.swift */; };
 		DA67118C20F48379000F98EB /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA67118B20F48379000F98EB /* Purchase.swift */; };
 		DA67118E20F48385000F98EB /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA67118D20F48385000F98EB /* Group.swift */; };
@@ -78,7 +78,7 @@
 		DA265EA8210A05CA00C871B3 /* PurchaseSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseSectionHeaderView.swift; sourceTree = "<group>"; };
 		DA265EAA210A06C300C871B3 /* PurchaseSectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PurchaseSectionHeaderView.xib; sourceTree = "<group>"; };
 		DA34F0CB2118B67D003B0D5E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		DA34F0CD2118BAD4003B0D5E /* TypeConvertor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeConvertor.swift; sourceTree = "<group>"; };
+		DA34F0CD2118BAD4003B0D5E /* Decimal+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+String.swift"; sourceTree = "<group>"; };
 		DA356B43210F027A0076D953 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		DA67118B20F48379000F98EB /* Purchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
 		DA67118D20F48385000F98EB /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
@@ -350,7 +350,7 @@
 				DAD6B68520F7E59000E453DD /* Reusable.swift */,
 				DA051E2521073C6D003BD4F1 /* Style.swift */,
 				DA34F0CB2118B67D003B0D5E /* Constants.swift */,
-				DA34F0CD2118BAD4003B0D5E /* TypeConvertor.swift */,
+				DA34F0CD2118BAD4003B0D5E /* Decimal+String.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -493,7 +493,7 @@
 				DA8C139521147755002041E4 /* DebtDataService.swift in Sources */,
 				DAD6B67B20F6661300E453DD /* AddButtonCell.swift in Sources */,
 				DA356B44210F027A0076D953 /* DataService.swift in Sources */,
-				DA34F0CE2118BAD4003B0D5E /* TypeConvertor.swift in Sources */,
+				DA34F0CE2118BAD4003B0D5E /* Decimal+String.swift in Sources */,
 				DA67118E20F48385000F98EB /* Group.swift in Sources */,
 				DAD6B67420F665BD00E453DD /* NameInputCell.swift in Sources */,
 				DA94DA1A2102033700A4CC65 /* ThreeMembersCell.swift in Sources */,

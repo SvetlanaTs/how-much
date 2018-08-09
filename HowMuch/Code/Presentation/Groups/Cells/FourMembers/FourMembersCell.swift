@@ -23,16 +23,14 @@ final class FourMembersCell: UITableViewCell {
     private func update(group: Group) {
         let debtService = DebtDataService(group: group)
         let debtGroup = debtService.debtGroup()
-        var debtors: [Person] = []
-        var creditors: [Person] = []
+        var debtors = debtGroup.members.filter { $0.debt > 0 }
+        var creditors = debtGroup.members.filter { $0.debt <= 0 }
         resultLabel.text = ""
         
-        debtGroup.members.forEach { person in
-            person.debt > 0.0 ? debtors.append(person) : creditors.append(person)
-        }
-        
         if debtors.isEmpty {
-            creditors.forEach { resultLabel.text? += "\($0.name) " }
+            resultLabel.text = creditors
+                .map { $0.name }
+                .joined(separator: " ")
         } else if debtors.count == creditors.count {
             if debtors[0].debt + creditors[0].debt == 0.0 {
                 resultLabel.text? += result(debtor: debtors[0], creditor: creditors[0])
@@ -70,7 +68,7 @@ final class FourMembersCell: UITableViewCell {
     }
     
     private func result(debtor: Person, creditor: Person, debt: Decimal) -> String {
-        let debtString = TypeConvertor.stringFromDecimal(abs(debt))
+        let debtString = abs(debt).stringFormatted
         return "\(debtor.name) got to give $\(debtString) to \(creditor.name)\n"
     }
 }

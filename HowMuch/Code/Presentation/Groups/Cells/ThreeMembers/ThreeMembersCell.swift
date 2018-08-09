@@ -41,11 +41,11 @@ final class ThreeMembersCell: UITableViewCell {
             let thirdPerson = (debtors.isEmpty) ? creditors.last : (debtors.count == oneDebtor) ? creditors.last : debtors.last else { return }
         
         firstPersonView.nameLabel.text = firstPerson.name
-        firstPersonView.debtLabel.text = TypeConvertor.stringFromDecimal(abs(firstPerson.debt))
+        firstPersonView.debtLabel.text = abs(firstPerson.debt).stringFormatted
         secondPersonView.nameLabel.text = secondPerson.name
-        secondPersonView.debtLabel.text = TypeConvertor.stringFromDecimal(abs(secondPerson.debt))
+        secondPersonView.debtLabel.text = abs(secondPerson.debt).stringFormatted
         thirdPersonView.nameLabel.text = thirdPerson.name
-        thirdPersonView.debtLabel.text = TypeConvertor.stringFromDecimal(abs(thirdPerson.debt))
+        thirdPersonView.debtLabel.text = abs(thirdPerson.debt).stringFormatted
         UIView.animate(withDuration: Style.Duration.arrow) {
             let leftArrow: CGFloat = (firstPerson.debt > 0.0) ? self.rotationAngle : -self.rotationAngle
             let rightArrow: CGFloat = (thirdPerson.debt > 0.0) ? -self.rotationAngle : self.rotationAngle
