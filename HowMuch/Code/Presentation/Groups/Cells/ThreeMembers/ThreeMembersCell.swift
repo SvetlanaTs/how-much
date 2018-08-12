@@ -18,19 +18,39 @@ final class ThreeMembersCell: UITableViewCell {
     @IBOutlet private var leftArrowImageView: UIImageView!
     @IBOutlet private var rightArrowImageView: UIImageView!
     @IBOutlet private var checkButton: UIButton!
+    
+    private let rotationAngle: CGFloat = .pi / 2
+    private let oneDebtor = 1
 
     func set(group: Group) {
         update(group: group)
     }
     
     private func update(group: Group) {
-        guard let firstPerson = group.members.first, let thirdPerson = group.members.last else { return }
-        let secondPerson = group.members[1]
+        let debtService = DebtDataService(group: group)
+        let debtGroup = debtService.debtGroup()
+        var debtors: [Person] = []
+        var creditors: [Person] = []
+        
+        debtGroup.members.forEach { person in
+            person.debt > 0.0 ? debtors.append(person) : creditors.append(person)
+        }
+        
+        guard let firstPerson = (debtors.isEmpty) ? creditors.first : (debtors.count == oneDebtor) ? creditors.first : debtors.first,
+            let secondPerson = (debtors.isEmpty) ? creditors[1] : (debtors.count == oneDebtor) ? debtors.first : creditors.first,
+            let thirdPerson = (debtors.isEmpty) ? creditors.last : (debtors.count == oneDebtor) ? creditors.last : debtors.last else { return }
+        
         firstPersonView.nameLabel.text = firstPerson.name
-        firstPersonView.debtLabel.text = firstPerson.amountSpent.description
+        firstPersonView.debtLabel.text = TypeConvertor.stringFromDecimal(abs(firstPerson.debt))
         secondPersonView.nameLabel.text = secondPerson.name
-        secondPersonView.debtLabel.text = secondPerson.amountSpent.description
+        secondPersonView.debtLabel.text = TypeConvertor.stringFromDecimal(abs(secondPerson.debt))
         thirdPersonView.nameLabel.text = thirdPerson.name
-        thirdPersonView.debtLabel.text = thirdPerson.amountSpent.description
+        thirdPersonView.debtLabel.text = TypeConvertor.stringFromDecimal(abs(thirdPerson.debt))
+        UIView.animate(withDuration: Style.Duration.arrow) {
+            let leftArrow: CGFloat = (firstPerson.debt > 0.0) ? self.rotationAngle : -self.rotationAngle
+            let rightArrow: CGFloat = (thirdPerson.debt > 0.0) ? -self.rotationAngle : self.rotationAngle
+            self.leftArrowImageView.transform = CGAffineTransform(rotationAngle: leftArrow)
+            self.rightArrowImageView.transform = CGAffineTransform(rotationAngle: rightArrow)
+        }
     }
 }

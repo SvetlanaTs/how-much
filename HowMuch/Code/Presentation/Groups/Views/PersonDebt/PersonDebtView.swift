@@ -26,8 +26,7 @@ final class PersonDebtView: UIView {
     
     private func initView() {
         Bundle.main.loadNibNamed("PersonDebtView", owner: self, options: nil)
-        addSubview(contentView)
         contentView.frame = bounds
-        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        addSubview(contentView)
     }
 }

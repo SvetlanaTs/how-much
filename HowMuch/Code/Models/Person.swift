@@ -11,6 +11,7 @@ import Foundation
 struct Person: Codable {
     let name: String
     var purchases: [Purchase] = []
+    var debt: Decimal
     var amountSpent: Decimal {
         return purchases.reduce(Decimal(0)) { $0 + $1.spent }
     }
