@@ -11,7 +11,9 @@ import Foundation
 extension Decimal {
     static let fractionalFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
-        formatter.maximumFractionDigits = 2
+        formatter.minimumIntegerDigits = 1
+        formatter.minimumFractionDigits = 2
+        formatter.roundingMode = .down
         return formatter
     }()
     

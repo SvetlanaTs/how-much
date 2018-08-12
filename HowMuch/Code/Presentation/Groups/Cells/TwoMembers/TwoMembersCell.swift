@@ -16,7 +16,6 @@ final class TwoMembersCell: UITableViewCell {
     @IBOutlet private var arrowImageView: UIImageView!
     @IBOutlet private var checkButton: UIButton!
     
-    private let noDebtString = "0"
     private let rotationAngle: CGFloat = .pi / 2
 
     func set(group: Group) {
@@ -25,15 +24,27 @@ final class TwoMembersCell: UITableViewCell {
     
     private func update(group: Group) {
         let debtService = DebtDataService(group: group)
-        let debtGroup = debtService.debtGroup()
-        guard let firstPerson = debtGroup.members.first, let secondPerson = debtGroup.members.last else { return }
+        let payments = debtService.payments()
+        let members = group.members
+        let views = Dictionary(uniqueKeysWithValues: zip(0...Int.max, [firstPersonView, secondPersonView]))
         
-        firstPersonView.nameLabel.text = firstPerson.name
-        firstPersonView.debtLabel.text = (firstPerson.debt < 0.0) ? noDebtString : firstPerson.debt.description
-        secondPersonView.nameLabel.text = secondPerson.name
-        secondPersonView.debtLabel.text = (secondPerson.debt < 0.0) ? noDebtString : secondPerson.debt.description
+        if payments.isEmpty {
+            let names: [String] = members.map { $0.name }
+            views.forEach { viewDict in
+                guard let view = viewDict.value else { return }
+                view.nameLabel.text = names[viewDict.key]
+                view.debtLabel.text = "0.00"
+            }
+            return
+        }
+
+        guard let payment = payments.first else { return }
+        firstPersonView.nameLabel.text = members[payment.payerId].name
+        firstPersonView.debtLabel.text = payment.debt.stringFormatted
+        secondPersonView.nameLabel.text = members[payment.id].name
+        secondPersonView.debtLabel.text = "0.00"
         UIView.animate(withDuration: Style.Duration.arrow) {
-            let angle: CGFloat = (firstPerson.debt > 0.0) ? self.rotationAngle : -self.rotationAngle
+            let angle: CGFloat = self.rotationAngle
             self.arrowImageView.transform = CGAffineTransform(rotationAngle: angle)
         }
     }

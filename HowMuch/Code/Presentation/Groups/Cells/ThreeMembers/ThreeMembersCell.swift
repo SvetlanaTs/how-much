@@ -9,6 +9,7 @@
 import UIKit
 
 final class ThreeMembersCell: UITableViewCell {
+    typealias Debtor = (name: String, debt: Decimal)
     static let id = Reusable<ThreeMembersCell>.nib(id: "ThreeMembersCell", name: "ThreeMembersCell", bundle: nil)
     
     @IBOutlet private var firstPersonView: PersonDebtView!
@@ -20,7 +21,6 @@ final class ThreeMembersCell: UITableViewCell {
     @IBOutlet private var checkButton: UIButton!
     
     private let rotationAngle: CGFloat = .pi / 2
-    private let oneDebtor = 1
 
     func set(group: Group) {
         update(group: group)
@@ -28,27 +28,60 @@ final class ThreeMembersCell: UITableViewCell {
     
     private func update(group: Group) {
         let debtService = DebtDataService(group: group)
-        let debtGroup = debtService.debtGroup()
-        var debtors: [Person] = []
-        var creditors: [Person] = []
+        let payments = debtService.payments()
+        let members = group.members
+        let views = Dictionary(uniqueKeysWithValues: zip(0...Int.max, [firstPersonView, secondPersonView, thirdPersonView]))
         
-        debtGroup.members.forEach { person in
-            person.debt > 0.0 ? debtors.append(person) : creditors.append(person)
+        if payments.isEmpty {
+            let names: [String] = members.map { $0.name }
+            views.forEach { viewDict in
+                guard let view = viewDict.value else { return }
+                view.nameLabel.text = names[viewDict.key]
+                view.debtLabel.text = "0.00"
+            }
+            return
         }
         
-        guard let firstPerson = (debtors.isEmpty) ? creditors.first : (debtors.count == oneDebtor) ? creditors.first : debtors.first,
-            let secondPerson = (debtors.isEmpty) ? creditors[1] : (debtors.count == oneDebtor) ? debtors.first : creditors.first,
-            let thirdPerson = (debtors.isEmpty) ? creditors.last : (debtors.count == oneDebtor) ? creditors.last : debtors.last else { return }
+        var debtors: [Debtor] = []
+        var isOneDebtor: Bool
+        if payments.count == 1 {
+            isOneDebtor = true
+            debtors.append((name: members[payments[0].id].name, debt: payments[0].debt))
+            debtors.append((name: members[payments[0].payerId].name, debt: payments[0].debt))
+            
+            var memberNames = Set(members.map { $0.name })
+            let debtorNames = Set(debtors.map { $0.name })
+            memberNames.subtract(debtorNames)
+            for name in memberNames {
+                debtors.append((name: name, debt: 0))
+            }
+        } else {
+            isOneDebtor = (payments[0].payerId == payments[1].payerId)
+            let totalDebt = payments[0].debt + payments[1].debt
+            let firstDebt = isOneDebtor ?
+                (name: members[payments[0].id].name, debt: payments[0].debt) :
+                (name: members[payments[0].payerId].name, debt: payments[0].debt)
+            let secondDebt = isOneDebtor ?
+                (name: members[payments[0].payerId].name, debt: totalDebt) :
+                (name: members[payments[0].id].name, debt: totalDebt)
+            let thirdDebt = isOneDebtor ?
+                (name: members[payments[1].id].name, debt: payments[1].debt) :
+                (name: members[payments[1].payerId].name, debt: payments[1].debt)
+            
+            debtors.append(firstDebt)
+            debtors.append(secondDebt)
+            debtors.append(thirdDebt)
+        }
         
-        firstPersonView.nameLabel.text = firstPerson.name
-        firstPersonView.debtLabel.text = abs(firstPerson.debt).stringFormatted
-        secondPersonView.nameLabel.text = secondPerson.name
-        secondPersonView.debtLabel.text = abs(secondPerson.debt).stringFormatted
-        thirdPersonView.nameLabel.text = thirdPerson.name
-        thirdPersonView.debtLabel.text = abs(thirdPerson.debt).stringFormatted
+        views.forEach { viewDict in
+            guard let view = viewDict.value else { return }
+            view.nameLabel.text = debtors[viewDict.key].name
+            view.debtLabel.text = debtors[viewDict.key].debt.stringFormatted
+        }
+
         UIView.animate(withDuration: Style.Duration.arrow) {
-            let leftArrow: CGFloat = (firstPerson.debt > 0.0) ? self.rotationAngle : -self.rotationAngle
-            let rightArrow: CGFloat = (thirdPerson.debt > 0.0) ? -self.rotationAngle : self.rotationAngle
+            let leftArrow: CGFloat = isOneDebtor ? -self.rotationAngle : self.rotationAngle
+            let rightArrow: CGFloat = isOneDebtor ? self.rotationAngle : -self.rotationAngle
             self.leftArrowImageView.transform = CGAffineTransform(rotationAngle: leftArrow)
             self.rightArrowImageView.transform = CGAffineTransform(rotationAngle: rightArrow)
         }
