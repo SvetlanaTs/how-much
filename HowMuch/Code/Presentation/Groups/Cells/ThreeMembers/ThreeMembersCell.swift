@@ -37,7 +37,7 @@ final class ThreeMembersCell: UITableViewCell {
             views.forEach { viewDict in
                 guard let view = viewDict.value else { return }
                 view.nameLabel.text = names[viewDict.key]
-                view.debtLabel.text = "0.00"
+                view.debtLabel.text = "0"
             }
             return
         }

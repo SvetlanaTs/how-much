@@ -33,7 +33,7 @@ final class TwoMembersCell: UITableViewCell {
             views.forEach { viewDict in
                 guard let view = viewDict.value else { return }
                 view.nameLabel.text = names[viewDict.key]
-                view.debtLabel.text = "0.00"
+                view.debtLabel.text = "0"
             }
             return
         }
@@ -42,7 +42,7 @@ final class TwoMembersCell: UITableViewCell {
         firstPersonView.nameLabel.text = members[payment.payerId].name
         firstPersonView.debtLabel.text = payment.debt.stringFormatted
         secondPersonView.nameLabel.text = members[payment.id].name
-        secondPersonView.debtLabel.text = "0.00"
+        secondPersonView.debtLabel.text = "0"
         UIView.animate(withDuration: Style.Duration.arrow) {
             let angle: CGFloat = self.rotationAngle
             self.arrowImageView.transform = CGAffineTransform(rotationAngle: angle)
