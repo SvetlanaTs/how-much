@@ -23,6 +23,8 @@
 		DA265EA32108F9E200C871B3 /* AddItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA265EA12108F9E200C871B3 /* AddItemCell.xib */; };
 		DA265EA9210A05CA00C871B3 /* PurchaseSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA265EA8210A05CA00C871B3 /* PurchaseSectionHeaderView.swift */; };
 		DA265EAB210A06C300C871B3 /* PurchaseSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA265EAA210A06C300C871B3 /* PurchaseSectionHeaderView.xib */; };
+		DA2E6E5E2121C99200EB4F2E /* GroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA2E6E5C2121C99100EB4F2E /* GroupCell.xib */; };
+		DA2E6E5F2121C99200EB4F2E /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2E6E5D2121C99200EB4F2E /* GroupCell.swift */; };
 		DA34F0CC2118B67D003B0D5E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA34F0CB2118B67D003B0D5E /* Constants.swift */; };
 		DA34F0CE2118BAD4003B0D5E /* Decimal+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA34F0CD2118BAD4003B0D5E /* Decimal+String.swift */; };
 		DA356B44210F027A0076D953 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA356B43210F027A0076D953 /* DataService.swift */; };
@@ -30,14 +32,6 @@
 		DA67118E20F48385000F98EB /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA67118D20F48385000F98EB /* Group.swift */; };
 		DA67119020F48390000F98EB /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA67118F20F48390000F98EB /* Person.swift */; };
 		DA8C139521147755002041E4 /* DebtDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8C139421147755002041E4 /* DebtDataService.swift */; };
-		DA94DA152102033000A4CC65 /* TwoMembersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA94DA132102032F00A4CC65 /* TwoMembersCell.xib */; };
-		DA94DA162102033000A4CC65 /* TwoMembersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA94DA142102033000A4CC65 /* TwoMembersCell.swift */; };
-		DA94DA192102033700A4CC65 /* ThreeMembersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA94DA172102033700A4CC65 /* ThreeMembersCell.xib */; };
-		DA94DA1A2102033700A4CC65 /* ThreeMembersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA94DA182102033700A4CC65 /* ThreeMembersCell.swift */; };
-		DA94DA1D2102035900A4CC65 /* FourMembersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA94DA1B2102035800A4CC65 /* FourMembersCell.swift */; };
-		DA94DA1E2102035900A4CC65 /* FourMembersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA94DA1C2102035900A4CC65 /* FourMembersCell.xib */; };
-		DA94DA23210234E700A4CC65 /* PersonDebtView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA94DA21210234E700A4CC65 /* PersonDebtView.xib */; };
-		DA94DA24210234E700A4CC65 /* PersonDebtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA94DA22210234E700A4CC65 /* PersonDebtView.swift */; };
 		DAD6B67420F665BD00E453DD /* NameInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6B67220F665BD00E453DD /* NameInputCell.swift */; };
 		DAD6B67520F665BD00E453DD /* NameInputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAD6B67320F665BD00E453DD /* NameInputCell.xib */; };
 		DAD6B67B20F6661300E453DD /* AddButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6B67920F6661300E453DD /* AddButtonCell.swift */; };
@@ -77,6 +71,8 @@
 		DA265EA12108F9E200C871B3 /* AddItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddItemCell.xib; sourceTree = "<group>"; };
 		DA265EA8210A05CA00C871B3 /* PurchaseSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseSectionHeaderView.swift; sourceTree = "<group>"; };
 		DA265EAA210A06C300C871B3 /* PurchaseSectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PurchaseSectionHeaderView.xib; sourceTree = "<group>"; };
+		DA2E6E5C2121C99100EB4F2E /* GroupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GroupCell.xib; path = ../../../../../../../../../Desktop/GroupCell/GroupCell.xib; sourceTree = "<group>"; };
+		DA2E6E5D2121C99200EB4F2E /* GroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		DA34F0CB2118B67D003B0D5E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DA34F0CD2118BAD4003B0D5E /* Decimal+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+String.swift"; sourceTree = "<group>"; };
 		DA356B43210F027A0076D953 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
@@ -84,14 +80,6 @@
 		DA67118D20F48385000F98EB /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		DA67118F20F48390000F98EB /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		DA8C139421147755002041E4 /* DebtDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtDataService.swift; sourceTree = "<group>"; };
-		DA94DA132102032F00A4CC65 /* TwoMembersCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwoMembersCell.xib; sourceTree = "<group>"; };
-		DA94DA142102033000A4CC65 /* TwoMembersCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoMembersCell.swift; sourceTree = "<group>"; };
-		DA94DA172102033700A4CC65 /* ThreeMembersCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThreeMembersCell.xib; sourceTree = "<group>"; };
-		DA94DA182102033700A4CC65 /* ThreeMembersCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreeMembersCell.swift; sourceTree = "<group>"; };
-		DA94DA1B2102035800A4CC65 /* FourMembersCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourMembersCell.swift; sourceTree = "<group>"; };
-		DA94DA1C2102035900A4CC65 /* FourMembersCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FourMembersCell.xib; sourceTree = "<group>"; };
-		DA94DA21210234E700A4CC65 /* PersonDebtView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonDebtView.xib; sourceTree = "<group>"; };
-		DA94DA22210234E700A4CC65 /* PersonDebtView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonDebtView.swift; sourceTree = "<group>"; };
 		DAD6B67220F665BD00E453DD /* NameInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameInputCell.swift; sourceTree = "<group>"; };
 		DAD6B67320F665BD00E453DD /* NameInputCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NameInputCell.xib; sourceTree = "<group>"; };
 		DAD6B67920F6661300E453DD /* AddButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonCell.swift; sourceTree = "<group>"; };
@@ -172,15 +160,6 @@
 				DA265EA12108F9E200C871B3 /* AddItemCell.xib */,
 			);
 			path = AddItem;
-			sourceTree = "<group>";
-		};
-		DA265EA6210A057900C871B3 /* PersonDebt */ = {
-			isa = PBXGroup;
-			children = (
-				DA94DA22210234E700A4CC65 /* PersonDebtView.swift */,
-				DA94DA21210234E700A4CC65 /* PersonDebtView.xib */,
-			);
-			path = PersonDebt;
 			sourceTree = "<group>";
 		};
 		DA265EA7210A058900C871B3 /* PurchaseSectionHeader */ = {
@@ -274,37 +253,18 @@
 			children = (
 				DA265E9F2108F30C00C871B3 /* AddItem */,
 				DA265E9621075F6400C871B3 /* PurchaseItem */,
-				DA94DA10210202F500A4CC65 /* TwoMembers */,
-				DA94DA112102030900A4CC65 /* ThreeMembers */,
-				DA94DA122102031200A4CC65 /* FourMembers */,
+				DA94DA122102031200A4CC65 /* GroupCell */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		DA94DA10210202F500A4CC65 /* TwoMembers */ = {
+		DA94DA122102031200A4CC65 /* GroupCell */ = {
 			isa = PBXGroup;
 			children = (
-				DA94DA142102033000A4CC65 /* TwoMembersCell.swift */,
-				DA94DA132102032F00A4CC65 /* TwoMembersCell.xib */,
+				DA2E6E5D2121C99200EB4F2E /* GroupCell.swift */,
+				DA2E6E5C2121C99100EB4F2E /* GroupCell.xib */,
 			);
-			path = TwoMembers;
-			sourceTree = "<group>";
-		};
-		DA94DA112102030900A4CC65 /* ThreeMembers */ = {
-			isa = PBXGroup;
-			children = (
-				DA94DA182102033700A4CC65 /* ThreeMembersCell.swift */,
-				DA94DA172102033700A4CC65 /* ThreeMembersCell.xib */,
-			);
-			path = ThreeMembers;
-			sourceTree = "<group>";
-		};
-		DA94DA122102031200A4CC65 /* FourMembers */ = {
-			isa = PBXGroup;
-			children = (
-				DA94DA1B2102035800A4CC65 /* FourMembersCell.swift */,
-				DA94DA1C2102035900A4CC65 /* FourMembersCell.xib */,
-			);
+			name = GroupCell;
 			path = FourMembers;
 			sourceTree = "<group>";
 		};
@@ -312,7 +272,6 @@
 			isa = PBXGroup;
 			children = (
 				DA265EA7210A058900C871B3 /* PurchaseSectionHeader */,
-				DA265EA6210A057900C871B3 /* PersonDebt */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -448,13 +407,10 @@
 			files = (
 				DA265EA32108F9E200C871B3 /* AddItemCell.xib in Resources */,
 				DA02A72A20F3AAE2003C06A4 /* Main.storyboard in Resources */,
-				DA94DA23210234E700A4CC65 /* PersonDebtView.xib in Resources */,
 				DA02A70A20F3A7EF003C06A4 /* LaunchScreen.storyboard in Resources */,
 				DA265E9A21075FF800C871B3 /* PurchaseItemCell.xib in Resources */,
-				DA94DA152102033000A4CC65 /* TwoMembersCell.xib in Resources */,
 				DA265EAB210A06C300C871B3 /* PurchaseSectionHeaderView.xib in Resources */,
-				DA94DA192102033700A4CC65 /* ThreeMembersCell.xib in Resources */,
-				DA94DA1E2102035900A4CC65 /* FourMembersCell.xib in Resources */,
+				DA2E6E5E2121C99200EB4F2E /* GroupCell.xib in Resources */,
 				DAD6B67520F665BD00E453DD /* NameInputCell.xib in Resources */,
 				DA02A70720F3A7EF003C06A4 /* HowMuch.xcassets in Resources */,
 				DAD6B67C20F6661300E453DD /* AddButtonCell.xib in Resources */,
@@ -477,12 +433,10 @@
 			files = (
 				DA02A73720F3AC8A003C06A4 /* AddGroupViewController.swift in Sources */,
 				DA265E9921075FF800C871B3 /* PurchaseItemCell.swift in Sources */,
-				DA94DA1D2102035900A4CC65 /* FourMembersCell.swift in Sources */,
 				DA051E28210752F2003BD4F1 /* PurchaseListViewController.swift in Sources */,
 				DA67118C20F48379000F98EB /* Purchase.swift in Sources */,
 				DA02A70220F3A7EC003C06A4 /* GroupListViewController.swift in Sources */,
 				DA34F0CC2118B67D003B0D5E /* Constants.swift in Sources */,
-				DA94DA162102033000A4CC65 /* TwoMembersCell.swift in Sources */,
 				DA051E2621073C6D003BD4F1 /* Style.swift in Sources */,
 				DA265EA22108F9E200C871B3 /* AddItemCell.swift in Sources */,
 				DAD6B68620F7E59000E453DD /* Reusable.swift in Sources */,
@@ -491,14 +445,13 @@
 				DA02A70020F3A7EC003C06A4 /* AppDelegate.swift in Sources */,
 				DA265E9E2108E30800C871B3 /* PurchaseViewController.swift in Sources */,
 				DA8C139521147755002041E4 /* DebtDataService.swift in Sources */,
+				DA2E6E5F2121C99200EB4F2E /* GroupCell.swift in Sources */,
 				DAD6B67B20F6661300E453DD /* AddButtonCell.swift in Sources */,
 				DA356B44210F027A0076D953 /* DataService.swift in Sources */,
 				DA34F0CE2118BAD4003B0D5E /* Decimal+String.swift in Sources */,
 				DA67118E20F48385000F98EB /* Group.swift in Sources */,
 				DAD6B67420F665BD00E453DD /* NameInputCell.swift in Sources */,
-				DA94DA1A2102033700A4CC65 /* ThreeMembersCell.swift in Sources */,
 				DAD8FA712105BB91009D7049 /* PersonDataService.swift in Sources */,
-				DA94DA24210234E700A4CC65 /* PersonDebtView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
