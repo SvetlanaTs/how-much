@@ -1,5 +1,5 @@
 //
-//  FourMembersCell.swift
+//  GroupCell.swift
 //  HowMuch
 //
 //  Created by Svetlana T on 20.07.2018.
@@ -8,21 +8,16 @@
 
 import UIKit
 
-final class FourMembersCell: UITableViewCell {
-    static let id = Reusable<FourMembersCell>.nib(id: "FourMembersCell", name: "FourMembersCell", bundle: nil)
+final class GroupCell: UITableViewCell {
+    static let id = Reusable<GroupCell>.nib(id: "GroupCell", name: "GroupCell", bundle: nil)
     
     @IBOutlet private var resultLabel: UILabel!
-    @IBOutlet private var checkButton: UIButton!
-    
-    private let onePerson = 1
 
-    func set(group: Group) {
-        update(group: group)
+    func set(group: Group, payments: [Payment]) {
+        update(group: group, payments: payments)
     }
     
-    private func update(group: Group) {
-        let debtService = DebtDataService(group: group)
-        let payments = debtService.payments()
+    private func update(group: Group, payments: [Payment]) {
         resultLabel.text = ""
         
         if payments.isEmpty {
