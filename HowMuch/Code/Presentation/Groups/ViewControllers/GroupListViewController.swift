@@ -88,8 +88,10 @@ extension GroupListViewController: UITableViewDataSource {
         
         switch model {
         case .group(let group):
+            let service = DebtDataService(group: group)
+            let payments = service.payments()
             let newCell = tableView.dequeueReusableCell(GroupCell.id, indexPath: indexPath)
-            newCell.set(group: group)
+            newCell.set(group: group, payments: payments)
             cell = newCell
         }
         return cell

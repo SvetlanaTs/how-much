@@ -13,13 +13,11 @@ final class GroupCell: UITableViewCell {
     
     @IBOutlet private var resultLabel: UILabel!
 
-    func set(group: Group) {
-        update(group: group)
+    func set(group: Group, payments: [Payment]) {
+        update(group: group, payments: payments)
     }
     
-    private func update(group: Group) {
-        let debtService = DebtDataService(group: group)
-        let payments = debtService.payments()
+    private func update(group: Group, payments: [Payment]) {
         resultLabel.text = ""
         
         if payments.isEmpty {
