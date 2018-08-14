@@ -14,11 +14,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private let addGroupId = "AddGroupViewController"
     
     private var hasData: Bool {
-        return UserDefaults.standard.bool(forKey: UserDefaultsConstants.hasDataKey)
+        return UserDefaults.standard.bool(forKey: Constants.UserDefaults.hasDataKey)
     }
     
     private var groups: [Group] {
-        guard let data = UserDefaults.standard.data(forKey: UserDefaultsConstants.groupKey),
+        guard let data = UserDefaults.standard.data(forKey: Constants.UserDefaults.groupKey),
             let groups = try? JSONDecoder().decode([Group].self, from: data) else { return [] }
         return groups
     }

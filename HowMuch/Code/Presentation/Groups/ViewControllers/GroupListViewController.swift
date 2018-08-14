@@ -23,9 +23,7 @@ final class GroupListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.registerReusableCell(TwoMembersCell.id)
-        tableView.registerReusableCell(ThreeMembersCell.id)
-        tableView.registerReusableCell(FourMembersCell.id)
+        tableView.registerReusableCell(GroupCell.id)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,12 +55,12 @@ final class GroupListViewController: UIViewController {
     }
     
     private func saveState(hasData: Bool) {
-        UserDefaults.standard.set(hasData, forKey: UserDefaultsConstants.hasDataKey)
+        UserDefaults.standard.set(hasData, forKey: Constants.UserDefaults.hasDataKey)
     }
     
     private func save(groups: [Group]) {
         if let data = try? JSONEncoder().encode(groups) {
-            UserDefaults.standard.set(data, forKey: UserDefaultsConstants.groupKey)
+            UserDefaults.standard.set(data, forKey: Constants.UserDefaults.groupKey)
         }
     }
     
@@ -90,22 +88,11 @@ extension GroupListViewController: UITableViewDataSource {
         
         switch model {
         case .group(let group):
-            switch group.members.count {
-            case 2:
-                let newCell = tableView.dequeueReusableCell(TwoMembersCell.id, indexPath: indexPath)
-                newCell.set(group: group)
-                cell = newCell
-            case 3:
-                let newCell = tableView.dequeueReusableCell(ThreeMembersCell.id, indexPath: indexPath)
-                newCell.set(group: group)
-                cell = newCell
-            case 4:
-                let newCell = tableView.dequeueReusableCell(FourMembersCell.id, indexPath: indexPath)
-                newCell.set(group: group)
-                cell = newCell
-            default:
-                return UITableViewCell()
-            }
+            let service = DebtDataService(group: group)
+            let payments = service.payments()
+            let newCell = tableView.dequeueReusableCell(GroupCell.id, indexPath: indexPath)
+            newCell.set(group: group, payments: payments)
+            cell = newCell
         }
         return cell
     }
