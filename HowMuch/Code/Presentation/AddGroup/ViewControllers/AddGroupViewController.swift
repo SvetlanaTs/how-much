@@ -17,10 +17,7 @@ final class AddGroupViewController: UIViewController {
     
     @IBOutlet private var tableView: UITableView!
     
-    private let membersMinValue = 2
-    private let membersMaxValue = 4
     private let segueIdentifier = "showGroup"
-    
     private var sections: [[Cell]] = []
     private var name = ""
     private var nameIndex = -1

@@ -73,6 +73,9 @@ final class PurchaseListViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction private func didSelectCurrencyButton(_ sender: UIBarButtonItem) {
+    }
 }
 
 extension PurchaseListViewController: UITableViewDataSource {
@@ -86,17 +89,18 @@ extension PurchaseListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = sections[indexPath.section].cells[indexPath.row]
+        let group = dataService.group(at: index)
+
         let cell: UITableViewCell
         switch model {
         case .purchase(let purchase):
             let newCell = tableView.dequeueReusableCell(PurchaseItemCell.id, indexPath: indexPath)
-            newCell.set(purchase: purchase)
+            newCell.set(purchase: purchase, currency: group.currency)
             cell = newCell
         case .addButton:
             let newCell = tableView.dequeueReusableCell(AddItemCell.id, indexPath: indexPath)
             newCell.addItemHandler = { [weak self] in
                 guard let `self` = self else { return }
-                let group = self.dataService.group(at: self.index)
                 self.performSegue(withIdentifier: self.segueIdentifier, sender: group)
             }
             cell = newCell
@@ -113,7 +117,8 @@ extension PurchaseListViewController: UITableViewDelegate {
         switch model {
         case .person(let person)?:
             let newView = tableView.dequeueReusableHeaderFooterView(PurchaseSectionHeaderView.id)
-            newView.set(person: person)
+            let group = dataService.group(at: index)
+            newView.set(person: person, currency: group.currency)
             view = newView
         case .none:
             view = nil

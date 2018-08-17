@@ -37,8 +37,6 @@ final class GroupCell: UITableViewCell {
     }
     
     private func result(debtor: Person, creditor: Person, debt: Decimal, currency: Currency) -> String {
-        let debtString = debt.stringFormatted
-        let debtCurrencyString: String = (currency == .ruble) ? debtString + currency.rawValue : currency.rawValue + debtString
-        return "\(debtor.name) got to give \(debtCurrencyString) to \(creditor.name)\n"
+        return "\(debtor.name) got to give \(debt.formatCurrency(currency)) to \(creditor.name)\n"
     }
 }
