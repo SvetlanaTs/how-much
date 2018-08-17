@@ -31,12 +31,14 @@ final class GroupCell: UITableViewCell {
             let debtor = group.members[payment.payerId]
             let creditor = group.members[payment.id]
             let debt = payment.debt
-            resultLabel.text? += result(debtor: debtor, creditor: creditor, debt: debt)
+            let currency = group.currency
+            resultLabel.text? += result(debtor: debtor, creditor: creditor, debt: debt, currency: currency)
         }
     }
     
-    private func result(debtor: Person, creditor: Person, debt: Decimal) -> String {
+    private func result(debtor: Person, creditor: Person, debt: Decimal, currency: Currency) -> String {
         let debtString = debt.stringFormatted
-        return "\(debtor.name) got to give $\(debtString) to \(creditor.name)\n"
+        let debtCurrencyString: String = (currency == .ruble) ? debtString + currency.rawValue : currency.rawValue + debtString
+        return "\(debtor.name) got to give \(debtCurrencyString) to \(creditor.name)\n"
     }
 }

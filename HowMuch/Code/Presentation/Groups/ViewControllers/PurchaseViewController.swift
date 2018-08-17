@@ -59,6 +59,6 @@ final class PurchaseViewController: UIViewController {
         members.remove(at: segmentedControl.selectedSegmentIndex)
         members.insert(person, at: segmentedControl.selectedSegmentIndex)
         
-        return Group(members: members)
+        return Group(members: members, currency: group.currency)
     }
 }

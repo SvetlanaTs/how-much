@@ -28,6 +28,8 @@
 		DA356B44210F027A0076D953 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA356B43210F027A0076D953 /* DataService.swift */; };
 		DA52934D2122D137002136FC /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA52934B2122D137002136FC /* GroupCell.swift */; };
 		DA52934E2122D137002136FC /* GroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA52934C2122D137002136FC /* GroupCell.xib */; };
+		DA5293542125B1ED002136FC /* CurrencyControlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5293522125B1ED002136FC /* CurrencyControlCell.swift */; };
+		DA5293552125B1ED002136FC /* CurrencyControlCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA5293532125B1ED002136FC /* CurrencyControlCell.xib */; };
 		DA67118C20F48379000F98EB /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA67118B20F48379000F98EB /* Purchase.swift */; };
 		DA67118E20F48385000F98EB /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA67118D20F48385000F98EB /* Group.swift */; };
 		DA67119020F48390000F98EB /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA67118F20F48390000F98EB /* Person.swift */; };
@@ -76,6 +78,8 @@
 		DA356B43210F027A0076D953 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		DA52934B2122D137002136FC /* GroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupCell.swift; path = HowMuch/Code/Presentation/Groups/Cells/GroupCell/GroupCell.swift; sourceTree = SOURCE_ROOT; };
 		DA52934C2122D137002136FC /* GroupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GroupCell.xib; path = HowMuch/Code/Presentation/Groups/Cells/GroupCell/GroupCell.xib; sourceTree = SOURCE_ROOT; };
+		DA5293522125B1ED002136FC /* CurrencyControlCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyControlCell.swift; sourceTree = "<group>"; };
+		DA5293532125B1ED002136FC /* CurrencyControlCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyControlCell.xib; sourceTree = "<group>"; };
 		DA67118B20F48379000F98EB /* Purchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
 		DA67118D20F48385000F98EB /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		DA67118F20F48390000F98EB /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
@@ -169,6 +173,15 @@
 				DA265EAA210A06C300C871B3 /* PurchaseSectionHeaderView.xib */,
 			);
 			path = PurchaseSectionHeader;
+			sourceTree = "<group>";
+		};
+		DA5293512125B170002136FC /* CurrencyControlCell */ = {
+			isa = PBXGroup;
+			children = (
+				DA5293522125B1ED002136FC /* CurrencyControlCell.swift */,
+				DA5293532125B1ED002136FC /* CurrencyControlCell.xib */,
+			);
+			path = CurrencyControlCell;
 			sourceTree = "<group>";
 		};
 		DA67117D20F3F0E7000F98EB /* Code */ = {
@@ -279,6 +292,7 @@
 		DAD6B67120F6658500E453DD /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				DA5293512125B170002136FC /* CurrencyControlCell */,
 				DAD6B67820F665ED00E453DD /* AddButtonCell */,
 				DAD6B67720F665DF00E453DD /* TextFieldCell */,
 			);
@@ -409,6 +423,7 @@
 				DA02A72A20F3AAE2003C06A4 /* Main.storyboard in Resources */,
 				DA52934E2122D137002136FC /* GroupCell.xib in Resources */,
 				DA02A70A20F3A7EF003C06A4 /* LaunchScreen.storyboard in Resources */,
+				DA5293552125B1ED002136FC /* CurrencyControlCell.xib in Resources */,
 				DA265E9A21075FF800C871B3 /* PurchaseItemCell.xib in Resources */,
 				DA265EAB210A06C300C871B3 /* PurchaseSectionHeaderView.xib in Resources */,
 				DAD6B67520F665BD00E453DD /* NameInputCell.xib in Resources */,
@@ -441,6 +456,7 @@
 				DA265EA22108F9E200C871B3 /* AddItemCell.swift in Sources */,
 				DAD6B68620F7E59000E453DD /* Reusable.swift in Sources */,
 				DA265EA9210A05CA00C871B3 /* PurchaseSectionHeaderView.swift in Sources */,
+				DA5293542125B1ED002136FC /* CurrencyControlCell.swift in Sources */,
 				DA67119020F48390000F98EB /* Person.swift in Sources */,
 				DA02A70020F3A7EC003C06A4 /* AppDelegate.swift in Sources */,
 				DA265E9E2108E30800C871B3 /* PurchaseViewController.swift in Sources */,
