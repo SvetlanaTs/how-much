@@ -20,6 +20,8 @@ final class PurchaseListViewController: UIViewController {
         case addButton
     }
     
+    private var convertService: CurrencyConvertService!
+    
     @IBOutlet private var tableView: UITableView!
     
     private let nameHeaderHeight: CGFloat = 54.0
@@ -35,6 +37,7 @@ final class PurchaseListViewController: UIViewController {
         tableView.registerReusableCell(AddItemCell.id)
         tableView.registerReusableHeaderFooterView(PurchaseSectionHeaderView.id)
         reloadTableView()
+        setConvertService()
     }
     
     private func reloadTableView() {
@@ -74,7 +77,28 @@ final class PurchaseListViewController: UIViewController {
         }
     }
     
+    private func setConvertService() {
+        let networkService = NetworkService()
+        let currencyService = CurrencyService(networkService: networkService)
+        currencyService.loadCurrencies { [weak self] currencies in
+            self?.updateConvertService(currencies)
+        }
+    }
+    
+    private func updateConvertService(_ currencies: [String: Any]) {
+        convertService = CurrencyConvertService(currencies: currencies)
+    }
+    
     @IBAction private func didSelectCurrencyButton(_ sender: UIBarButtonItem) {
+        // TODO: replace with actual data
+        let dollarAmount = convertService.convertToDollars(amountInRubles: 13310.07)
+        let euroAmount = convertService.convertToEuros(amountInRubles: 4500)
+        let rubleAmount = convertService.convertToRubles(amountInEuros: 175)
+        let anotherEuroAmount = convertService.convertToEuros(amountInDollars: dollarAmount)
+        print(dollarAmount.formatCurrency(.dollar))
+        print(euroAmount.formatCurrency(.euro))
+        print(rubleAmount.formatCurrency(.ruble))
+        print(anotherEuroAmount.formatCurrency(.euro))
     }
 }
 
