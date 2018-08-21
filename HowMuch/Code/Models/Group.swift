@@ -8,6 +8,13 @@
 
 import Foundation
 
+enum Currency: String, Codable, CaseIterable {
+    case ruble = "₽"
+    case dollar = "$"
+    case euro = "€"
+}
+
 struct Group: Codable {
     let members: [Person]
+    let currency: Currency
 }
