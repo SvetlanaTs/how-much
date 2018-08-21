@@ -26,14 +26,17 @@
 		DA34F0CC2118B67D003B0D5E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA34F0CB2118B67D003B0D5E /* Constants.swift */; };
 		DA34F0CE2118BAD4003B0D5E /* Decimal+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA34F0CD2118BAD4003B0D5E /* Decimal+String.swift */; };
 		DA356B44210F027A0076D953 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA356B43210F027A0076D953 /* DataService.swift */; };
-		DA52934D2122D137002136FC /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA52934B2122D137002136FC /* GroupCell.swift */; };
-		DA52934E2122D137002136FC /* GroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA52934C2122D137002136FC /* GroupCell.xib */; };
 		DA5293542125B1ED002136FC /* CurrencyControlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5293522125B1ED002136FC /* CurrencyControlCell.swift */; };
 		DA5293552125B1ED002136FC /* CurrencyControlCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA5293532125B1ED002136FC /* CurrencyControlCell.xib */; };
 		DA67118C20F48379000F98EB /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA67118B20F48379000F98EB /* Purchase.swift */; };
 		DA67118E20F48385000F98EB /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA67118D20F48385000F98EB /* Group.swift */; };
 		DA67119020F48390000F98EB /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA67118F20F48390000F98EB /* Person.swift */; };
 		DA8C139521147755002041E4 /* DebtDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8C139421147755002041E4 /* DebtDataService.swift */; };
+		DA9B6E092126E99000B83B57 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B6E072126E99000B83B57 /* GroupCell.swift */; };
+		DA9B6E0A2126E99000B83B57 /* GroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA9B6E082126E99000B83B57 /* GroupCell.xib */; };
+		DA9B6E0C2126FBC000B83B57 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B6E0B2126FBC000B83B57 /* NetworkService.swift */; };
+		DA9B6E0E21272AFC00B83B57 /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B6E0D21272AFC00B83B57 /* CurrencyService.swift */; };
+		DA9B6E10212736CA00B83B57 /* CurrencyConvertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B6E0F212736CA00B83B57 /* CurrencyConvertService.swift */; };
 		DAD6B67420F665BD00E453DD /* NameInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6B67220F665BD00E453DD /* NameInputCell.swift */; };
 		DAD6B67520F665BD00E453DD /* NameInputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAD6B67320F665BD00E453DD /* NameInputCell.xib */; };
 		DAD6B67B20F6661300E453DD /* AddButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6B67920F6661300E453DD /* AddButtonCell.swift */; };
@@ -76,14 +79,17 @@
 		DA34F0CB2118B67D003B0D5E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DA34F0CD2118BAD4003B0D5E /* Decimal+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+String.swift"; sourceTree = "<group>"; };
 		DA356B43210F027A0076D953 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
-		DA52934B2122D137002136FC /* GroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupCell.swift; path = HowMuch/Code/Presentation/Groups/Cells/GroupCell/GroupCell.swift; sourceTree = SOURCE_ROOT; };
-		DA52934C2122D137002136FC /* GroupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GroupCell.xib; path = HowMuch/Code/Presentation/Groups/Cells/GroupCell/GroupCell.xib; sourceTree = SOURCE_ROOT; };
 		DA5293522125B1ED002136FC /* CurrencyControlCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyControlCell.swift; sourceTree = "<group>"; };
 		DA5293532125B1ED002136FC /* CurrencyControlCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyControlCell.xib; sourceTree = "<group>"; };
 		DA67118B20F48379000F98EB /* Purchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
 		DA67118D20F48385000F98EB /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		DA67118F20F48390000F98EB /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		DA8C139421147755002041E4 /* DebtDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtDataService.swift; sourceTree = "<group>"; };
+		DA9B6E072126E99000B83B57 /* GroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
+		DA9B6E082126E99000B83B57 /* GroupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupCell.xib; sourceTree = "<group>"; };
+		DA9B6E0B2126FBC000B83B57 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		DA9B6E0D21272AFC00B83B57 /* CurrencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyService.swift; sourceTree = "<group>"; };
+		DA9B6E0F212736CA00B83B57 /* CurrencyConvertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConvertService.swift; sourceTree = "<group>"; };
 		DAD6B67220F665BD00E453DD /* NameInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameInputCell.swift; sourceTree = "<group>"; };
 		DAD6B67320F665BD00E453DD /* NameInputCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NameInputCell.xib; sourceTree = "<group>"; };
 		DAD6B67920F6661300E453DD /* AddButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonCell.swift; sourceTree = "<group>"; };
@@ -264,21 +270,11 @@
 		DA94DA0F2102026200A4CC65 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				DA9B6E062126E96D00B83B57 /* GroupCell */,
 				DA265E9F2108F30C00C871B3 /* AddItem */,
 				DA265E9621075F6400C871B3 /* PurchaseItem */,
-				DA94DA122102031200A4CC65 /* GroupCell */,
 			);
 			path = Cells;
-			sourceTree = "<group>";
-		};
-		DA94DA122102031200A4CC65 /* GroupCell */ = {
-			isa = PBXGroup;
-			children = (
-				DA52934B2122D137002136FC /* GroupCell.swift */,
-				DA52934C2122D137002136FC /* GroupCell.xib */,
-			);
-			name = GroupCell;
-			path = FourMembers;
 			sourceTree = "<group>";
 		};
 		DA94DA1F2102347F00A4CC65 /* Views */ = {
@@ -287,6 +283,15 @@
 				DA265EA7210A058900C871B3 /* PurchaseSectionHeader */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		DA9B6E062126E96D00B83B57 /* GroupCell */ = {
+			isa = PBXGroup;
+			children = (
+				DA9B6E072126E99000B83B57 /* GroupCell.swift */,
+				DA9B6E082126E99000B83B57 /* GroupCell.xib */,
+			);
+			path = GroupCell;
 			sourceTree = "<group>";
 		};
 		DAD6B67120F6658500E453DD /* Cells */ = {
@@ -334,6 +339,9 @@
 				DAD8FA702105BB91009D7049 /* PersonDataService.swift */,
 				DA356B43210F027A0076D953 /* DataService.swift */,
 				DA8C139421147755002041E4 /* DebtDataService.swift */,
+				DA9B6E0B2126FBC000B83B57 /* NetworkService.swift */,
+				DA9B6E0D21272AFC00B83B57 /* CurrencyService.swift */,
+				DA9B6E0F212736CA00B83B57 /* CurrencyConvertService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -420,8 +428,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA265EA32108F9E200C871B3 /* AddItemCell.xib in Resources */,
+				DA9B6E0A2126E99000B83B57 /* GroupCell.xib in Resources */,
 				DA02A72A20F3AAE2003C06A4 /* Main.storyboard in Resources */,
-				DA52934E2122D137002136FC /* GroupCell.xib in Resources */,
 				DA02A70A20F3A7EF003C06A4 /* LaunchScreen.storyboard in Resources */,
 				DA5293552125B1ED002136FC /* CurrencyControlCell.xib in Resources */,
 				DA265E9A21075FF800C871B3 /* PurchaseItemCell.xib in Resources */,
@@ -448,19 +456,21 @@
 			files = (
 				DA02A73720F3AC8A003C06A4 /* AddGroupViewController.swift in Sources */,
 				DA265E9921075FF800C871B3 /* PurchaseItemCell.swift in Sources */,
+				DA9B6E0C2126FBC000B83B57 /* NetworkService.swift in Sources */,
 				DA051E28210752F2003BD4F1 /* PurchaseListViewController.swift in Sources */,
 				DA67118C20F48379000F98EB /* Purchase.swift in Sources */,
 				DA02A70220F3A7EC003C06A4 /* GroupListViewController.swift in Sources */,
 				DA34F0CC2118B67D003B0D5E /* Constants.swift in Sources */,
 				DA051E2621073C6D003BD4F1 /* Style.swift in Sources */,
 				DA265EA22108F9E200C871B3 /* AddItemCell.swift in Sources */,
+				DA9B6E092126E99000B83B57 /* GroupCell.swift in Sources */,
+				DA9B6E10212736CA00B83B57 /* CurrencyConvertService.swift in Sources */,
 				DAD6B68620F7E59000E453DD /* Reusable.swift in Sources */,
 				DA265EA9210A05CA00C871B3 /* PurchaseSectionHeaderView.swift in Sources */,
 				DA5293542125B1ED002136FC /* CurrencyControlCell.swift in Sources */,
 				DA67119020F48390000F98EB /* Person.swift in Sources */,
 				DA02A70020F3A7EC003C06A4 /* AppDelegate.swift in Sources */,
 				DA265E9E2108E30800C871B3 /* PurchaseViewController.swift in Sources */,
-				DA52934D2122D137002136FC /* GroupCell.swift in Sources */,
 				DA8C139521147755002041E4 /* DebtDataService.swift in Sources */,
 				DAD6B67B20F6661300E453DD /* AddButtonCell.swift in Sources */,
 				DA356B44210F027A0076D953 /* DataService.swift in Sources */,
@@ -468,6 +478,7 @@
 				DA67118E20F48385000F98EB /* Group.swift in Sources */,
 				DAD6B67420F665BD00E453DD /* NameInputCell.swift in Sources */,
 				DAD8FA712105BB91009D7049 /* PersonDataService.swift in Sources */,
+				DA9B6E0E21272AFC00B83B57 /* CurrencyService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,7 +18,11 @@ extension Decimal {
         return formatter
     }()
     
-    var stringFormatted: String {
+    private var stringFormatted: String {
         return Decimal.fractionalFormatter.string(for: self) ?? ""
+    }
+    
+    func formatCurrency(_ currency: Currency) -> String {
+        return (currency == .ruble) ? self.stringFormatted + currency.rawValue : currency.rawValue + self.stringFormatted
     }
 }

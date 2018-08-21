@@ -14,12 +14,12 @@ final class PurchaseItemCell: UITableViewCell {
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var spentLabel: UILabel!
     
-    func set(purchase: Purchase) {
-        update(purchase: purchase)
+    func set(purchase: Purchase, currency: Currency) {
+        update(purchase: purchase, currency: currency)
     }
     
-    private func update(purchase: Purchase) {
+    private func update(purchase: Purchase, currency: Currency) {
         titleLabel.text = purchase.title
-        spentLabel.text = purchase.spent.description
+        spentLabel.text = purchase.spent.formatCurrency(currency)
     }
 }
