@@ -10,23 +10,24 @@ import UIKit
 
 final class CurrencyControlCell: UITableViewCell {
     static let id = Reusable<CurrencyControlCell>.nib(id: "CurrencyControlCell", name: "CurrencyControlCell", bundle: nil)
-    var selectedIndexHandler: ((Int) -> Void)?
+    var currencyHandler: ((Currency) -> Void)?
     
     @IBOutlet private var segmentedControl: UISegmentedControl!
     
     @IBAction private func didSelect(_ sender: UISegmentedControl) {
-        selectedIndexHandler?(sender.selectedSegmentIndex)
+        guard let currency = Currency(index: sender.selectedSegmentIndex) else { return }
+        currencyHandler?(currency)
     }
     
-    func set(currencies: [Currency], currentIndex: Int) {
-        update(currencies: currencies, currentIndex: currentIndex)
+    func set(currencies: [Currency], currentCurrency: Currency) {
+        update(currencies: currencies, currentCurrency: currentCurrency)
     }
     
-    private func update(currencies: [Currency], currentIndex: Int) {
+    private func update(currencies: [Currency], currentCurrency: Currency) {
         segmentedControl.removeAllSegments()
-        for (index, currency) in currencies.enumerated() {
-            segmentedControl.insertSegment(withTitle: currency.rawValue, at: index, animated: false)
+        for (index, currency) in currencies.sorted().enumerated() {
+            segmentedControl.insertSegment(withTitle: currency.code, at: index, animated: false)
         }
-        segmentedControl.selectedSegmentIndex = currentIndex
+        segmentedControl.selectedSegmentIndex = currentCurrency.index
     }
 }

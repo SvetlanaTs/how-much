@@ -24,7 +24,7 @@ final class AddGroupViewController: UIViewController {
     private var sections: [[Cell]] = []
     private var name = ""
     private var nameIndex = -1
-    private var currencyIndex = 0
+    private var currency: Currency = .ruble
     private var needToUpdate: Bool = false
     private var activeField: UITextField?
     private var personDataService: PersonDataService = PersonDataService()
@@ -87,7 +87,7 @@ final class AddGroupViewController: UIViewController {
     }
     
     private func saveGroup() {
-        let group = Group(members: personDataService.members, currency: Currency.allCases[currencyIndex])
+        let group = Group(members: personDataService.members, currency: currency)
         dataService.add(group: group)
     }
 }
@@ -127,9 +127,9 @@ extension AddGroupViewController: UITableViewDataSource {
             cell = newCell
         case .currency:
             let newCell = tableView.dequeueReusableCell(CurrencyControlCell.id, indexPath: indexPath)
-            newCell.set(currencies: Currency.allCases, currentIndex: currencyIndex)
-            newCell.selectedIndexHandler = { [weak self] index in
-                self?.currencyIndex = index
+            newCell.set(currencies: Currency.allCases, currentCurrency: currency)
+            newCell.currencyHandler = { [weak self] currency in
+                self?.currency = currency
             }
             cell = newCell
         }
