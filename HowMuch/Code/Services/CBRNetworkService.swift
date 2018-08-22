@@ -1,5 +1,5 @@
 //
-//  NetworkService.swift
+//  CBRNetworkService.swift
 //  HowMuch
 //
 //  Created by Svetlana T on 17.08.2018.
@@ -8,8 +8,12 @@
 
 import Foundation
 
-final class NetworkService {
+protocol NetworkDelegate {
     typealias DataTaskHandler = ((Any) -> Void)?
+    func currencyExchangeRate(completion: DataTaskHandler)
+}
+
+final class CBRNetworkService: NetworkDelegate {
     private let defaultSession = URLSession(configuration: .default)
     private let cbrUrlString = "https://www.cbr-xml-daily.ru/daily_json.js"
     

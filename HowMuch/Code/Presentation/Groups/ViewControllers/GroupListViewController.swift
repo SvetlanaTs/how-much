@@ -68,7 +68,7 @@ final class GroupListViewController: UIViewController {
         if segue.identifier == showPurchaseSegueId,
             let vc = segue.destination as? PurchaseListViewController,
             let sender = sender as? Int {
-                let networkService = NetworkService()
+                let networkService = CBRNetworkService()
                 let currencyService = CurrencyService(networkService: networkService)
                 vc.currencyService = currencyService
                 vc.dataService = dataService

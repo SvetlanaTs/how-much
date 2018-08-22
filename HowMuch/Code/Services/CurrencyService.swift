@@ -12,9 +12,9 @@ final class CurrencyService {
     typealias CurrencyHandler = (([String: Any]) -> Void)?
     private let currencyKey = "Valute"
     private let cachedKey: NSString = "currencies"
-    private var networkService: NetworkService
-    
-    init(networkService: NetworkService) {
+    private var networkService: NetworkDelegate
+
+    init(networkService: NetworkDelegate) {
         self.networkService = networkService
     }
     

@@ -34,10 +34,11 @@
 		DA8C139521147755002041E4 /* DebtDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8C139421147755002041E4 /* DebtDataService.swift */; };
 		DA9B6E092126E99000B83B57 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B6E072126E99000B83B57 /* GroupCell.swift */; };
 		DA9B6E0A2126E99000B83B57 /* GroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA9B6E082126E99000B83B57 /* GroupCell.xib */; };
-		DA9B6E0C2126FBC000B83B57 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B6E0B2126FBC000B83B57 /* NetworkService.swift */; };
+		DA9B6E0C2126FBC000B83B57 /* CBRNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B6E0B2126FBC000B83B57 /* CBRNetworkService.swift */; };
 		DA9B6E0E21272AFC00B83B57 /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B6E0D21272AFC00B83B57 /* CurrencyService.swift */; };
 		DA9B6E10212736CA00B83B57 /* CurrencyConvertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B6E0F212736CA00B83B57 /* CurrencyConvertService.swift */; };
 		DA9B6E12212D9CDC00B83B57 /* CacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B6E11212D9CDC00B83B57 /* CacheService.swift */; };
+		DA9B6E14212DB45700B83B57 /* SberbankNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B6E13212DB45700B83B57 /* SberbankNetworkService.swift */; };
 		DAD6B67420F665BD00E453DD /* NameInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6B67220F665BD00E453DD /* NameInputCell.swift */; };
 		DAD6B67520F665BD00E453DD /* NameInputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAD6B67320F665BD00E453DD /* NameInputCell.xib */; };
 		DAD6B67B20F6661300E453DD /* AddButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6B67920F6661300E453DD /* AddButtonCell.swift */; };
@@ -88,10 +89,11 @@
 		DA8C139421147755002041E4 /* DebtDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtDataService.swift; sourceTree = "<group>"; };
 		DA9B6E072126E99000B83B57 /* GroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		DA9B6E082126E99000B83B57 /* GroupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupCell.xib; sourceTree = "<group>"; };
-		DA9B6E0B2126FBC000B83B57 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		DA9B6E0B2126FBC000B83B57 /* CBRNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBRNetworkService.swift; sourceTree = "<group>"; };
 		DA9B6E0D21272AFC00B83B57 /* CurrencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyService.swift; sourceTree = "<group>"; };
 		DA9B6E0F212736CA00B83B57 /* CurrencyConvertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConvertService.swift; sourceTree = "<group>"; };
 		DA9B6E11212D9CDC00B83B57 /* CacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheService.swift; sourceTree = "<group>"; };
+		DA9B6E13212DB45700B83B57 /* SberbankNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SberbankNetworkService.swift; sourceTree = "<group>"; };
 		DAD6B67220F665BD00E453DD /* NameInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameInputCell.swift; sourceTree = "<group>"; };
 		DAD6B67320F665BD00E453DD /* NameInputCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NameInputCell.xib; sourceTree = "<group>"; };
 		DAD6B67920F6661300E453DD /* AddButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonCell.swift; sourceTree = "<group>"; };
@@ -341,10 +343,11 @@
 				DAD8FA702105BB91009D7049 /* PersonDataService.swift */,
 				DA356B43210F027A0076D953 /* DataService.swift */,
 				DA8C139421147755002041E4 /* DebtDataService.swift */,
-				DA9B6E0B2126FBC000B83B57 /* NetworkService.swift */,
+				DA9B6E0B2126FBC000B83B57 /* CBRNetworkService.swift */,
 				DA9B6E0D21272AFC00B83B57 /* CurrencyService.swift */,
 				DA9B6E0F212736CA00B83B57 /* CurrencyConvertService.swift */,
 				DA9B6E11212D9CDC00B83B57 /* CacheService.swift */,
+				DA9B6E13212DB45700B83B57 /* SberbankNetworkService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -459,10 +462,11 @@
 			files = (
 				DA02A73720F3AC8A003C06A4 /* AddGroupViewController.swift in Sources */,
 				DA265E9921075FF800C871B3 /* PurchaseItemCell.swift in Sources */,
-				DA9B6E0C2126FBC000B83B57 /* NetworkService.swift in Sources */,
+				DA9B6E0C2126FBC000B83B57 /* CBRNetworkService.swift in Sources */,
 				DA051E28210752F2003BD4F1 /* PurchaseListViewController.swift in Sources */,
 				DA67118C20F48379000F98EB /* Purchase.swift in Sources */,
 				DA02A70220F3A7EC003C06A4 /* GroupListViewController.swift in Sources */,
+				DA9B6E14212DB45700B83B57 /* SberbankNetworkService.swift in Sources */,
 				DA34F0CC2118B67D003B0D5E /* Constants.swift in Sources */,
 				DA051E2621073C6D003BD4F1 /* Style.swift in Sources */,
 				DA265EA22108F9E200C871B3 /* AddItemCell.swift in Sources */,
