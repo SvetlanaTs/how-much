@@ -20,6 +20,6 @@ final class PurchaseSectionHeaderView: UITableViewHeaderFooterView {
     
     private func update(person: Person, currency: Currency) {
         nameLabel.text = person.name
-        amountSpentLabel.text = person.amountSpent.formatCurrency(currency)
+        amountSpentLabel.text = person.amountSpent.stringFormatted(by: currency)
     }
 }

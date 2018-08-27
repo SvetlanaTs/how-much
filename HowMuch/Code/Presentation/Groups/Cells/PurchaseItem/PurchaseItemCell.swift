@@ -20,6 +20,6 @@ final class PurchaseItemCell: UITableViewCell {
     
     private func update(purchase: Purchase, currency: Currency) {
         titleLabel.text = purchase.title
-        spentLabel.text = purchase.spent.formatCurrency(currency)
+        spentLabel.text = purchase.spent.stringFormatted(by: currency)
     }
 }

@@ -15,13 +15,12 @@ final class CurrencyConvertService {
     private var currencies: [String: Any]
     private var dollar: Decimal = 0
     private var euro: Decimal = 0
-    private var euroToDollar: Decimal = 0
-    
+    private let baseRate: Decimal = 1.0
+
     init(currencies: [String: Any]) {
         self.currencies = currencies
         dollar = dollarRate()
         euro = euroRate()
-        euroToDollar = euro / dollar
     }
     
     private func dollarRate() -> Decimal {
@@ -37,28 +36,19 @@ final class CurrencyConvertService {
             let rate = euroInfo[rateKey] as? NSNumber else { return 0 }
         return rate.decimalValue
     }
-    
-    func convertToRubles(amountInDollars: Decimal) -> Decimal {
-        return amountInDollars * dollar
-    }
-    
-    func convertToRubles(amountInEuros: Decimal) -> Decimal {
-        return amountInEuros * euro
-    }
-    
-    func convertToEuros(amountInRubles: Decimal) -> Decimal {
-        return (euro == 0) ? 0 : amountInRubles / euro
-    }
-    
-    func convertToDollars(amountInRubles: Decimal) -> Decimal {
-        return (dollar == 0) ? 0 : amountInRubles / dollar
-    }
-    
-    func convertToEuros(amountInDollars: Decimal) -> Decimal {
-        return (euroToDollar == 0) ? 0 : amountInDollars / euroToDollar
+
+    private func baseRate(_ currency: Currency) -> Decimal {
+        switch currency {
+        case .dollar:
+            return dollar
+        case .euro:
+            return euro
+        case .ruble:
+            return baseRate
+        }
     }
 
-    func convertToDollars(amountInEuros: Decimal) -> Decimal {
-        return amountInEuros * euroToDollar
+    func convert(amount: Decimal, fromCurrency: Currency, toCurrency: Currency) -> Decimal {
+        return amount * baseRate(fromCurrency) / baseRate(toCurrency)
     }
 }

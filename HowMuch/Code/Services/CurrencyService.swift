@@ -9,19 +9,24 @@
 import Foundation
 
 final class CurrencyService {
-    typealias CurrencyHandler = (([String: Any]) -> Void)?
+    typealias CurrencyHandler = (([String: Any]) -> Void)
     private let currencyKey = "Valute"
-    private var networkService: NetworkService
-    
-    init(networkService: NetworkService) {
+    private let cachedKey: NSString = "currencies"
+    private var networkService: NetworkDelegate
+
+    init(networkService: NetworkDelegate) {
         self.networkService = networkService
     }
     
-    func loadCurrencies(completion: CurrencyHandler) {
-        networkService.currencyExchangeRate { json in
-            guard let dict = json as? [String: Any],
-                let currencies = dict[self.currencyKey] as? [String: Any] else { return }
+    func loadCurrencies(completion: CurrencyHandler?) {
+        if let currencies = CacheService.shared.object(forKey: cachedKey) as? [String: Any] {
             completion?(currencies)
+        } else {
+            networkService.currencyExchangeRate { json in
+                guard let currencies = json[self.currencyKey] as? [String: Any] else { return }
+                CacheService.shared.saveObject(currencies as AnyObject, forKey: self.cachedKey)
+                completion?(currencies)
+            }
         }
     }
 }

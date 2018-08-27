@@ -30,6 +30,7 @@ final class PurchaseListViewController: UIViewController {
     private var sections: [Section] = []
     var dataService: DataService!
     var index: Int!
+    var currencyService: CurrencyService!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,8 +79,6 @@ final class PurchaseListViewController: UIViewController {
     }
     
     private func setConvertService() {
-        let networkService = NetworkService()
-        let currencyService = CurrencyService(networkService: networkService)
         currencyService.loadCurrencies { [weak self] currencies in
             self?.updateConvertService(currencies)
         }
@@ -91,14 +90,14 @@ final class PurchaseListViewController: UIViewController {
     
     @IBAction private func didSelectCurrencyButton(_ sender: UIBarButtonItem) {
         // TODO: replace with actual data
-        let dollarAmount = convertService.convertToDollars(amountInRubles: 13310.07)
-        let euroAmount = convertService.convertToEuros(amountInRubles: 4500)
-        let rubleAmount = convertService.convertToRubles(amountInEuros: 175)
-        let anotherEuroAmount = convertService.convertToEuros(amountInDollars: dollarAmount)
-        print(dollarAmount.formatCurrency(.dollar))
-        print(euroAmount.formatCurrency(.euro))
-        print(rubleAmount.formatCurrency(.ruble))
-        print(anotherEuroAmount.formatCurrency(.euro))
+        let dollarAmount = convertService.convert(amount: 13426.07, fromCurrency: .ruble, toCurrency: .dollar)
+        let euroAmount = convertService.convert(amount: 4500, fromCurrency: .ruble, toCurrency: .euro)
+        let rubleAmount = convertService.convert(amount: 175, fromCurrency: .euro, toCurrency: .ruble)
+        let anotherEuroAmount = convertService.convert(amount: dollarAmount, fromCurrency: .dollar, toCurrency: .euro)
+        print(dollarAmount.stringFormatted(by: .dollar))
+        print(euroAmount.stringFormatted(by: .euro))
+        print(rubleAmount.stringFormatted(by: .ruble))
+        print(anotherEuroAmount.stringFormatted(by: .euro))
     }
 }
 
