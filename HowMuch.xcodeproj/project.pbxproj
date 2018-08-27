@@ -344,10 +344,10 @@
 				DA356B43210F027A0076D953 /* DataService.swift */,
 				DA8C139421147755002041E4 /* DebtDataService.swift */,
 				DA9B6E0B2126FBC000B83B57 /* CBRNetworkService.swift */,
+				DA9B6E13212DB45700B83B57 /* SberbankNetworkService.swift */,
 				DA9B6E0D21272AFC00B83B57 /* CurrencyService.swift */,
 				DA9B6E0F212736CA00B83B57 /* CurrencyConvertService.swift */,
 				DA9B6E11212D9CDC00B83B57 /* CacheService.swift */,
-				DA9B6E13212DB45700B83B57 /* SberbankNetworkService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";

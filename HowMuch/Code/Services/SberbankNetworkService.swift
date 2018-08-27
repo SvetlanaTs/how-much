@@ -9,7 +9,7 @@
 import Foundation
 
 final class SberbankNetworkService: NetworkDelegate {
-    func currencyExchangeRate(completion: DataTaskHandler) {
+    func currencyExchangeRate(completion: DataTaskHandler?) {
 
     }
 }

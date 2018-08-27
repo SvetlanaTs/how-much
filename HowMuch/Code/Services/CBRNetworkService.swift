@@ -9,15 +9,15 @@
 import Foundation
 
 protocol NetworkDelegate {
-    typealias DataTaskHandler = ((Any) -> Void)?
-    func currencyExchangeRate(completion: DataTaskHandler)
+    typealias DataTaskHandler = (([String: Any]) -> Void)
+    func currencyExchangeRate(completion: DataTaskHandler?)
 }
 
 final class CBRNetworkService: NetworkDelegate {
     private let defaultSession = URLSession(configuration: .default)
     private let cbrUrlString = "https://www.cbr-xml-daily.ru/daily_json.js"
     
-    func currencyExchangeRate(completion: DataTaskHandler) {
+    func currencyExchangeRate(completion: DataTaskHandler?) {
         guard let cbrUrl = URL(string: cbrUrlString) else { return }
         
         let dataTask = defaultSession.dataTask(with: cbrUrl) { data, response, error in
@@ -36,7 +36,8 @@ final class CBRNetworkService: NetworkDelegate {
             
             guard let data = data else { return }
             do {
-                let json = try JSONSerialization.jsonObject(with: data, options: [])
+                let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
+                guard let json = jsonObject as? [String: Any] else { return }
                 completion?(json)
             } catch {
                 print(error)
