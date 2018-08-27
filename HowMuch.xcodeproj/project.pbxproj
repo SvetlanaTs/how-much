@@ -39,6 +39,7 @@
 		DA9B6E10212736CA00B83B57 /* CurrencyConvertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B6E0F212736CA00B83B57 /* CurrencyConvertService.swift */; };
 		DA9B6E12212D9CDC00B83B57 /* CacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B6E11212D9CDC00B83B57 /* CacheService.swift */; };
 		DA9B6E14212DB45700B83B57 /* SberbankNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B6E13212DB45700B83B57 /* SberbankNetworkService.swift */; };
+		DA9B6E16212DD46F00B83B57 /* CurrencyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B6E15212DD46F00B83B57 /* CurrencyTests.swift */; };
 		DAD6B67420F665BD00E453DD /* NameInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6B67220F665BD00E453DD /* NameInputCell.swift */; };
 		DAD6B67520F665BD00E453DD /* NameInputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAD6B67320F665BD00E453DD /* NameInputCell.xib */; };
 		DAD6B67B20F6661300E453DD /* AddButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD6B67920F6661300E453DD /* AddButtonCell.swift */; };
@@ -94,6 +95,7 @@
 		DA9B6E0F212736CA00B83B57 /* CurrencyConvertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConvertService.swift; sourceTree = "<group>"; };
 		DA9B6E11212D9CDC00B83B57 /* CacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheService.swift; sourceTree = "<group>"; };
 		DA9B6E13212DB45700B83B57 /* SberbankNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SberbankNetworkService.swift; sourceTree = "<group>"; };
+		DA9B6E15212DD46F00B83B57 /* CurrencyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTests.swift; sourceTree = "<group>"; };
 		DAD6B67220F665BD00E453DD /* NameInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameInputCell.swift; sourceTree = "<group>"; };
 		DAD6B67320F665BD00E453DD /* NameInputCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NameInputCell.xib; sourceTree = "<group>"; };
 		DAD6B67920F6661300E453DD /* AddButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonCell.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				DA02A71420F3A7EF003C06A4 /* HowMuchTests.swift */,
+				DA9B6E15212DD46F00B83B57 /* CurrencyTests.swift */,
 				DA02A71620F3A7EF003C06A4 /* Info.plist */,
 			);
 			path = HowMuchTests;
@@ -494,6 +497,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA9B6E16212DD46F00B83B57 /* CurrencyTests.swift in Sources */,
 				DA02A71520F3A7EF003C06A4 /* HowMuchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -687,7 +691,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = nemis.HowMuchTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HowMuch.app/HowMuch";
 			};
@@ -708,7 +712,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = nemis.HowMuchTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HowMuch.app/HowMuch";
 			};

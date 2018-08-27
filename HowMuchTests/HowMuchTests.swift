@@ -15,7 +15,7 @@ class HowMuchTests: XCTestCase {
             Person(name: "A", purchases: [Purchase(title: "P", spent: 220, date: Date())], debt: 0),
             Person(name: "B", purchases: [Purchase(title: "R", spent: 520, date: Date())], debt: 0)
         ]
-        let group = Group(members: members)
+        let group = Group(members: members, currency: .euro)
         let debtService: DebtDataService = DebtDataService(group: group)
         let payments: [Payment] = debtService.payments()
         guard let payment = payments.first else { return }
@@ -29,7 +29,7 @@ class HowMuchTests: XCTestCase {
             Person(name: "B", purchases: [Purchase(title: "R", spent: 520, date: Date())], debt: 0),
             Person(name: "C", purchases: [Purchase(title: "Q", spent: 160, date: Date())], debt: 0)
         ]
-        let group = Group(members: members)
+        let group = Group(members: members, currency: .euro)
         let debtService = DebtDataService(group: group)
         let payments = debtService.payments()
         
@@ -43,7 +43,7 @@ class HowMuchTests: XCTestCase {
             Person(name: "B", purchases: [Purchase(title: "R", spent: 0, date: Date())], debt: 0),
             Person(name: "C", purchases: [Purchase(title: "Q", spent: 50, date: Date())], debt: 0)
         ]
-        let group = Group(members: members)
+        let group = Group(members: members, currency: .euro)
         let debtService = DebtDataService(group: group)
         let payments = debtService.payments()
         
@@ -57,7 +57,7 @@ class HowMuchTests: XCTestCase {
             Person(name: "C", purchases: [Purchase(title: "Q", spent: 95, date: Date())], debt: 0),
             Person(name: "D", purchases: [Purchase(title: "S", spent: 180, date: Date())], debt: 0)
         ]
-        let group = Group(members: members)
+        let group = Group(members: members, currency: .euro)
         let debtService = DebtDataService(group: group)
         let payments = debtService.payments()
         
@@ -73,7 +73,7 @@ class HowMuchTests: XCTestCase {
             Person(name: "C", purchases: [Purchase(title: "Q", spent: 0, date: Date())], debt: 0),
             Person(name: "D", purchases: [Purchase(title: "S", spent: 0, date: Date())], debt: 0)
         ]
-        let group = Group(members: members)
+        let group = Group(members: members, currency: .euro)
         let debtService = DebtDataService(group: group)
         let payments = debtService.payments()
         
