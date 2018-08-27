@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HW6-LE-B86">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.3.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HW6-LE-B86">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -54,7 +53,7 @@
                             <constraint firstItem="81i-Fh-slh" firstAttribute="trailing" secondItem="9IU-Fn-C3B" secondAttribute="trailing" id="aH0-UU-r77"/>
                             <constraint firstItem="9IU-Fn-C3B" firstAttribute="trailing" secondItem="K6R-tl-Ncw" secondAttribute="trailing" constant="7" id="aVb-hD-NHE"/>
                             <constraint firstItem="81i-Fh-slh" firstAttribute="bottom" secondItem="0ao-kO-6jA" secondAttribute="bottom" id="hZ2-8d-DQi"/>
-                            <constraint firstItem="81i-Fh-slh" firstAttribute="top" secondItem="K6R-tl-Ncw" secondAttribute="bottom" id="sNe-zW-n1T"/>
+                            <constraint firstItem="81i-Fh-slh" firstAttribute="top" secondItem="K6R-tl-Ncw" secondAttribute="bottom" id="wxT-bS-2Ad"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9IU-Fn-C3B"/>
                     </view>
@@ -150,7 +149,7 @@
             </objects>
             <point key="canvasLocation" x="1980" y="11.244377811094454"/>
         </scene>
-        <!--Purchase List View Controller-->
+        <!--Покупки-->
         <scene sceneID="dS5-G7-LYy">
             <objects>
                 <viewController id="f0G-wu-dUq" customClass="PurchaseListViewController" customModule="HowMuch" customModuleProvider="target" sceneMemberID="viewController">
@@ -176,6 +175,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dxK-No-4GZ"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Покупки" id="6CW-eg-uuW">
+                        <barButtonItem key="rightBarButtonItem" image="currency" id="uep-2d-d4e">
+                            <connections>
+                                <action selector="didSelectCurrencyButton:" destination="f0G-wu-dUq" id="6F3-ET-Xv8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="5jx-ql-3Wz" id="qv8-lA-VqS"/>
                         <segue destination="Udq-8c-40d" kind="presentation" identifier="showPurchase" id="1a2-ZK-40E"/>
@@ -301,6 +307,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="currency" width="32" height="32"/>
         <image name="next" width="74" height="74"/>
         <image name="no-card" width="57" height="68"/>
     </resources>

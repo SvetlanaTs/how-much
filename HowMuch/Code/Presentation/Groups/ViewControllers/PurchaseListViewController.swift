@@ -20,6 +20,8 @@ final class PurchaseListViewController: UIViewController {
         case addButton
     }
     
+    private var convertService: CurrencyConvertService!
+    
     @IBOutlet private var tableView: UITableView!
     
     private let nameHeaderHeight: CGFloat = 54.0
@@ -28,6 +30,7 @@ final class PurchaseListViewController: UIViewController {
     private var sections: [Section] = []
     var dataService: DataService!
     var index: Int!
+    var currencyService: CurrencyService!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +38,7 @@ final class PurchaseListViewController: UIViewController {
         tableView.registerReusableCell(AddItemCell.id)
         tableView.registerReusableHeaderFooterView(PurchaseSectionHeaderView.id)
         reloadTableView()
+        setConvertService()
     }
     
     private func reloadTableView() {
@@ -73,6 +77,28 @@ final class PurchaseListViewController: UIViewController {
             }
         }
     }
+    
+    private func setConvertService() {
+        currencyService.loadCurrencies { [weak self] currencies in
+            self?.updateConvertService(currencies)
+        }
+    }
+    
+    private func updateConvertService(_ currencies: [String: Any]) {
+        convertService = CurrencyConvertService(currencies: currencies)
+    }
+    
+    @IBAction private func didSelectCurrencyButton(_ sender: UIBarButtonItem) {
+        // TODO: replace with actual data
+        let dollarAmount = convertService.convert(amount: 13426.07, fromCurrency: .ruble, toCurrency: .dollar)
+        let euroAmount = convertService.convert(amount: 4500, fromCurrency: .ruble, toCurrency: .euro)
+        let rubleAmount = convertService.convert(amount: 175, fromCurrency: .euro, toCurrency: .ruble)
+        let anotherEuroAmount = convertService.convert(amount: dollarAmount, fromCurrency: .dollar, toCurrency: .euro)
+        print(dollarAmount.stringFormatted(by: .dollar))
+        print(euroAmount.stringFormatted(by: .euro))
+        print(rubleAmount.stringFormatted(by: .ruble))
+        print(anotherEuroAmount.stringFormatted(by: .euro))
+    }
 }
 
 extension PurchaseListViewController: UITableViewDataSource {
@@ -86,17 +112,18 @@ extension PurchaseListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = sections[indexPath.section].cells[indexPath.row]
+        let group = dataService.group(at: index)
+
         let cell: UITableViewCell
         switch model {
         case .purchase(let purchase):
             let newCell = tableView.dequeueReusableCell(PurchaseItemCell.id, indexPath: indexPath)
-            newCell.set(purchase: purchase)
+            newCell.set(purchase: purchase, currency: group.currency)
             cell = newCell
         case .addButton:
             let newCell = tableView.dequeueReusableCell(AddItemCell.id, indexPath: indexPath)
             newCell.addItemHandler = { [weak self] in
                 guard let `self` = self else { return }
-                let group = self.dataService.group(at: self.index)
                 self.performSegue(withIdentifier: self.segueIdentifier, sender: group)
             }
             cell = newCell
@@ -113,7 +140,8 @@ extension PurchaseListViewController: UITableViewDelegate {
         switch model {
         case .person(let person)?:
             let newView = tableView.dequeueReusableHeaderFooterView(PurchaseSectionHeaderView.id)
-            newView.set(person: person)
+            let group = dataService.group(at: index)
+            newView.set(person: person, currency: group.currency)
             view = newView
         case .none:
             view = nil

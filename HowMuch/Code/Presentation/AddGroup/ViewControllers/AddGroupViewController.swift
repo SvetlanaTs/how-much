@@ -12,19 +12,16 @@ final class AddGroupViewController: UIViewController {
     enum Cell {
         case personEditor(name: String)
         case addButton
+        case currency
     }
     
     @IBOutlet private var tableView: UITableView!
     
-    private let textFieldCellHeight: CGFloat = 64.0
-    private let addButtonCellHeight: CGFloat = 56.0
-    private let membersMinValue = 2
-    private let membersMaxValue = 4
     private let segueIdentifier = "showGroup"
-    
     private var sections: [[Cell]] = []
     private var name = ""
-    private var index = -1
+    private var nameIndex = -1
+    private var currency: Currency = .ruble
     private var needToUpdate: Bool = false
     private var activeField: UITextField?
     private var personDataService: PersonDataService = PersonDataService()
@@ -36,6 +33,7 @@ final class AddGroupViewController: UIViewController {
         registerForKeyboardNotifications()
         tableView.registerReusableCell(NameInputCell.id)
         tableView.registerReusableCell(AddButtonCell.id)
+        tableView.registerReusableCell(CurrencyControlCell.id)
         sections = updateSections()
     }
 
@@ -43,27 +41,27 @@ final class AddGroupViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(_:)), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(_:)), name: .UIKeyboardWillHide, object: nil)
     }
-
+    
     private func updateSections() -> [[Cell]] {
         let members = personDataService.members
         var persons: [Cell] = members.map { .personEditor(name: $0.name) }
         persons.append(.personEditor(name: ""))
-        return [persons, [ .addButton ]]
+        return [persons, [ .addButton ], [.currency]]
     }
     
     private func updateModel() {
-        guard (0 ..< personDataService.members.count).contains(index) else {
-            personDataService.add(name: name, at: index)
+        guard (0 ..< personDataService.members.count).contains(nameIndex) else {
+            personDataService.add(name: name, at: nameIndex)
             needToUpdate = true
             return
         }
         guard !name.isEmpty else {
-            personDataService.remove(at: index)
+            personDataService.remove(at: nameIndex)
             needToUpdate = true
             return
         }
-        guard name == personDataService.name(at: index) else {
-            personDataService.rename(name, at: index)
+        guard name == personDataService.name(at: nameIndex) else {
+            personDataService.rename(name, at: nameIndex)
             needToUpdate = true
             return
         }
@@ -86,7 +84,7 @@ final class AddGroupViewController: UIViewController {
     }
     
     private func saveGroup() {
-        let group = Group(members: personDataService.members)
+        let group = Group(members: personDataService.members, currency: currency)
         dataService.add(group: group)
     }
 }
@@ -110,7 +108,7 @@ extension AddGroupViewController: UITableViewDataSource {
             newCell.editingChanged = { [weak self] text in
                 guard let `self` = self, let text = text else { return }
                 self.name = text
-                self.index = indexPath.row
+                self.nameIndex = indexPath.row
                 self.updateModel()
             }
             cell = newCell
@@ -124,20 +122,15 @@ extension AddGroupViewController: UITableViewDataSource {
                 }
             }
             cell = newCell
+        case .currency:
+            let newCell = tableView.dequeueReusableCell(CurrencyControlCell.id, indexPath: indexPath)
+            newCell.set(currencies: Currency.allCases, currentCurrency: currency)
+            newCell.currencyHandler = { [weak self] currency in
+                self?.currency = currency
+            }
+            cell = newCell
         }
         return cell
-    }
-}
-
-extension AddGroupViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let model = sections[indexPath.section][indexPath.row]
-        switch model {
-        case .personEditor(_):
-            return textFieldCellHeight
-        case .addButton:
-            return addButtonCellHeight
-        }
     }
 }
 
