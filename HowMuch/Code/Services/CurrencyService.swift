@@ -9,7 +9,7 @@
 import Foundation
 
 final class CurrencyService {
-    typealias CurrencyHandler = (([String: Any]) -> Void)?
+    typealias CurrencyHandler = (([String: Any]) -> Void)
     private let currencyKey = "Valute"
     private let cachedKey: NSString = "currencies"
     private var networkService: NetworkService
@@ -18,7 +18,7 @@ final class CurrencyService {
         self.networkService = networkService
     }
     
-    func loadCurrencies(completion: CurrencyHandler) {
+    func loadCurrencies(completion: CurrencyHandler?) {
         if let currencies = CacheService.shared.object(forKey: cachedKey) as? [String: Any] {
             completion?(currencies)
         } else {
