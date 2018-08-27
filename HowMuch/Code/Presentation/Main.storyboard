@@ -149,7 +149,7 @@
             </objects>
             <point key="canvasLocation" x="1980" y="11.244377811094454"/>
         </scene>
-        <!--Purchase List View Controller-->
+        <!--Покупки-->
         <scene sceneID="dS5-G7-LYy">
             <objects>
                 <viewController id="f0G-wu-dUq" customClass="PurchaseListViewController" customModule="HowMuch" customModuleProvider="target" sceneMemberID="viewController">
@@ -175,6 +175,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dxK-No-4GZ"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Покупки" id="6CW-eg-uuW">
+                        <barButtonItem key="rightBarButtonItem" image="currency" id="uep-2d-d4e">
+                            <connections>
+                                <action selector="didSelectCurrencyButton:" destination="f0G-wu-dUq" id="6F3-ET-Xv8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="5jx-ql-3Wz" id="qv8-lA-VqS"/>
                         <segue destination="Udq-8c-40d" kind="presentation" identifier="showPurchase" id="1a2-ZK-40E"/>
@@ -300,6 +307,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="currency" width="32" height="32"/>
         <image name="next" width="74" height="74"/>
         <image name="no-card" width="57" height="68"/>
     </resources>
