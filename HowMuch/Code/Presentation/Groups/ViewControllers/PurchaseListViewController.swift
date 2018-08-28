@@ -26,7 +26,8 @@ final class PurchaseListViewController: UIViewController {
     
     private let nameHeaderHeight: CGFloat = 54.0
     private let defaultHeaderHeight: CGFloat = 0.0
-    private let segueIdentifier = "showPurchase"
+    private let purchaseSegueIdentifier = "showPurchase"
+    private let currencySegueIdentifier = "showCurrencies"
     private var sections: [Section] = []
     var dataService: DataService!
     var index: Int!
@@ -65,16 +66,41 @@ final class PurchaseListViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == segueIdentifier,
-           let vc = segue.destination as? PurchaseViewController,
-           let sender = sender as? Group {
-            vc.group = sender
+        guard let group = sender as? Group else { return }
+
+        switch (segue.identifier, segue.destination) {
+        case (purchaseSegueIdentifier, let vc as PurchaseViewController):
+            vc.group = group
             vc.updateGroupHandler = { [weak self] group in
                 guard let `self` = self else { return }
                 self.dataService.update(group: group, at: self.index)
                 self.reloadTableView()
                 self.save(groups: self.dataService.groups)
             }
+        case (currencySegueIdentifier, let vc as CurrencyPickerViewController):
+            vc.currentCurrency = group.currency
+            vc.updateCurrencyHandler = { [weak self] newCurrency in
+                guard let `self` = self else { return }
+                let group = self.dataService.group(at: self.index)
+
+                var members: [Person] = []
+                for var person in group.members {
+                    var purchases: [Purchase] = []
+                    person.purchases.forEach({ purchase in
+                        let newSpent = self.convertService.convert(amount: purchase.spent, fromCurrency: group.currency, toCurrency: newCurrency)
+                        let newPurchase = Purchase(title: purchase.title, spent: newSpent, date: purchase.date)
+                        purchases.append(newPurchase)
+                    })
+                    person.purchases = purchases
+                    members.append(person)
+                }
+
+                let newGroup = Group(members: members, currency: newCurrency)
+                self.dataService.update(group: newGroup, at: self.index)
+                self.reloadTableView()
+            }
+        default:
+            break
         }
     }
     
@@ -89,15 +115,8 @@ final class PurchaseListViewController: UIViewController {
     }
     
     @IBAction private func didSelectCurrencyButton(_ sender: UIBarButtonItem) {
-        // TODO: replace with actual data
-        let dollarAmount = convertService.convert(amount: 13426.07, fromCurrency: .ruble, toCurrency: .dollar)
-        let euroAmount = convertService.convert(amount: 4500, fromCurrency: .ruble, toCurrency: .euro)
-        let rubleAmount = convertService.convert(amount: 175, fromCurrency: .euro, toCurrency: .ruble)
-        let anotherEuroAmount = convertService.convert(amount: dollarAmount, fromCurrency: .dollar, toCurrency: .euro)
-        print(dollarAmount.stringFormatted(by: .dollar))
-        print(euroAmount.stringFormatted(by: .euro))
-        print(rubleAmount.stringFormatted(by: .ruble))
-        print(anotherEuroAmount.stringFormatted(by: .euro))
+        let group = dataService.group(at: index)
+        performSegue(withIdentifier: currencySegueIdentifier, sender: group)
     }
 }
 
@@ -124,7 +143,7 @@ extension PurchaseListViewController: UITableViewDataSource {
             let newCell = tableView.dequeueReusableCell(AddItemCell.id, indexPath: indexPath)
             newCell.addItemHandler = { [weak self] in
                 guard let `self` = self else { return }
-                self.performSegue(withIdentifier: self.segueIdentifier, sender: group)
+                self.performSegue(withIdentifier: self.purchaseSegueIdentifier, sender: group)
             }
             cell = newCell
         }
