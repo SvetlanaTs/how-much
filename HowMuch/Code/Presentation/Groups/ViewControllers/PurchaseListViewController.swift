@@ -69,17 +69,17 @@ final class PurchaseListViewController: UIViewController {
         guard let group = sender as? Group else { return }
 
         switch (segue.identifier, segue.destination) {
-        case (purchaseSegueIdentifier, let vc as PurchaseViewController):
-            vc.group = group
-            vc.updateGroupHandler = { [weak self] group in
+        case (purchaseSegueIdentifier, let viewController as PurchaseViewController):
+            viewController.group = group
+            viewController.updateGroupHandler = { [weak self] group in
                 guard let `self` = self else { return }
                 self.dataService.update(group: group, at: self.index)
                 self.reloadTableView()
                 self.save(groups: self.dataService.groups)
             }
-        case (currencySegueIdentifier, let vc as CurrencyPickerViewController):
-            vc.currentCurrency = group.currency
-            vc.updateCurrencyHandler = { [weak self] newCurrency in
+        case (currencySegueIdentifier, let viewController as CurrencyPickerViewController):
+            viewController.currentCurrency = group.currency
+            viewController.updateCurrencyHandler = { [weak self] newCurrency in
                 guard let `self` = self else { return }
                 let group = self.dataService.group(at: self.index)
 

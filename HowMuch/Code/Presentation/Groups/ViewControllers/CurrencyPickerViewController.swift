@@ -10,7 +10,7 @@ import UIKit
 
 final class CurrencyPickerViewController: UIViewController {
     enum Row {
-        case title(title: String)
+        case currency(currency: Currency)
     }
 
     private let numberOfComponents = 1
@@ -25,13 +25,11 @@ final class CurrencyPickerViewController: UIViewController {
     }
 
     private func updateRows() {
-        let currencies: Set<String> = Set(Currency.allCases.map { $0.code })
-        let current: Set<String> = [currentCurrency.code]
-        let availableCurrencies: Set<String> = currencies.subtracting(current)
-        availableCurrencies.forEach { rows.append(.title(title: $0)) }
+        let currencies = Currency.allCases.filter { $0 != currentCurrency }
+        currencies.forEach { rows.append(.currency(currency: $0)) }
     }
 
-    @IBAction private func didTap(_ sender: UIView) {
+    @IBAction private func didTap() {
         dismiss(animated: true, completion: nil)
     }
 }
@@ -50,8 +48,8 @@ extension CurrencyPickerViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         let model = rows[row]
         switch model {
-        case .title(let title):
-            return title
+        case .currency(let currency):
+            return currency.code
         }
     }
 
@@ -59,8 +57,7 @@ extension CurrencyPickerViewController: UIPickerViewDelegate {
         dismiss(animated: true) {
             let model = self.rows[row]
             switch model {
-            case .title(let title):
-                guard let currency = Currency(code: title) else { return }
+            case .currency(let currency):
                 self.updateCurrencyHandler?(currency)
             }
         }

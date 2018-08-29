@@ -174,7 +174,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2di-C5-X6K"/>
                         <connections>
-                            <action selector="didTap:" destination="Fd3-73-D2Z" eventType="touchUpInside" id="RSa-TC-uBl"/>
+                            <action selector="didTap" destination="Fd3-73-D2Z" eventType="touchUpInside" id="IvQ-A1-2I0"/>
                         </connections>
                     </view>
                     <connections>

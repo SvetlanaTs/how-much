@@ -58,19 +58,6 @@ enum Currency: CaseIterable {
             return nil
         }
     }
-
-    init?(code: String) {
-        switch code {
-        case "RUB":
-            self = .ruble
-        case "USD":
-            self = .dollar
-        case "EUR":
-            self = .euro
-        default:
-            return nil
-        }
-    }
 }
 
 extension Currency: Comparable {
