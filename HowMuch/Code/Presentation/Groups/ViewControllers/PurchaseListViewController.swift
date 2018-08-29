@@ -20,7 +20,7 @@ final class PurchaseListViewController: UIViewController {
         case addButton
     }
     
-    private var convertService: CurrencyConvertService!
+    private var convertService: CurrencyConvertable!
     
     @IBOutlet private var tableView: UITableView!
     
