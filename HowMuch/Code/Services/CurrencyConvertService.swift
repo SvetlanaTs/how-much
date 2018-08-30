@@ -8,7 +8,11 @@
 
 import Foundation
 
-final class CurrencyConvertService {
+protocol CurrencyConvertable {
+    func convert(amount: Decimal, fromCurrency: Currency, toCurrency: Currency) -> Decimal
+}
+
+class CurrencyConvertService: CurrencyConvertable {
     private let rateKey = "Previous"
     private let dollarKey = "USD"
     private let euroKey = "EUR"
@@ -40,15 +44,15 @@ final class CurrencyConvertService {
     private func baseRate(_ currency: Currency) -> Decimal {
         switch currency {
         case .dollar:
-            return dollar
+            return baseRate / dollar
         case .euro:
-            return euro
+            return baseRate / euro
         case .ruble:
             return baseRate
         }
     }
 
     func convert(amount: Decimal, fromCurrency: Currency, toCurrency: Currency) -> Decimal {
-        return amount * baseRate(fromCurrency) / baseRate(toCurrency)
+        return amount * baseRate(toCurrency) / baseRate(fromCurrency)
     }
 }
