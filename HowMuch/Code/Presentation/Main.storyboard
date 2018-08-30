@@ -149,6 +149,42 @@
             </objects>
             <point key="canvasLocation" x="1980" y="11.244377811094454"/>
         </scene>
+        <!--Currency Picker View Controller-->
+        <scene sceneID="6aG-sm-u5h">
+            <objects>
+                <viewController modalPresentationStyle="overCurrentContext" id="Fd3-73-D2Z" customClass="CurrencyPickerViewController" customModule="HowMuch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5GF-X6-FQW" customClass="UIControl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kC4-8V-ILn">
+                                <rect key="frame" x="0.0" y="444.5" width="375" height="222.5"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Fd3-73-D2Z" id="fVw-YJ-lbO"/>
+                                    <outlet property="delegate" destination="Fd3-73-D2Z" id="RDt-AE-mzo"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="0.60311429794520544" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kC4-8V-ILn" firstAttribute="bottom" secondItem="2di-C5-X6K" secondAttribute="bottom" id="BWN-nV-Boj"/>
+                            <constraint firstItem="kC4-8V-ILn" firstAttribute="trailing" secondItem="2di-C5-X6K" secondAttribute="trailing" id="Ngg-Bw-zxu"/>
+                            <constraint firstItem="kC4-8V-ILn" firstAttribute="leading" secondItem="2di-C5-X6K" secondAttribute="leading" id="fjh-b8-ZyW"/>
+                            <constraint firstItem="kC4-8V-ILn" firstAttribute="height" secondItem="5GF-X6-FQW" secondAttribute="height" multiplier="1:3" id="vcL-nq-2Qy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2di-C5-X6K"/>
+                        <connections>
+                            <action selector="didTap" destination="Fd3-73-D2Z" eventType="touchUpInside" id="IvQ-A1-2I0"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="pickerView" destination="kC4-8V-ILn" id="MYo-PS-z5H"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pla-nw-Zam" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2732" y="-668"/>
+        </scene>
         <!--Покупки-->
         <scene sceneID="dS5-G7-LYy">
             <objects>
@@ -185,6 +221,7 @@
                     <connections>
                         <outlet property="tableView" destination="5jx-ql-3Wz" id="qv8-lA-VqS"/>
                         <segue destination="Udq-8c-40d" kind="presentation" identifier="showPurchase" id="1a2-ZK-40E"/>
+                        <segue destination="Fd3-73-D2Z" kind="showDetail" identifier="showCurrencies" id="zaj-Cr-ZaB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UWP-F8-QEY" userLabel="First Responder" sceneMemberID="firstResponder"/>
